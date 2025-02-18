@@ -15,36 +15,36 @@
         *   Damage: Minimum and maximum damage values dealt.
         *   Attack Type: (e.g., Melee, Ranged, Magic Attack).
     *   Units are organized into squads (stacks) with a specific number of units in each. The quantity affects the squad's overall damage and health.
-    *   <mark>Different unit types have unique abilities or bonuses (e.g., magic resistance, double attack).</mark>
+    *   <ins>Different unit types have unique abilities or bonuses (e.g., magic resistance, double attack).</ins>
 
 2.  **Heroes:**
-    *   <mark>Heroes are unique characters who manage armies but do not directly participate in battles.</mark>
-    *   <mark>Each hero has their own characteristics:</mark>
-        *   <mark>Mana: Used to cast spells.</mark>
-        *   <mark>Skills: For example:</mark>
-            *   <mark>Magic: Allows the use of spells to damage enemies or support allies.</mark>
-            *   <mark>Tactics: Increases the movement speed of units on the battlefield or allows better positioning before the start of battle.</mark>
-            *   <mark>Leadership: Increases army morale or provides bonuses to unit characteristics.</mark>
-    *   <mark>Heroes can improve their skills as they gain experience or complete tasks in the game.</mark>
+    *   <ins>Heroes are unique characters who manage armies but do not directly participate in battles.</ins>
+    *   <ins>Each hero has their own characteristics:</ins>
+        *   <ins>Mana: Used to cast spells.</ins>
+        *   <ins>Skills: For example:</ins>
+            *   <ins>Magic: Allows the use of spells to damage enemies or support allies.</ins>
+            *   <ins>Tactics: Increases the movement speed of units on the battlefield or allows better positioning before the start of battle.</ins>
+            *   <ins>Leadership: Increases army morale or provides bonuses to unit characteristics.</ins>
+    *   <ins>Heroes can improve their skills as they gain experience or complete tasks in the game.</ins>
 
 3.  **Armies:**
     *   An army consists of several unit squads and one hero.
-    *   Before the battle, the player selects units for their army <mark>and assigns a hero.</mark>
+    *   Before the battle, the player selects units for their army <ins>and assigns a hero.</ins>
 
 4.  **Battlefield:**
     *   A grid (hexagonal or square) with a specific number of cells.
-    *   <mark>Cells may contain obstacles, bonuses, or special zones.</mark>
-    *   <mark>The battlefield determines the placement and movement of units.</mark>
+    *   <ins>Cells may contain obstacles, bonuses, or special zones.</ins>
+    *   <ins>The battlefield determines the placement and movement of units.</ins>
 
 5.  **Battle System:**
     *   Combat occurs in turn-based mode.
-    *   The turn order is determined by the speed of the units <mark>and the hero's skills.</mark>
+    *   The turn order is determined by the speed of the units <ins>and the hero's skills.</ins>
     *   During a turn, the player can:
         *   Move a unit to a free cell.
         *   Attack an enemy unit.
-        *   <mark>Use a unit's ability or hero's spell (if available).</mark>
+        *   <ins>Use a unit's ability or hero's spell (if available).</ins>
         *   Skip the turn.
-    *   Damage is calculated based on the characteristics of the attacking and defending units<mark>, as well as the hero's skills.</mark>
+    *   Damage is calculated based on the characteristics of the attacking and defending units<ins>, as well as the hero's skills.</ins>
     *   The battle ends when all units of one of the armies are destroyed.
 
 6.  **Artificial Intelligence (AI):**
@@ -57,4 +57,5 @@ Win the battle by destroying all enemy units on the battlefield.
 
 ---
 
-**Note:** The lines highlighted with `<mark>` indicate features that may be developed after the main part of the game.
+**Note:** The lines highlighted with underlining(`<ins>`) indicate features that may be developed after the main part of the game.
+
