@@ -14,6 +14,7 @@
         *   Speed: Determines the unit's turn order.
         *   Damage: Minimum and maximum damage values dealt.
         *   Attack Type: (e.g., Melee, Ranged, Magic Attack).
+        *   Might: Influences the army's total power.
     *   Units are organized into squads (stacks) with a specific number of units in each. The quantity affects the squad's overall damage and health.
     *   <ins>Different unit types have unique abilities or bonuses (e.g., magic resistance, double attack).</ins>
 
@@ -25,7 +26,7 @@
             *   <ins>Magic: Allows the use of spells to damage enemies or support allies.</ins>
             *   <ins>Tactics: Increases the movement speed of units on the battlefield or allows better positioning before the start of battle.</ins>
             *   <ins>Leadership: Increases army morale or provides bonuses to unit characteristics.</ins>
-    *   <ins>Heroes can improve their skills as they gain experience or complete tasks in the game.</ins>
+        *   Might: Influences the army's total power.
 
 3.  **Armies:**
     *   An army consists of several unit squads and one hero.
@@ -57,5 +58,6 @@ Win the battle by destroying all enemy units on the battlefield.
 
 ---
 
-**Note:** The lines highlighted with underlining(`<ins>`) indicate features that may be developed after the main part of the game.
+**Note:** The lines highlighted with underlining (`<ins>`) indicate features that may be developed after the main part of the game.
+
 
