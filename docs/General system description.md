@@ -2,62 +2,43 @@
 
 **Genre:** Turn-based strategy, simplified version of the HoMM3 combat system
 
-**Concept:** The game is a turn-based strategic combat system inspired by Heroes of Might and Magic 3 (HoMM3), but with simplified mechanics to make it easier to create it. The main focus is on tactical planning and unit management on the battlefield, as well as utilizing heroes who influence battles with their characteristics and skills.
+**Concept:** The game is a turn-based strategic combat system inspired by Heroes of Might and Magic 3 (HoMM3), but with simplified mechanics to make it easier to create it as a terminal-based game. The main focus is on tactical planning and troop management on the battlefield, as well as utilizing heroes who cast spells but do not directly influence troop characteristics.
 
 ## Main System Elements:
 
-1.  **Units:**
-    *   Each unit is a combat entity with specific characteristics:
-        *   Attack: Influences the damage dealt.
+1.  **Troops:**
+    *   Each troop is a combat entity with specific characteristics:
+        *   Attack: Influences the damage dealt, calculated using might and troop characteristics.
         *   Defense: Influences resistance to damage.
-        *   Health (HP): Determines unit survivability.
-        *   Speed: Determines the unit's turn order.
-        *   Damage: Minimum and maximum damage values dealt.
+        *   Health (HP): Determines troop survivability.
+        *   Speed: Determines the troop's turn order.
         *   Attack Type: (e.g., Melee, Ranged, Magic Attack).
-        *   Might: Influences the army's total power.
-    *   Units are organized into squads (stacks) with a specific number of units in each. The quantity affects the squad's overall damage and health.
-    *   <ins>Different unit types have unique abilities or bonuses (e.g., magic resistance, double attack).</ins>
+        *   Might: Influences the army's total might, used as a limit (mightLimit) for army composition.
+    *   The amount of units in each troop affects its overall damage and health, with might scaled accordingly.
+    *   Different troop types have unique characteristics (e.g., magic resistance, defense) implemented in subclasses (Melee, Ranged, Magic, Physical), but no special abilities.
 
 2.  **Heroes:**
-    *   <ins>Heroes are unique characters who manage armies but do not directly participate in battles.</ins>
-    *   <ins>Each hero has their own characteristics:</ins>
-        *   <ins>Mana: Used to cast spells.</ins>
-        *   <ins>Skills: For example:</ins>
-            *   <ins>Magic: Allows the use of spells to damage enemies or support allies.</ins>
-            *   <ins>Tactics: Increases the movement speed of units on the battlefield or allows better positioning before the start of battle.</ins>
-            *   <ins>Leadership: Increases army morale or provides bonuses to unit characteristics.</ins>
-        *   Might: Influences the army's total power.
+    *   Heroes are unique characters who cast spells but do not directly participate in battles, manage armies, or influence troop characteristics, including might.
+    *   Each hero has characteristics:
+        *   Mana: Tracks available mana for casting spells, with varying amounts influencing might and spell usage.
+        *   Magic: Enables casting spells (via Spell) to affect troops (damage, buffs, debuffs).
+        *   Might: Influences only the hero’s contribution to the army's total might for mightLimit, without affecting troops.
 
 3.  **Armies:**
-    *   An army consists of several unit squads and one hero.
-    *   Before the battle, the player selects units for their army <ins>and assigns a hero.</ins>
+    *   An army consists of several troops (up to 6), one hero, and a spell book (up to 5 spells), limited by mightLimit. The hero’s spells and passive effects affect troop performance during battles.
 
 4.  **Battlefield:**
-    *   A grid (hexagonal or square) with a specific number of cells.
-    *   <ins>Cells may contain obstacles, bonuses, or special zones.</ins>
-    *   <ins>The battlefield determines the placement and movement of units.</ins>
+    *   A 6x6 square grid for troop placement and movement.
 
 5.  **Battle System:**
-    *   Combat occurs in turn-based mode.
-    *   The turn order is determined by the speed of the units <ins>and the hero's skills.</ins>
-    *   During a turn, the player can:
-        *   Move a unit to a free cell.
-        *   Attack an enemy unit.
-        *   <ins>Use a unit's ability or hero's spell (if available).</ins>
-        *   Skip the turn.
-    *   Damage is calculated based on the characteristics of the attacking and defending units<ins>, as well as the hero's skills.</ins>
-    *   The battle ends when all units of one of the armies are destroyed.
+    *   Combat occurs in turn-based mode on a 6x6 grid, determined by troop speed.
+    *   During a turn, the player or AI can (via Action): Move a troop to a free cell, Attack an enemy troop, Use a hero’s spell (CAST), Defend (if not moved), or Skip the turn.
+    *   Damage is calculated based on the attack, defense, crits, and range of attacking and defending troops, enhanced by spells (via CAST).
+    *   The battle ends when all troops of one of the armies are destroyed.
 
 6.  **Artificial Intelligence (AI):**
     *   The AI controls enemy armies and heroes.
-    *   AI makes decisions based on predefined rules and strategies.
+    *   AI makes decisions based on predefined rules and strategies, accounting for hero spell-casting but not hero might or passive effects on troops.
 
 ## Game Goal:
-
-Win the battle by destroying all enemy units on the battlefield.
-
----
-
-**Note:** The lines highlighted with underlining (`<ins>`) indicate features that may be developed after the main part of the game.
-
-
+Win the battle by destroying all enemy troops on the battlefield.
