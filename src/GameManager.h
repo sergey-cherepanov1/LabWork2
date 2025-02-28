@@ -5,18 +5,18 @@
 #ifndef GAMEMANAGER_h
 #define GAMEMANAGER_h
 
+#include "GameState.h"
 #include "Info.h"
 
 class GameManager()
 {
 public:
     GameManager();
-    void run();
+    void start();
 
 
 
 private:
-    enum class GameState { MENU, SELECT_MODE, PREPARE_ARMY, BATTLE, END, REPLAY };
     GameState _state;
     bool _mode;
     Player _player1;
