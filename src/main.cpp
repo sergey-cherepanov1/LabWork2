@@ -2,11 +2,11 @@
    LabWork2
 */
 
-#include <iostream>
+#include "GameManager.h"
 
-/// @brief Main entry point of the game application.
-/// @return Exit status (0 for success).
-int main() {
-    std::cout << "Welcome to the game!" << std::endl;
+int main()
+{
+    GameManager game;
+    game.start();
     return 0;
 }
