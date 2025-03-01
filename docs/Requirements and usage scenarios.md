@@ -57,9 +57,6 @@
 *   The system shall be implemented in C++ with modular classes (e.g., .h and .cpp files), adhering to object-oriented principles for ease of maintenance and extension.
 *   The code shall include comments and documentation for each class and method.
 
-### 4. Portability
-*   The system shall be portable across standard C++ compilers (e.g., g++, clang++) on Unix-like or Windows systems, requiring no GUI libraries.
-
 ## Constraints
 
 *   The system shall operate solely in a terminal environment, without graphical user interface (GUI) or external dependencies beyond standard C++ libraries.
