@@ -14,16 +14,25 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install g++ libgtest-dev -y
+          sudo apt-get install g++ libgtest-dev doxygen -y
 
       - name: Build the project
         run: make test
 
       - name: Run tests
         run: ./test
+
+      - name: Generate Doxygen documentation
+        run: doxygen
+
+      - name: Upload Doxygen documentation
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/doxygen
 
