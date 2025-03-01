@@ -9,8 +9,12 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
 
     steps:
       - name: Checkout code
@@ -19,20 +23,25 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install g++ libgtest-dev doxygen -y
+          sudo apt-get install g++ libgtest-dev doxygen graphviz -y
 
       - name: Build the project
-        run: make test
+        run: make
 
-      - name: Run tests
-        run: ./test
+      - name: Build and run tests
+        run: |
+          make test
+          ./test
 
       - name: Generate Doxygen documentation
-        run: doxygen
+        run: doxygen Doxyfile
 
-      - name: Upload Doxygen documentation
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/doxygen/html
-
+          enable_jekyll: false
+          allow_empty_commit: false
+          force_orphan: true
+          publish_branch: gh-pages

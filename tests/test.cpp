@@ -1,7 +1,6 @@
 /* Sergey Cherepanov st129987@student.spbu.ru
    LabWork2
 */
-// tests/test.cpp
 #include <gtest/gtest.h>
 
 /// @brief Main entry point for running Google Tests.

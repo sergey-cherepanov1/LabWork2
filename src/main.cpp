@@ -2,7 +2,6 @@
    LabWork2
 */
 
-// src/main.cpp
 #include <iostream>
 
 /// @brief Main entry point of the game application.
