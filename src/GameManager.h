@@ -5,14 +5,14 @@
 #ifndef GAMEMANAGER_h
 #define GAMEMANAGER_h
 
-#include "GameState.h"
-#include "Info.h"
+#include <string>
+#include "TerminalUI.h"
 
-class GameManager()
+class GameManager
 {
 public:
     GameManager();
-    void start();
+    void run();
     void update();
 
 
@@ -20,12 +20,12 @@ public:
 private:
     GameState _state;
     bool _mode;
-    Player _player1;
+    /*Player _player1;
     Player _player2;
-    Catalog _catalog;
+    Catalog _catalog;*/
     int _difficulty;
-    Info _info;
-}
+    TerminalUI _ui;
+};
 
 
 #endif

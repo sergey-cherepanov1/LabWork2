@@ -4,14 +4,13 @@
 
 #include "GameManager.h"
 
-GameManager::GameManager(): _state(GameState::MENU), _mode(1), _status(0), _difficulty(1) {}
+GameManager::GameManager(): _state(GameState::MENU), _mode(0), _difficulty(1), _ui() {}
 
-void GameManager::run() 
+void GameManager::run()
 {
-    Info info;
     while (_state != GameState::END)
     {
-       update();
+        update();
     }
 }
 
@@ -19,13 +18,45 @@ void GameManager::update()
 {
     switch (_state)
     {
-        case GameState::MENU:
-            
-        /*case GameState::SELECT_MODE:
-        case GameState::PREPARE_ARMY:
-        case GameState::BATTLE:
-        case GameState::END:
-        case GameState::REPLAY:*/
-        
+    case GameState::MENU:
+    {
+        _ui.displayInfo(_state);
+        std::string menu_input = _ui.handleInput(_state);
+        if (menu_input == "1")
+        {
+            _state = GameState::PREPARE_ARMY;
+
+        }
+        else if (menu_input == "2")
+        {
+            _state = GameState::PREPARE_ARMY;
+            _mode = 1;
+        }
+        else if (menu_input == "3")
+        {
+            _state = GameState::END;
+        }
+        else
+        {
+            std::cout << "Invalid input. Please enter 1, 2, or 3: ";
+        }
+        break;
+    }
+    case GameState::PREPARE_ARMY:
+    {
+        break;
+    }
+    case GameState::BATTLE:
+    {
+        break;
+    }
+    case GameState::END:
+    {
+        break;
+    }
+    case GameState::REPLAY:
+    {
+        break;
+    }
     }
 }

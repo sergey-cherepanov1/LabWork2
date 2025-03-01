@@ -5,9 +5,9 @@
 #ifndef GAMESTATE_h
 #define GAMESTATE_h
 
-enum class GameState {
+enum class GameState
+{
     MENU,
-    SELECT_MODE,
     PREPARE_ARMY,
     BATTLE,
     END,
