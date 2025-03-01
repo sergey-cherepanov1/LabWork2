@@ -13,6 +13,7 @@ class GameManager()
 public:
     GameManager();
     void start();
+    void update();
 
 
 
@@ -22,7 +23,6 @@ private:
     Player _player1;
     Player _player2;
     Catalog _catalog;
-    bool _status;
     int _difficulty;
     Info _info;
 }

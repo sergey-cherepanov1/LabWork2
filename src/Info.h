@@ -4,6 +4,7 @@
 
 #ifndef INFO_h
 #define INFO_h
+#include <iostream>
 
 class Info()
 {
