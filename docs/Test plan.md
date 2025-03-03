@@ -24,5 +24,5 @@
 ### 3. Boundary and Edge Cases
 *   Test army composition with minimum (1 troop, 1 unit) and maximum (6 troops, 99 units each) might, ensuring mightLimit compliance, using unit tests for `GameManager` and `Troop`.
 *   Verify battlefield edge cases (troops at x=0, x=5, y=0, y=5) for MOVE and ATTACK actions with unit tests for `Battlefield` and `Action`.
-*   Check invalid inputs (e.g., "move 6 6", negative numbers) and ensure proper error handling with unit tests for `Info` and `BattleManager`.
+*   Check invalid inputs (e.g., "move 6 6", negative numbers) and ensure proper error handling with unit tests for `TerminalUI` and `BattleManager`.
 *   Test spell-casting (CAST) with empty spell book, invalid targets, and mana limits using unit tests for `Hero`, `Spell`, and `Action`.
