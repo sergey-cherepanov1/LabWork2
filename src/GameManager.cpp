@@ -44,6 +44,8 @@ void GameManager::update()
     }
     case GameState::PREPARE_ARMY:
     {
+        _ui.displayInfo(_state);
+
         break;
     }
     case GameState::BATTLE:

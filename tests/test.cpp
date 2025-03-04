@@ -7,7 +7,8 @@
 /// @param argc Number of command-line arguments.
 /// @param argv Array of command-line arguments.
 /// @return Exit status (0 for all tests passed).
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
