@@ -44,7 +44,16 @@ void GameManager::update()
     }
     case GameState::PREPARE_ARMY:
     {
-        _ui.displayInfo(_state);
+
+        if (_mode == 1)
+        {
+            _ui.showHeroes();
+            _state = GameState::END;
+        }
+        else if (_mode == 0)
+        {
+            break;
+        }
 
         break;
     }

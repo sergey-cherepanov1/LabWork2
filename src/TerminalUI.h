@@ -2,18 +2,22 @@
    LabWork2
 */
 
-#ifndef TERMINALUI_h
-#define TERMINALUI_h
+#ifndef TERMINALUI_H
+#define TERMINALUI_H
 
 #include <iostream>
 #include "GameState.h"
+#include "Catalog.h"
 
 class TerminalUI
 {
 public:
-    void displayInfo(GameState state);
-    std::string handleInput(GameState state);
+    void displayInfo(GameState state) const;
+    std::string handleInput(GameState state) const;
+    void showHeroes() const;
+    void showTroops() const;
+private:
+    Catalog _catalog;
 };
-
 
 #endif

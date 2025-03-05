@@ -2,11 +2,10 @@
    LabWork2
 */
 
-#ifndef CATALOG_h
-#define CATALOG_h
+#ifndef CATALOG_H
+#define CATALOG_H
 
-#include <map>
-#include <string>
+#include <vector>
 #include "Troop.h"
 #include "Hero.h"
 
@@ -14,13 +13,12 @@ class Catalog
 {
 public:
     Catalog();
+    const std::vector<Hero>& getHeroTemplates() const;
+    const std::vector<Troop>& getTroopTemplates() const;
 
 private:
-    std::map<std::string, Hero> _hero_teplates;
-    std::map<std::string, Troop> _troop_templates;
-}
-
-
-
+    std::vector<Hero> _hero_templates;
+    std::vector<Troop> _troop_templates;
+};
 
 #endif

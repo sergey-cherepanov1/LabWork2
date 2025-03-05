@@ -2,20 +2,33 @@
    LabWork2
 */
 
-#ifndef TROOP_h
-#define TROOP_h
+#ifndef TROOP_H
+#define TROOP_H
 
 #include <string>
+#include <vector>
 #include "Effect.h"
 
 class Troop
 {
 public:
-    Troop(std::string name, int amount = 1, int health, int max_stamina, int current_stamina, int iniative);
+    Troop(const std::string& name, int amount, int health, int attack, int max_stamina, int current_stamina,
+          int initiative, int might, const std::vector<Effect>& effects, const std::string& description);
 
-    int getTotaltHealth();
+    int getTotaltHealth() const;
     void updateAmount();
     void updateEffects();
+
+    std::string getName() const;
+    int getAmount() const;
+    int getHealth() const;
+    int getAttack() const;
+    int getMaxStamina() const;
+    int getCurrentStamina() const;
+    int getInitiative() const;
+    int getMight() const;
+    std::vector<Effect> getEffects() const;
+    std::string getDescription() const;
 
 private:
     std::string _name;
@@ -26,8 +39,8 @@ private:
     int _current_stamina;
     int _initiative;
     int _might;
-    std::vector<Effect> effects_;
+    std::vector<Effect> _effects;
     std::string _description;
-}
+};
 
 #endif

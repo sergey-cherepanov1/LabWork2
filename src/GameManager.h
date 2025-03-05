@@ -2,8 +2,8 @@
    LabWork2
 */
 
-#ifndef GAMEMANAGER_h
-#define GAMEMANAGER_h
+#ifndef GAMEMANAGER_H
+#define GAMEMANAGER_H
 
 #include <string>
 #include "TerminalUI.h"
@@ -21,8 +21,7 @@ private:
     GameState _state;
     bool _mode;
     /*Player _player1;
-    Player _player2;
-    Catalog _catalog;*/
+    Player _player2;*/
     int _difficulty;
     TerminalUI _ui;
 };

@@ -2,24 +2,25 @@
    LabWork2
 */
 
-#ifndef SPELL_h
-#define SPELL_h
+#ifndef SPELL_H
+#define SPELL_H
 
 #include <string>
 #include "Effect.h"
 
-class Spell()
+class Spell
 {
 public:
-
+    Spell(const std::string& name, int mana_cost, const Effect& effect, const std::string& description);
+    std::string getName() const;
+    int getManaCost() const;
+    Effect getEffect() const;
+    std::string getDescription() const;
 private:
     std::string _name;
-    int _cost;
+    int _mana_cost;
     Effect _effect;
     std::string _description;
-
-
-}
-
+};
 
 #endif
