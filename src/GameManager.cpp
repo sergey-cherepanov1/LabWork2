@@ -4,7 +4,7 @@
 
 #include "GameManager.h"
 
-GameManager::GameManager(): _state(GameState::MENU), _mode(0), _difficulty(1), _ui() {}
+GameManager::GameManager(): _state(GameState::MENU), _mode(0), _player1(), _player2(), _difficulty(1), _ui() {}
 
 void GameManager::run()
 {
@@ -44,14 +44,17 @@ void GameManager::update()
     }
     case GameState::PREPARE_ARMY:
     {
-
+        _ui.displayInfo(_state);
         if (_mode == 1)
         {
-            _ui.showHeroes();
+            std::cout << "Enter the name of the first player (): ";
+            
             _state = GameState::END;
+            break;
         }
         else if (_mode == 0)
         {
+            _state = GameState::END;
             break;
         }
 

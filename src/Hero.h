@@ -12,6 +12,7 @@
 class Hero
 {
 public:
+    Hero();
     Hero(const std::string& name, int might, int mana, const std::vector<Spell>& spells, const std::string& description);
     std::string getName() const;
     int getMight() const;

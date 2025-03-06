@@ -11,6 +11,7 @@
 class Spell
 {
 public:
+    Spell();
     Spell(const std::string& name, int mana_cost, const Effect& effect, const std::string& description);
     std::string getName() const;
     int getManaCost() const;

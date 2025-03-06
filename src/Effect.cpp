@@ -4,8 +4,9 @@
 
 #include "Effect.h"
 
-Effect::Effect(EffectType type, int value, int duration)
-    : _type(type), _value(value), _duration(duration) {}
+Effect::Effect() : _type(EffectType::HEALTH), _value(0), _duration(0) {}
+
+Effect::Effect(EffectType type, int value, int duration) : _type(type), _value(value), _duration(duration) {}
 
 int Effect::getValue() const
 {

@@ -7,6 +7,7 @@
 
 #include <string>
 #include "TerminalUI.h"
+#include "Player.h"
 
 class GameManager
 {
@@ -15,13 +16,11 @@ public:
     void run();
     void update();
 
-
-
 private:
     GameState _state;
     bool _mode;
-    /*Player _player1;
-    Player _player2;*/
+    Player _player1;
+    Player _player2;
     int _difficulty;
     TerminalUI _ui;
 };

@@ -4,11 +4,9 @@
 
 #include "Troop.h"
 
-Troop::Troop(const std::string& name, int amount, int health, int attack, int max_stamina, int current_stamina,
-             int initiative, int might, const std::vector<Effect>& effects, const std::string& description)
-    : _name(name), _amount(amount), _health(health), _attack(attack), _max_stamina(max_stamina),
-      _current_stamina(current_stamina), _initiative(initiative), _might(might), _effects(effects),
-      _description(description) {}
+Troop::Troop() : _name("Default Troop"), _amount(1), _health(0), _attack(0), _max_stamina(0), _current_stamina(0), _initiative(0), _might(0), _effects(), _description("") {}
+
+Troop::Troop(const std::string& name, int amount, int health, int attack, int max_stamina, int current_stamina, int initiative, int might, const std::vector<Effect>& effects, const std::string& description) : _name(name), _amount(amount), _health(health), _attack(attack), _max_stamina(max_stamina), _current_stamina(current_stamina), _initiative(initiative), _might(might), _effects(effects), _description(description) {}
 
 std::string Troop::getName() const
 {

@@ -16,6 +16,8 @@ void TerminalUI::displayInfo(GameState state) const
                   << "Enter your choice: ";
         break;
     case GameState::PREPARE_ARMY:
+        std::cout << "=== Prepare Your Army ===\n"
+                  << "Select heroes and troops for your army.\n\n";
         break;
     case GameState::BATTLE:
         break;
@@ -51,6 +53,7 @@ std::string TerminalUI::handleInput(GameState state) const
         }
         case GameState::PREPARE_ARMY:
         {
+        
             break;
         }
         case GameState::BATTLE:

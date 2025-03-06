@@ -12,13 +12,15 @@
 class Troop
 {
 public:
-    Troop(const std::string& name, int amount, int health, int attack, int max_stamina, int current_stamina,
-          int initiative, int might, const std::vector<Effect>& effects, const std::string& description);
+    Troop();
+    Troop(const std::string& name, int amount, int health, int attack, int max_stamina, int current_stamina, int initiative, int might, const std::vector<Effect>& effects, const std::string& description);
 
-    int getTotaltHealth() const;
     void updateAmount();
     void updateEffects();
-
+    
+    int getTotaltHealth() const;
+    int getTotaltDamage() const;    
+    
     std::string getName() const;
     int getAmount() const;
     int getHealth() const;
