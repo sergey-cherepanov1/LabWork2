@@ -7,17 +7,18 @@
 
 #include <iostream>
 #include "GameState.h"
+#include "GameMode.h"
 #include "Catalog.h"
 
 class TerminalUI
 {
 public:
-    void displayInfo(GameState state) const;
-    std::string handleInput(GameState state) const;
-    void showHeroes() const;
-    void showTroops() const;
+    void displayInfo(GameState state, GameMode mode) const;
+    std::string handleInput(GameState state, GameMode mode) const;
 private:
     Catalog _catalog;
+    void showHeroes() const;
+    void showTroops() const;
 };
 
 #endif

@@ -7,6 +7,8 @@
 
 #include <string>
 #include "TerminalUI.h"
+#include "GameState.h"
+#include "GameMode.h"
 #include "Player.h"
 
 class GameManager
@@ -18,11 +20,13 @@ public:
 
 private:
     GameState _state;
-    bool _mode;
+    GameMode _mode;
     Player _player1;
     Player _player2;
     int _difficulty;
     TerminalUI _ui;
+    
+    std::string getPlayerName();
 };
 
 

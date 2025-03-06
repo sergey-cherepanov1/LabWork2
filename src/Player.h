@@ -16,7 +16,7 @@ public:
     std::string getName() const;
     Army getArmy() const;
     void setName(std::string name);
-    
+
 private:
     std::string _name;
     Army _army;

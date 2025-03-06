@@ -17,10 +17,10 @@ public:
 
     void updateAmount();
     void updateEffects();
-    
+
     int getTotaltHealth() const;
-    int getTotaltDamage() const;    
-    
+    int getTotaltDamage() const;
+
     std::string getName() const;
     int getAmount() const;
     int getHealth() const;

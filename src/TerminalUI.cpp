@@ -4,7 +4,7 @@
 
 #include "TerminalUI.h"
 
-void TerminalUI::displayInfo(GameState state) const
+void TerminalUI::displayInfo(GameState state, GameMode mode) const
 {
     switch (state)
     {
@@ -16,8 +16,20 @@ void TerminalUI::displayInfo(GameState state) const
                   << "Enter your choice: ";
         break;
     case GameState::PREPARE_ARMY:
-        std::cout << "=== Prepare Your Army ===\n"
-                  << "Select heroes and troops for your army.\n\n";
+        
+        if (mode == GameMode::SINGLEPLAYER)
+        {
+            std::cout << "=== Prepare Your Armies===\n"
+                      << "Select heroes and troops for your army.\n\n";
+            showHeroes();
+            showTroops();
+            
+        } else if (mode == GameMode::MULTIPLAYER)
+        {
+            std::cout << "=== Prepare Your Armies===\n"
+                      << "Player 1 and Player 2, take turns to select heroes and troops.\n\n";
+        }
+
         break;
     case GameState::BATTLE:
         break;
@@ -28,7 +40,7 @@ void TerminalUI::displayInfo(GameState state) const
     }
 }
 
-std::string TerminalUI::handleInput(GameState state) const
+std::string TerminalUI::handleInput(GameState state, GameMode mode) const
 {
     std::string input;
     bool validInput = false;
@@ -53,7 +65,7 @@ std::string TerminalUI::handleInput(GameState state) const
         }
         case GameState::PREPARE_ARMY:
         {
-        
+
             break;
         }
         case GameState::BATTLE:
@@ -86,10 +98,9 @@ void TerminalUI::showHeroes() const
         const std::vector<Spell>& spells = hero.getSpells();
         for (size_t j = 0; j < spells.size(); ++j)
         {
-            std::cout << "   *** " << spells[j].getName() << " (Cost: " << spells[j].getManaCost()
-                      << ", Description: " << spells[j].getDescription() << ")\n";
+            std::cout << "   * " << spells[j].getName() << "\n   -- Cost: " << spells[j].getManaCost() << "\n   -- Description: " << spells[j].getDescription() << "\n";
         }
-        std::cout << "\n";
+        std::cout << "\n\n";
     }
     std::cout << "Select a hero by number (e.g., 'hero 1') or continue: ";
 }
