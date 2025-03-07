@@ -13,13 +13,15 @@ class Army
 {
 public:
     Army();
-    Army(const Hero& hero, const std::array<Troop, 6>& troops);
+    Army(Hero hero, std::array<Troop, 6> troops);
     const Hero& getHero() const;
     const std::array<Troop, 6>& getTroops() const;
+    bool getStatus() const;
 
 private:
     Hero _hero;
     std::array<Troop, 6> _troops;
+    bool _status;
 };
 
 

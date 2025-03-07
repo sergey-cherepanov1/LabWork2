@@ -4,43 +4,48 @@
 
 #include "TerminalUI.h"
 
-void TerminalUI::displayInfo(GameState state, GameMode mode) const
+void TerminalUI::displayInfo(int info_state) const
 {
-    switch (state)
+    switch (info_state)
     {
-    case GameState::MENU:
+    case 0: /*InfoState::MENU*/
         std::cout << "=== Main Menu ===\n"
                   << "1. Start Game\n"
                   << "2. Local Multiplayer\n"
                   << "3. Exit\n"
                   << "Enter your choice: ";
         break;
-    case GameState::PREPARE_ARMY:
-        
-        if (mode == GameMode::SINGLEPLAYER)
-        {
-            std::cout << "=== Prepare Your Armies===\n"
-                      << "Select heroes and troops for your army.\n\n";
-            showHeroes();
-            showTroops();
-            
-        } else if (mode == GameMode::MULTIPLAYER)
-        {
-            std::cout << "=== Prepare Your Armies===\n"
-                      << "Player 1 and Player 2, take turns to select heroes and troops.\n\n";
-        }
+    case 1: /*InfoState::ENTER_NAME_SINGLEPLAYER*/
+        std::cout << "\n=== Enter Player Name ===\n"
+                  << "Enter name for Player (max 20 characters, must not be empty): ";
+        break;
+    case 2: /*InfoState::ENTER_NAME_MULTIPLAYER_1*/
+        std::cout << "\n=== Enter Player Names ===\n"
+                  << "Enter name for Player 1 (max 20 characters, must not be empty): ";
+        break;
+    case 3: /*InfoState::ENTER_NAME_MULTIPLAYER_2*/
+        std::cout << "Enter name for Player 2 (max 20 characters, must not be empty): ";
+        break;
+
+    case 4: /*InfoState::CHOOSE_DIFFICLUTY*/
+        std::cout << "\n== Choose Difficulty Level ==\n"
+                  << "1. Easy (MaxMight:5500)\n"
+                  << "2. Normal (MaxMight: 2500)\n"
+                  << "3. Hard (MaxMight: 1000)\n"
+                  << "Enter your choice: ";
+        break;
+    case 5: /*InfoState::PREPARE_ARMY_SINGLEPLAYER_HEROES*/
+        std::cout << "\n=== Prepare Your Army===\n"
+                  << "Select your hero.\n\n";
+
+        std::cout << "Enter the number of the hero you have chosen: ";
 
         break;
-    case GameState::BATTLE:
-        break;
-    case GameState::END:
-        break;
-    case GameState::REPLAY:
-        break;
+
     }
 }
 
-std::string TerminalUI::handleInput(GameState state, GameMode mode) const
+std::string TerminalUI::handleInput(int input_state) const
 {
     std::string input;
     bool validInput = false;
@@ -49,9 +54,9 @@ std::string TerminalUI::handleInput(GameState state, GameMode mode) const
     {
         std::getline(std::cin, input);
 
-        switch (state)
+        switch (input_state)
         {
-        case GameState::MENU:
+        case 0: /*InputState::MENU*/
         {
             if (input == "1" || input == "2" || input == "3")
             {
@@ -63,23 +68,36 @@ std::string TerminalUI::handleInput(GameState state, GameMode mode) const
             }
             break;
         }
-        case GameState::PREPARE_ARMY:
+        case 1: /*InputState::GET_NAME*/
         {
+            if (input.empty())
+            {
+                std::cout << "Name cannot be empty. Please enter a valid name: ";
+            }
+            else if (input.length() > 20)
+            {
+                std::cout << "Name is too long (max 20 characters). Please enter a shorter name: ";
+            }
+            else
+            {
+                validInput = true;
+            }
 
             break;
         }
-        case GameState::BATTLE:
+        case 5: /*InputState::PREPARE_ARMY*/
         {
+            if (input == "hero" || input == "troop" || input == "switch")
+            {
+
+            }
+            else
+            {
+                std::cout << "Invalid input. Please enter hero, troop, or switch: ";
+            }
             break;
         }
-        case GameState::END:
-        {
-            break;
-        }
-        case GameState::REPLAY:
-        {
-            break;
-        }
+
         }
     }
     return input;

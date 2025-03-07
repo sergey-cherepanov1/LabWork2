@@ -6,6 +6,7 @@
 #define PLAYER_H
 
 #include <string>
+#include <iostream>
 #include "Army.h"
 
 class Player

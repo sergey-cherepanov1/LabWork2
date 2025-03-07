@@ -6,15 +6,16 @@
 #define TERMINALUI_H
 
 #include <iostream>
-#include "GameState.h"
-#include "GameMode.h"
 #include "Catalog.h"
+
+/*enum class GameInfo {}*/
+/*enum class GameInput {}*/
 
 class TerminalUI
 {
 public:
-    void displayInfo(GameState state, GameMode mode) const;
-    std::string handleInput(GameState state, GameMode mode) const;
+    void displayInfo(int info_state) const;
+    std::string handleInput(int input_state) const;
 private:
     Catalog _catalog;
     void showHeroes() const;

@@ -4,9 +4,9 @@
 
 #include "Army.h"
 
-Army::Army() : _hero(), _troops() {}
+Army::Army() : _hero(), _troops(), _status(0) {}
 
-Army::Army(const Hero& hero, const std::array<Troop, 6>& troops) : _hero(hero), _troops(troops) {}
+Army::Army(Hero hero, std::array<Troop, 6> troops) : _hero(hero), _troops(troops), _status(0) {}
 
 const Hero& Army::getHero() const
 {
@@ -15,4 +15,9 @@ const Hero& Army::getHero() const
 const std::array<Troop, 6>& Army::getTroops() const
 {
     return _troops;
+}
+
+bool Army::getStatus() const
+{
+    return _status;
 }

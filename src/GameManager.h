@@ -6,9 +6,9 @@
 #define GAMEMANAGER_H
 
 #include <string>
+#include <iostream>
 #include "TerminalUI.h"
 #include "GameState.h"
-#include "GameMode.h"
 #include "Player.h"
 
 class GameManager
@@ -20,13 +20,13 @@ public:
 
 private:
     GameState _state;
-    GameMode _mode;
+    int _info_state;
+    int _input_state;
+    bool _mode;
     Player _player1;
     Player _player2;
     int _difficulty;
     TerminalUI _ui;
-    
-    std::string getPlayerName();
 };
 
 
