@@ -20,8 +20,6 @@ public:
 
 private:
     GameState _state;
-    int _info_state;
-    int _input_state;
     bool _mode;
     Player _player1;
     Player _player2;

@@ -6,26 +6,26 @@
 
 Hero::Hero() : _name("Default Hero"), _might(0), _mana(0), _spells(), _description("") {}
 
-Hero::Hero(const std::string& name, int might, int mana, const std::vector<Spell>& spells, const std::string& description)
+Hero::Hero(std::string name, int might, int mana, std::vector<Spell> spells, std::string description)
     : _name(name), _might(might), _mana(mana), _spells(spells), _description(description) {}
 
-std::string Hero::getName() const
+std::string Hero::getName()
 {
     return _name;
 }
-int Hero::getMight() const
+int Hero::getMight()
 {
     return _might;
 }
-int Hero::getMana() const
+int Hero::getMana()
 {
     return _mana;
 }
-std::vector<Spell> Hero::getSpells() const
+std::vector<Spell>& Hero::getSpells()
 {
     return _spells;
 }
-std::string Hero::getDescription() const
+std::string Hero::getDescription()
 {
     return _description;
 }

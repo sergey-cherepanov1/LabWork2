@@ -13,8 +13,8 @@ class Catalog
 {
 public:
     Catalog();
-    const std::vector<Hero>& getHeroTemplates() const;
-    const std::vector<Troop>& getTroopTemplates() const;
+    std::vector<Hero>& getHeroTemplates();
+    std::vector<Troop>& getTroopTemplates();
 
 private:
     std::vector<Hero> _hero_templates;

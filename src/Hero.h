@@ -13,12 +13,12 @@ class Hero
 {
 public:
     Hero();
-    Hero(const std::string& name, int might, int mana, const std::vector<Spell>& spells, const std::string& description);
-    std::string getName() const;
-    int getMight() const;
-    int getMana() const;
-    std::vector<Spell> getSpells() const;
-    std::string getDescription() const;
+    Hero(std::string name, int might, int mana, std::vector<Spell> spells, std::string description);
+    std::string getName();
+    int getMight();
+    int getMana();
+    std::vector<Spell>& getSpells();
+    std::string getDescription();
 private:
     std::string _name;
     int _might;

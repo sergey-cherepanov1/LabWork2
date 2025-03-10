@@ -4,48 +4,54 @@
 
 #include "TerminalUI.h"
 
-void TerminalUI::displayInfo(int info_state) const
+void TerminalUI::displayInfo(InfoState info_state)
 {
     switch (info_state)
     {
-    case 0: /*InfoState::MENU*/
+    case InfoState::MENU:
         std::cout << "=== Main Menu ===\n"
                   << "1. Start Game\n"
                   << "2. Local Multiplayer\n"
                   << "3. Exit\n"
                   << "Enter your choice: ";
         break;
-    case 1: /*InfoState::ENTER_NAME_SINGLEPLAYER*/
+    case InfoState::ENTER_NAME_SINGLEPLAYER:
         std::cout << "\n=== Enter Player Name ===\n"
                   << "Enter name for Player (max 20 characters, must not be empty): ";
         break;
-    case 2: /*InfoState::ENTER_NAME_MULTIPLAYER_1*/
+    case InfoState::ENTER_NAME_MULTIPLAYER_1:
         std::cout << "\n=== Enter Player Names ===\n"
                   << "Enter name for Player 1 (max 20 characters, must not be empty): ";
         break;
-    case 3: /*InfoState::ENTER_NAME_MULTIPLAYER_2*/
+    case InfoState::ENTER_NAME_MULTIPLAYER_2:
         std::cout << "Enter name for Player 2 (max 20 characters, must not be empty): ";
         break;
 
-    case 4: /*InfoState::CHOOSE_DIFFICLUTY*/
+    case InfoState::CHOOSE_DIFFICULTY:
         std::cout << "\n== Choose Difficulty Level ==\n"
                   << "1. Easy (MaxMight:5500)\n"
                   << "2. Normal (MaxMight: 2500)\n"
                   << "3. Hard (MaxMight: 1000)\n"
                   << "Enter your choice: ";
         break;
-    case 5: /*InfoState::PREPARE_ARMY_SINGLEPLAYER_HEROES*/
+    case InfoState::HEROES:
         std::cout << "\n=== Prepare Your Army===\n"
                   << "Select your hero.\n\n";
-
+        showHeroes();
         std::cout << "Enter the number of the hero you have chosen: ";
-
         break;
-
+    case InfoState::TROOPS:
+        std::cout << "\nSelect your 6 troops.\n\n";
+        showTroops();
+        std::cout << "\nChoose units in order; they will be placed on the battlefield from top to bottom (1-6).\n" << "Enter the chosen troop number: ";
+        break;
+    case InfoState::AMOUNT:
+        std::cout << "Enter the amount of units for chosen troop: ";
+        break;
     }
 }
 
-std::string TerminalUI::handleInput(int input_state) const
+std::string TerminalUI::handleInput(InputState input_state)
 {
     std::string input;
     bool validInput = false;
@@ -56,7 +62,7 @@ std::string TerminalUI::handleInput(int input_state) const
 
         switch (input_state)
         {
-        case 0: /*InputState::MENU*/
+        case InputState::ONE_OF_THREE:
         {
             if (input == "1" || input == "2" || input == "3")
             {
@@ -68,7 +74,7 @@ std::string TerminalUI::handleInput(int input_state) const
             }
             break;
         }
-        case 1: /*InputState::GET_NAME*/
+        case InputState::GET_NAME:
         {
             if (input.empty())
             {
@@ -85,55 +91,110 @@ std::string TerminalUI::handleInput(int input_state) const
 
             break;
         }
-        case 5: /*InputState::PREPARE_ARMY*/
+        case InputState::TROOPS:
         {
-            if (input == "hero" || input == "troop" || input == "switch")
+            try
             {
-
+                int number = std::stoi(input);
+                if (number >= 1 && number <= 15)
+                {
+                    validInput = true;
+                }
+                else
+                {
+                    std::cout << "Please enter a number between 1 and 15: ";
+                }
             }
-            else
+            catch (const std::exception&)
             {
-                std::cout << "Invalid input. Please enter hero, troop, or switch: ";
+                std::cout << "Invalid input. Please enter a number between 1 and 15: ";
             }
             break;
         }
-
+        case InputState::AMOUNT:
+        {
+            try
+            {
+                int number = std::stoi(input);
+                if (number >= 1 && number <= 99)
+                {
+                    validInput = true;
+                }
+                else
+                {
+                    std::cout << "Please enter a number between 1 and 99: ";
+                }
+            }
+            catch (const std::exception&)
+            {
+                std::cout << "Invalid input. Please enter a number between 1 and 99: ";
+            }
+            break;
+        }
         }
     }
     return input;
 }
 
-void TerminalUI::showHeroes() const
+void TerminalUI::showHeroes()
 {
     std::cout << "=== Available Heroes ===\n";
-    const std::vector<Hero>& heroes = _catalog.getHeroTemplates();
-    for (size_t i = 0; i < heroes.size(); ++i)
+    std::vector<Hero>& heroes = _catalog.getHeroTemplates();
+    int i = 0;
+    for (auto hero: heroes)
     {
-        const Hero& hero = heroes[i];
-        std::cout << (i + 1) << ". " << hero.getName() << " (Might: " << hero.getMight()
+        i++;
+        std::cout << i << ". " << hero.getName() << " (Might: " << hero.getMight()
                   << ", Mana: " << hero.getMana() << ")\n";
         std::cout << "   Spells: \n";
-        const std::vector<Spell>& spells = hero.getSpells();
-        for (size_t j = 0; j < spells.size(); ++j)
+        std::vector<Spell>& spells = hero.getSpells();
+        for (auto spell: spells)
         {
-            std::cout << "   * " << spells[j].getName() << "\n   -- Cost: " << spells[j].getManaCost() << "\n   -- Description: " << spells[j].getDescription() << "\n";
+            std::cout << "   * " << spell.getName() << "\n   -- Cost: " << spell.getManaCost() << "\n   -- Description: " << spell.getDescription() << "\n";
         }
         std::cout << "\n\n";
     }
-    std::cout << "Select a hero by number (e.g., 'hero 1') or continue: ";
 }
 
-void TerminalUI::showTroops() const
+void TerminalUI::showTroops()
 {
     std::cout << "=== Available Troops ===\n";
-    const std::vector<Troop>& troops = _catalog.getTroopTemplates();
-    for (size_t i = 0; i < troops.size(); ++i)
+    std::vector<Troop>& troops = _catalog.getTroopTemplates();
+    int i = 0;
+    for (auto troop: troops)
     {
-        const Troop& troop = troops[i];
-        std::cout << (i + 1) << ". " << troop.getName() << " (Health: " << troop.getHealth()
+        i++;
+        std::cout << i << ". " << troop.getName() << " (Health: " << troop.getHealth()
                   << ", Attack: " << troop.getAttack() << ", Stamina: " << troop.getMaxStamina()
                   << ", Initiative: " << troop.getInitiative() << ", Might: " << troop.getMight()
-                  << ", Amount: " << troop.getAmount() << ")\n";
+                  << ")\n";
     }
-    std::cout << "Select a troop by number and amount (e.g., 'troop 1 100') or continue: ";
+}
+
+void TerminalUI::showArmy(Player& player)
+{
+    std::cout << "\n=== " << player.getName() <<"'s Army ===\n";
+    
+    Hero& hero = player.getArmy().getHero();
+    std::cout << hero.getName() << " (Might: " << hero.getMight()
+              << ", Mana: " << hero.getMana() << ")\n";
+    std::cout << "   Spells: \n";
+    for (auto& spell : hero.getSpells())
+    {
+        std::cout << "   * " << spell.getName() << "\n   -- Cost: " << spell.getManaCost() << "\n   -- Description: " << spell.getDescription() << "\n";
+    }
+    std::cout << "\n\n";
+    int i = 0;
+    std::array<Troop, 6>& troops = player.getArmy().getTroops();
+    for (auto& troop : troops)
+    {
+        i++;
+        std::cout << i << ". " << troop.getName() << " (Health: " << troop.getTotalHealth() << ", Attack: " << troop.getTotalAttack() << ", Stamina: " << troop.getMaxStamina() << ", Initiative: " << troop.getInitiative() << ", Might: " << troop.getTotalMight() << ", Amout: " << troop.getAmount() << ")\n";
+    }
+    player.showMightLeft();
+}
+
+Catalog& TerminalUI::getCatalog()
+{
+    return _catalog;
 }

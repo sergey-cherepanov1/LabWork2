@@ -8,21 +8,21 @@ Catalog::Catalog()
 {
     _hero_templates =
     {
-        Hero("Roland", 15, 50,
+        Hero("Roland", 150, 50,
         {
             Spell("Magic Arrow", 4, Effect(EffectType::HEALTH, -10, 0), "Deals 10 magical damage to the enemy."),
             Spell("Bless", 6, Effect(EffectType::ATTACK, 2, 2), "Increases the attack of an allied unit by 2 for 2 turns."),
             Spell("Cure", 5, Effect(EffectType::HEALTH, 8, 0), "Restores 8 health to an allied unit.")
         },
         "King of the Castle, specializes in archers and light magic."),
-        Hero("Gelu", 12, 40,
+        Hero("Gelu", 120, 40,
         {
             Spell("Fire Arrow", 5, Effect(EffectType::HEALTH, -12, 0), "Deals fire damage to an enemy."),
             Spell("Regeneration", 7, Effect(EffectType::HEALTH, 5, 2), "Restores 5 health to an allied unit every turn for 2 turns."),
             Spell("Sharpshooter", 4, Effect(EffectType::ATTACK, 1, 2), "Increases the attack of an allied unit by 1 for 2 turns.")
         },
         "Leader of Rampart, master of ranged attacks and nature."),
-        Hero("Xeron", 17, 60,
+        Hero("Xeron", 170, 60,
         {
             Spell("Fireball", 8, Effect(EffectType::HEALTH, -15, 0), "Deals fire damage to a group of enemies."),
             Spell("Curse", 5, Effect(EffectType::ATTACK, -1, 2), "Reduces the attack of an enemy unit by 1 for 2 turns."),
@@ -55,12 +55,12 @@ Catalog::Catalog()
     };
 }
 
-const std::vector<Hero>& Catalog::getHeroTemplates() const
+std::vector<Hero>& Catalog::getHeroTemplates()
 {
     return _hero_templates;
 }
 
-const std::vector<Troop>& Catalog::getTroopTemplates() const
+std::vector<Troop>& Catalog::getTroopTemplates()
 {
     return _troop_templates;
 }

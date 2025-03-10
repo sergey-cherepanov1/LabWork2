@@ -13,11 +13,12 @@ class Player
 {
 public:
     Player();
-    Player(const std::string& name, const Army& army);
-    std::string getName() const;
-    Army getArmy() const;
+    Player(std::string name, const Army& army);
+    std::string getName();
+    Army& getArmy();
+    
     void setName(std::string name);
-
+    void showMightLeft();
 private:
     std::string _name;
     Army _army;

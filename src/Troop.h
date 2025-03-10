@@ -13,34 +13,42 @@ class Troop
 {
 public:
     Troop();
-    Troop(const std::string& name, int amount, int health, int attack, int max_stamina, int current_stamina, int initiative, int might, const std::vector<Effect>& effects, const std::string& description);
+    Troop(std::string name, int amount, int health, int attack, int max_stamina, int current_stamina, int initiative, int might, std::vector<Effect> effects, std::string description);
 
-    void updateAmount();
+    void update();
     void updateEffects();
+    void setAmount(int amount);
 
-    int getTotaltHealth() const;
-    int getTotaltDamage() const;
+    int getTotaltHealth();
+    int getTotaltDamage();
 
-    std::string getName() const;
-    int getAmount() const;
-    int getHealth() const;
-    int getAttack() const;
-    int getMaxStamina() const;
-    int getCurrentStamina() const;
-    int getInitiative() const;
-    int getMight() const;
-    std::vector<Effect> getEffects() const;
-    std::string getDescription() const;
+    std::string getName();
+    int getAmount();
+    int getHealth();
+    int getAttack();
+    int getMaxStamina();
+    int getCurrentStamina();
+    int getInitiative();
+    int getMight();
+    std::vector<Effect> getEffects();
+    std::string getDescription();
+    
+    int getTotalHealth();
+    int getTotalAttack();
+    int getTotalMight();
 
 private:
     std::string _name;
     int _amount;
     int _health;
+    int _total_health;
     int _attack;
+    int _total_attck;
     int _max_stamina;
     int _current_stamina;
     int _initiative;
     int _might;
+    int _total_might;
     std::vector<Effect> _effects;
     std::string _description;
 };

@@ -6,20 +6,41 @@
 #define TERMINALUI_H
 
 #include <iostream>
+#include <array>
 #include "Catalog.h"
+#include "Player.h"
 
-/*enum class GameInfo {}*/
-/*enum class GameInput {}*/
+enum class InfoState
+{
+    MENU, 
+    ENTER_NAME_SINGLEPLAYER,
+    ENTER_NAME_MULTIPLAYER_1,
+    ENTER_NAME_MULTIPLAYER_2,
+    CHOOSE_DIFFICULTY,
+    HEROES,
+    TROOPS,
+    AMOUNT
+};
+enum class InputState
+{
+    ONE_OF_THREE,
+    GET_NAME,
+    TROOPS,
+    AMOUNT
+};
 
 class TerminalUI
 {
 public:
-    void displayInfo(int info_state) const;
-    std::string handleInput(int input_state) const;
+    void displayInfo(InfoState info_state);
+    std::string handleInput(InputState input_state);
+    void showArmy(Player& player);
+    
+    Catalog& getCatalog();
 private:
+    void showHeroes();
+    void showTroops();
     Catalog _catalog;
-    void showHeroes() const;
-    void showTroops() const;
 };
 
 #endif
