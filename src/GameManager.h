@@ -8,8 +8,18 @@
 #include <string>
 #include <iostream>
 #include "TerminalUI.h"
-#include "GameState.h"
 #include "Player.h"
+
+
+enum class GameState
+{
+    MENU,
+    CHOOSE_DIFFICULTY,
+    PREPARE_ARMY,
+    BATTLE,
+    END
+};
+
 
 class GameManager
 {

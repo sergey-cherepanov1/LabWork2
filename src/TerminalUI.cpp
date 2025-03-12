@@ -174,7 +174,7 @@ void TerminalUI::showTroops()
 void TerminalUI::showArmy(Player& player)
 {
     std::cout << "\n=== " << player.getName() <<"'s Army ===\n";
-    
+
     Hero& hero = player.getArmy().getHero();
     std::cout << hero.getName() << " (Might: " << hero.getMight()
               << ", Mana: " << hero.getMana() << ")\n";
@@ -188,8 +188,11 @@ void TerminalUI::showArmy(Player& player)
     std::array<Troop, 6>& troops = player.getArmy().getTroops();
     for (auto& troop : troops)
     {
-        i++;
-        std::cout << i << ". " << troop.getName() << " (Health: " << troop.getTotalHealth() << ", Attack: " << troop.getTotalAttack() << ", Stamina: " << troop.getMaxStamina() << ", Initiative: " << troop.getInitiative() << ", Might: " << troop.getTotalMight() << ", Amout: " << troop.getAmount() << ")\n";
+        if (troop.getName() != "Default")
+        {
+            i++;
+            std::cout << i << ". " << troop.getName() << " (Health: " << troop.getTotalHealth() << ", Attack: " << troop.getTotalAttack() << ", Stamina: " << troop.getMaxStamina() << ", Initiative: " << troop.getInitiative() << ", Might: " << troop.getTotalMight() << ", Amout: " << troop.getAmount() << ")\n";
+        }
     }
     player.showMightLeft();
 }
@@ -197,4 +200,64 @@ void TerminalUI::showArmy(Player& player)
 Catalog& TerminalUI::getCatalog()
 {
     return _catalog;
+}
+
+Troop TerminalUI::selectTroop(int remaining_might, bool& should_end)
+{
+    should_end = false;
+    Troop selected_troop;
+
+    while (true)
+    {
+        displayInfo(InfoState::TROOPS);
+        int troop_index = std::stoi(handleInput(InputState::TROOPS)) - 1;
+        selected_troop = _catalog.getTroopTemplates()[troop_index];
+        int troop_might = selected_troop.getMight();
+
+        if (troop_might > remaining_might)
+        {
+            std::cout << "Not enough Might to add even one " << selected_troop.getName() << " (Requires: " << troop_might << ", Remaining: " << remaining_might << ").\n";
+
+            bool any_troop_available = false;
+            for (auto& troop : _catalog.getTroopTemplates())
+            {
+                if (troop.getMight() <= remaining_might)
+                {
+                    any_troop_available = true;
+                    break;
+                }
+            }
+            if (!any_troop_available)
+            {
+                std::cout << "No troops can be added with remaining Might (" << remaining_might << "). Proceeding with current army.\n";
+                should_end = true;
+                return selected_troop;
+            }
+            std::cout << "Please select a different troop.\n";
+            continue;
+        }
+
+        int desired_amount = selectTroopAmount(selected_troop, remaining_might);
+        selected_troop.setAmount(desired_amount);
+        break;
+    }
+    return selected_troop;
+}
+
+int TerminalUI::selectTroopAmount(Troop& troop, int remaining_might)
+{
+    int troop_might = troop.getMight();
+    displayInfo(InfoState::AMOUNT);
+    int desired_amount = std::stoi(handleInput(InputState::AMOUNT));
+    int max_affordable_amount = remaining_might / troop_might;
+
+    while (desired_amount * troop_might > remaining_might)
+    {
+        std::cout << "You cannot afford " << desired_amount << " " << troop.getName() 
+                  << " (Requires: " << desired_amount * troop_might << ", Remaining: " << remaining_might << ").\n";
+        std::cout << "Maximum you can take: " << max_affordable_amount << ".\n";
+        std::cout << "Enter a new amount (1-" << max_affordable_amount << "): ";
+        desired_amount = std::stoi(handleInput(InputState::AMOUNT));
+    }
+    return desired_amount;
 }

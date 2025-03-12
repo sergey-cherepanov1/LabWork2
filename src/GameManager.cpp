@@ -86,7 +86,7 @@ void GameManager::update()
             switch (_difficulty)
             {
             case 0: /*Difficulty::EASY*/
-            {   
+            {
                 _player1.getArmy().setMaxMight(5500);
                 break;
             }
@@ -101,50 +101,53 @@ void GameManager::update()
                 break;
             }
             }
-            
-            
+
+
             _ui.displayInfo(InfoState::HEROES);
             int hero_index = std::stoi(_ui.handleInput(InputState::ONE_OF_THREE)) - 1;
-            
             _player1.getArmy().setHero(_ui.getCatalog().getHeroTemplates()[hero_index]);
-            
             _player1.showMightLeft();
             
             for (int position = 0; position < 6; ++position)
             {
-                _ui.displayInfo(InfoState::TROOPS);
-                int troop_index = std::stoi(_ui.handleInput(InputState::TROOPS)) - 1;
-                _ui.displayInfo(InfoState::AMOUNT);
-                int amount = std::stoi(_ui.handleInput(InputState::AMOUNT));
-                Troop troop = _ui.getCatalog().getTroopTemplates()[troop_index];
-                troop.setAmount(amount);
+                int current_might = _player1.getArmy().getCurrentMight();
+                int max_might = _player1.getArmy().getMaxMight();
+                int remaining_might = max_might - current_might;
                 
-                _player1.getArmy().setTroop(position, troop);
+                bool should_end = false;
+                Troop selected_troop = _ui.selectTroop(remaining_might, should_end);
+
+                if (should_end)
+                {
+                    _ui.showArmy(_player1);
+                    _state = GameState::BATTLE;
+                    break;
+                }
+
+                _player1.getArmy().setTroop(position, selected_troop);
+                _player1.showMightLeft();
             }
             _ui.showArmy(_player1);
-            
-            _state = GameState::END;
+            _state = GameState::BATTLE;
             break;
         }
         case 1: /*GameMode::MULTIPLAYER*/
         {
             break;
         }
-        }
 
         break;
+        }
     }
     case GameState::BATTLE:
     {
+        
+        _state = GameState::END;
         break;
     }
     case GameState::END:
     {
-
-        break;
-    }
-    case GameState::REPLAY:
-    {
+        
         break;
     }
     }

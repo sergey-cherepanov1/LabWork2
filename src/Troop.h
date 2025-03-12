@@ -32,7 +32,7 @@ public:
     int getMight();
     std::vector<Effect> getEffects();
     std::string getDescription();
-    
+
     int getTotalHealth();
     int getTotalAttack();
     int getTotalMight();

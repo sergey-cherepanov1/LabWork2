@@ -16,7 +16,7 @@ public:
     Player(std::string name, const Army& army);
     std::string getName();
     Army& getArmy();
-    
+
     void setName(std::string name);
     void showMightLeft();
 private:

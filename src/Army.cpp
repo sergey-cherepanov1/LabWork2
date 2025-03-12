@@ -33,7 +33,7 @@ int Army::getCurrentMight()
     return _current_might;
 }
 
-void Army::setHero(Hero& hero) 
+void Army::setHero(Hero& hero)
 {
     _hero = hero;
 }

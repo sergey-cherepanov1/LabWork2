@@ -12,7 +12,7 @@
 
 enum class InfoState
 {
-    MENU, 
+    MENU,
     ENTER_NAME_SINGLEPLAYER,
     ENTER_NAME_MULTIPLAYER_1,
     ENTER_NAME_MULTIPLAYER_2,
@@ -35,11 +35,13 @@ public:
     void displayInfo(InfoState info_state);
     std::string handleInput(InputState input_state);
     void showArmy(Player& player);
-    
+    Troop selectTroop(int remaining_might, bool& should_end);
+
     Catalog& getCatalog();
 private:
     void showHeroes();
     void showTroops();
+    int selectTroopAmount(Troop& troop, int remaining_might);
     Catalog _catalog;
 };
 
