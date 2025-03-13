@@ -6,6 +6,7 @@
 #define CATALOG_H
 
 #include <vector>
+#include <memory>
 #include "Troop.h"
 #include "Hero.h"
 
@@ -14,11 +15,11 @@ class Catalog
 public:
     Catalog();
     std::vector<Hero>& getHeroTemplates();
-    std::vector<Troop>& getTroopTemplates();
+    std::vector<std::unique_ptr<Troop>>& getTroopTemplates();
 
 private:
     std::vector<Hero> _hero_templates;
-    std::vector<Troop> _troop_templates;
+    std::vector<std::unique_ptr<Troop>> _troop_templates;
 };
 
 #endif

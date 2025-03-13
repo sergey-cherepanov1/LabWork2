@@ -159,25 +159,21 @@ void TerminalUI::showHeroes()
 void TerminalUI::showTroops()
 {
     std::cout << "=== Available Troops ===\n";
-    std::vector<Troop>& troops = _catalog.getTroopTemplates();
+    std::vector<std::unique_ptr<Troop>>& troops = _catalog.getTroopTemplates();
     int i = 0;
-    for (auto troop: troops)
+    for (auto& troop: troops)
     {
         i++;
-        std::cout << i << ". " << troop.getName() << " (Health: " << troop.getHealth()
-                  << ", Attack: " << troop.getAttack() << ", Stamina: " << troop.getMaxStamina()
-                  << ", Initiative: " << troop.getInitiative() << ", Might: " << troop.getMight()
-                  << ")\n";
+        std::cout << i << ". " << troop->getName() << " (Health: " << troop->getHealth() << ", Attack: " << troop->getAttack() << ", Stamina: " << troop->getMaxStamina() << ", Initiative: " << troop->getInitiative() << ", Might: " << troop->getMight() << ")\n";
     }
 }
 
-void TerminalUI::showArmy(Player& player)
+void TerminalUI::showArmy(std::unique_ptr<Player>& player)
 {
-    std::cout << "\n=== " << player.getName() <<"'s Army ===\n";
+    std::cout << "\n=== " << player->getName() <<"'s Army ===\n";
 
-    Hero& hero = player.getArmy().getHero();
-    std::cout << hero.getName() << " (Might: " << hero.getMight()
-              << ", Mana: " << hero.getMana() << ")\n";
+    Hero& hero = player->getArmy().getHero();
+    std::cout << hero.getName() << " (Might: " << hero.getMight() << ", Mana: " << hero.getMana() << ")\n";
     std::cout << "   Spells: \n";
     for (auto& spell : hero.getSpells())
     {
@@ -185,16 +181,16 @@ void TerminalUI::showArmy(Player& player)
     }
     std::cout << "\n\n";
     int i = 0;
-    std::array<Troop, 6>& troops = player.getArmy().getTroops();
+    std::array<std::unique_ptr<Troop>, 6>& troops = player->getArmy().getTroops();
     for (auto& troop : troops)
     {
-        if (troop.getName() != "Default")
+        if (troop->getName() != "Default")
         {
             i++;
-            std::cout << i << ". " << troop.getName() << " (Health: " << troop.getTotalHealth() << ", Attack: " << troop.getTotalAttack() << ", Stamina: " << troop.getMaxStamina() << ", Initiative: " << troop.getInitiative() << ", Might: " << troop.getTotalMight() << ", Amout: " << troop.getAmount() << ")\n";
+            std::cout << i << ". " << troop->getName() << " (Health: " << troop->getTotalHealth() << ", Attack: " << troop->getTotalAttack() << ", Stamina: " << troop->getMaxStamina() << ", Initiative: " << troop->getInitiative() << ", Might: " << troop->getTotalMight() << ", Amout: " << troop->getAmount() << ")\n";
         }
     }
-    player.showMightLeft();
+    player->showMightLeft();
 }
 
 Catalog& TerminalUI::getCatalog()
@@ -202,26 +198,26 @@ Catalog& TerminalUI::getCatalog()
     return _catalog;
 }
 
-Troop TerminalUI::selectTroop(int remaining_might, bool& should_end)
+std::unique_ptr<Troop> TerminalUI::selectTroop(int remaining_might, bool& should_end)
 {
     should_end = false;
-    Troop selected_troop;
+    std::unique_ptr<Troop> selected_troop;
 
     while (true)
     {
         displayInfo(InfoState::TROOPS);
         int troop_index = std::stoi(handleInput(InputState::TROOPS)) - 1;
-        selected_troop = _catalog.getTroopTemplates()[troop_index];
-        int troop_might = selected_troop.getMight();
+        selected_troop = std::make_unique<Troop>(*_catalog.getTroopTemplates()[troop_index]);
+        int troop_might = selected_troop->getMight();
 
         if (troop_might > remaining_might)
         {
-            std::cout << "Not enough Might to add even one " << selected_troop.getName() << " (Requires: " << troop_might << ", Remaining: " << remaining_might << ").\n";
+            std::cout << "\nNot enough Might to add even one " << selected_troop->getName() << " (Requires: " << troop_might << ", Remaining: " << remaining_might << ").\n";
 
             bool any_troop_available = false;
             for (auto& troop : _catalog.getTroopTemplates())
             {
-                if (troop.getMight() <= remaining_might)
+                if (troop->getMight() <= remaining_might)
                 {
                     any_troop_available = true;
                     break;
@@ -231,30 +227,29 @@ Troop TerminalUI::selectTroop(int remaining_might, bool& should_end)
             {
                 std::cout << "No troops can be added with remaining Might (" << remaining_might << "). Proceeding with current army.\n";
                 should_end = true;
-                return selected_troop;
+                return nullptr;
             }
             std::cout << "Please select a different troop.\n";
             continue;
         }
 
         int desired_amount = selectTroopAmount(selected_troop, remaining_might);
-        selected_troop.setAmount(desired_amount);
+        selected_troop->setAmount(desired_amount);
         break;
     }
     return selected_troop;
 }
 
-int TerminalUI::selectTroopAmount(Troop& troop, int remaining_might)
+int TerminalUI::selectTroopAmount(std::unique_ptr<Troop>& troop, int remaining_might)
 {
-    int troop_might = troop.getMight();
+    int troop_might = troop->getMight();
     displayInfo(InfoState::AMOUNT);
     int desired_amount = std::stoi(handleInput(InputState::AMOUNT));
     int max_affordable_amount = remaining_might / troop_might;
 
     while (desired_amount * troop_might > remaining_might)
     {
-        std::cout << "You cannot afford " << desired_amount << " " << troop.getName() 
-                  << " (Requires: " << desired_amount * troop_might << ", Remaining: " << remaining_might << ").\n";
+        std::cout << "You cannot afford " << desired_amount << " " << troop->getName() << " (Requires: " << desired_amount * troop_might << ", Remaining: " << remaining_might << ").\n";
         std::cout << "Maximum you can take: " << max_affordable_amount << ".\n";
         std::cout << "Enter a new amount (1-" << max_affordable_amount << "): ";
         desired_amount = std::stoi(handleInput(InputState::AMOUNT));

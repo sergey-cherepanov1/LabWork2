@@ -13,7 +13,7 @@ class Player
 {
 public:
     Player();
-    Player(std::string name, const Army& army);
+    Player(std::string name, Army&& army);
     std::string getName();
     Army& getArmy();
 

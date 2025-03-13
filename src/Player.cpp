@@ -6,7 +6,7 @@
 
 Player::Player() : _name("Player1"), _army() {}
 
-Player::Player(std::string name, const Army& army) : _name(name), _army(army) {}
+Player::Player(std::string name, Army&& army) : _name(name), _army(std::move(army)) {}
 
 std::string Player::getName()
 {

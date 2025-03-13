@@ -6,6 +6,7 @@
 #define ARMY_H
 
 #include <array>
+#include <memory>
 #include "Hero.h"
 #include "Troop.h"
 
@@ -13,21 +14,21 @@ class Army
 {
 public:
     Army();
-    Army(Hero hero, std::array<Troop, 6> troops, int max_might);
+    Army(Hero hero, std::array<std::unique_ptr<Troop>, 6> troops, int max_might);
 
     Hero& getHero();
-    std::array<Troop, 6>& getTroops();
+    std::array<std::unique_ptr<Troop>, 6>& getTroops();
     bool getStatus();
     int getCurrentMight();
     int getMaxMight();
 
     void setMaxMight(int max_might);
     void setHero(Hero& hero);
-    void setTroop(int position, Troop& troop);
+    void setTroop(int position, std::unique_ptr<Troop> troop);
 
 private:
     Hero _hero;
-    std::array<Troop, 6> _troops;
+    std::array<std::unique_ptr<Troop>, 6> _troops;
     int _max_might;
     int _current_might;
     bool _status;

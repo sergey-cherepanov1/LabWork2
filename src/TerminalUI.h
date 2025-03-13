@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <array>
+#include <memory>
 #include "Catalog.h"
 #include "Player.h"
 
@@ -34,14 +35,14 @@ class TerminalUI
 public:
     void displayInfo(InfoState info_state);
     std::string handleInput(InputState input_state);
-    void showArmy(Player& player);
-    Troop selectTroop(int remaining_might, bool& should_end);
+    void showArmy(std::unique_ptr<Player>& player);
+    std::unique_ptr<Troop> selectTroop(int remaining_might, bool& should_end);
 
     Catalog& getCatalog();
 private:
     void showHeroes();
     void showTroops();
-    int selectTroopAmount(Troop& troop, int remaining_might);
+    int selectTroopAmount(std::unique_ptr<Troop>& troop, int remaining_might);
     Catalog _catalog;
 };
 
