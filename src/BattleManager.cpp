@@ -8,7 +8,7 @@ void BattleManager::run(std::unique_ptr<Player>& player1, std::unique_ptr<Player
 {
     while (player1->getArmy().getStatus() && player2->getArmy().getStatus())
     {
-
+        break;
     }
 }
 

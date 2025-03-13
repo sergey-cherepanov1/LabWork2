@@ -24,7 +24,7 @@ public:
 
     void setMaxMight(int max_might);
     void setHero(Hero& hero);
-    void setTroop(int position, std::unique_ptr<Troop> troop);
+    void setTroop(int position, std::unique_ptr<Troop>& troop);
 
 private:
     Hero _hero;

@@ -47,9 +47,9 @@ void Army::setHero(Hero& hero)
     _hero = hero;
 }
 
-void Army::setTroop(int position, std::unique_ptr<Troop> troop)
+void Army::setTroop(int position, std::unique_ptr<Troop>& troop)
 {
-    _troops[position] = std::move(troop);
+    _troops[position] = std::make_unique<Troop>(*troop);
 }
 
 

@@ -125,7 +125,7 @@ void GameManager::update()
                     break;
                 }
 
-                _player1->getArmy().setTroop(position, std::move(selected_troop));
+                _player1->getArmy().setTroop(position, selected_troop);
                 _player1->showMightLeft();
             }
             _ui.showArmy(_player1);

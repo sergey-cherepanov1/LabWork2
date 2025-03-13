@@ -184,7 +184,7 @@ void TerminalUI::showArmy(std::unique_ptr<Player>& player)
     std::array<std::unique_ptr<Troop>, 6>& troops = player->getArmy().getTroops();
     for (auto& troop : troops)
     {
-        if (troop->getName() != "Default")
+        if (troop != nullptr)
         {
             i++;
             std::cout << i << ". " << troop->getName() << " (Health: " << troop->getTotalHealth() << ", Attack: " << troop->getTotalAttack() << ", Stamina: " << troop->getMaxStamina() << ", Initiative: " << troop->getInitiative() << ", Might: " << troop->getTotalMight() << ", Amout: " << troop->getAmount() << ")\n";
