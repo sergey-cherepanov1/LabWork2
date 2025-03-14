@@ -5,9 +5,12 @@
 #ifndef BATTLEMANAGER_H
 #define BATTLEMANAGER_H
 
+#include <iomanip>
 #include <array>
 #include <vector>
 #include <memory>
+#include "Hero.h"
+#include "Spell.h"
 #include "Troop.h"
 #include "Player.h"
 #include "AI.h"
@@ -19,7 +22,8 @@ public:
 
     void run();
     void fillTheField();
-    
+    void displayField();
+
     std::unique_ptr<Player>& getPlayer1();
     std::unique_ptr<Player>& getPlayer2();
 private:
@@ -27,6 +31,8 @@ private:
     std::unique_ptr<Player> _player2;
     std::array<std::array<std::shared_ptr<Troop>,6>, 6> _field;
     std::vector<std::shared_ptr<Troop>> _queue;
+
+    void printCenteredLine(std::string);
 };
 
 

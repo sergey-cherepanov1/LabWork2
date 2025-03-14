@@ -12,14 +12,14 @@ class Spell
 {
 public:
     Spell();
-    Spell(const std::string& name, int mana_cost, const Effect& effect, const std::string& description);
-    std::string getName() const;
-    int getManaCost() const;
-    Effect getEffect() const;
-    std::string getDescription() const;
+    Spell(std::string name, int cost, Effect effect, std::string description);
+    std::string getName();
+    int getCost();
+    Effect getEffect();
+    std::string getDescription();
 private:
     std::string _name;
-    int _mana_cost;
+    int _cost;
     Effect _effect;
     std::string _description;
 };

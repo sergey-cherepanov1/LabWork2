@@ -147,10 +147,10 @@ void TerminalUI::showHeroes()
         std::cout << i << ". " << hero.getName() << " (Might: " << hero.getMight()
                   << ", Mana: " << hero.getMana() << ")\n";
         std::cout << "   Spells: \n";
-        std::vector<Spell>& spells = hero.getSpells();
+        std::array<Spell, 3>& spells = hero.getSpells();
         for (auto spell: spells)
         {
-            std::cout << "   * " << spell.getName() << "\n   -- Cost: " << spell.getManaCost() << "\n   -- Description: " << spell.getDescription() << "\n";
+            std::cout << "   * " << spell.getName() << "\n   -- Cost: " << spell.getCost() << "\n   -- Description: " << spell.getDescription() << "\n";
         }
         std::cout << "\n\n";
     }
@@ -177,7 +177,7 @@ void TerminalUI::showArmy(std::unique_ptr<Player>& player)
     std::cout << "   Spells: \n";
     for (auto& spell : hero.getSpells())
     {
-        std::cout << "   * " << spell.getName() << "\n   -- Cost: " << spell.getManaCost() << "\n   -- Description: " << spell.getDescription() << "\n";
+        std::cout << "   * " << spell.getName() << "\n   -- Cost: " << spell.getCost() << "\n   -- Description: " << spell.getDescription() << "\n";
     }
     std::cout << "\n\n";
     int i = 0;

@@ -8,17 +8,17 @@ Effect::Effect() : _type(EffectType::HEALTH), _value(0), _duration(0) {}
 
 Effect::Effect(EffectType type, int value, int duration) : _type(type), _value(value), _duration(duration) {}
 
-int Effect::getValue() const
+int Effect::getValue()
 {
     return _value;
 }
 
-int Effect::getDuration() const
+int Effect::getDuration()
 {
     return _duration;
 }
 
-EffectType Effect::getType() const
+EffectType Effect::getType()
 {
     return _type;
 }

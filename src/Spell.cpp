@@ -4,23 +4,23 @@
 
 #include "Spell.h"
 
-Spell::Spell() : _name("Default Spell"), _mana_cost(0), _effect(), _description("") {}
+Spell::Spell() : _name("Default Spell"), _cost(0), _effect(), _description("") {}
 
-Spell::Spell(const std::string& name, int mana_cost, const Effect& effect, const std::string& description) : _name(name), _mana_cost(mana_cost), _effect(effect), _description(description) {}
+Spell::Spell(std::string name, int cost, Effect effect, std::string description) : _name(name), _cost(cost), _effect(effect), _description(description) {}
 
-std::string Spell::getName() const
+std::string Spell::getName()
 {
     return _name;
 }
-int Spell::getManaCost() const
+int Spell::getCost()
 {
-    return _mana_cost;
+    return _cost;
 }
-Effect Spell::getEffect() const
+Effect Spell::getEffect()
 {
     return _effect;
 }
-std::string Spell::getDescription() const
+std::string Spell::getDescription()
 {
     return _description;
 }

@@ -12,9 +12,9 @@ class Effect
 public:
     Effect();
     Effect(EffectType type, int value, int duration);
-    int getValue() const;
-    int getDuration() const;
-    EffectType getType() const;
+    int getValue();
+    int getDuration();
+    EffectType getType();
 
 private:
     EffectType _type;

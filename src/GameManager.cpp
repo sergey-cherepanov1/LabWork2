@@ -144,7 +144,7 @@ void GameManager::update()
         {
         case 0:
         {
-            
+
             _battle.run();
             break;
         }
