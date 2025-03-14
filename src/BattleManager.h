@@ -6,16 +6,27 @@
 #define BATTLEMANAGER_H
 
 #include <array>
+#include <vector>
 #include <memory>
 #include "Troop.h"
 #include "Player.h"
+#include "AI.h"
 
 class BattleManager
 {
 public:
-    void run(std::unique_ptr<Player>& player1, std::unique_ptr<Player>& player2);
+    BattleManager();
+
+    void run();
+    void fillTheField();
+    
+    std::unique_ptr<Player>& getPlayer1();
+    std::unique_ptr<Player>& getPlayer2();
 private:
-    std::array<std::array<std::unique_ptr<Troop>,6>, 6> _field;
+    std::unique_ptr<Player> _player1;
+    std::unique_ptr<Player> _player2;
+    std::array<std::array<std::shared_ptr<Troop>,6>, 6> _field;
+    std::vector<std::shared_ptr<Troop>> _queue;
 };
 
 

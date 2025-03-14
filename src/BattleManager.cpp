@@ -4,11 +4,29 @@
 
 #include "BattleManager.h"
 
-void BattleManager::run(std::unique_ptr<Player>& player1, std::unique_ptr<Player>& player2)
+BattleManager::BattleManager() : _player1(std::make_unique<Player>()), _player2(std::make_unique<AI>()), _field(), _queue() {}
+
+void BattleManager::run()
 {
-    while (player1->getArmy().getStatus() && player2->getArmy().getStatus())
+    while (_player1->getArmy().getStatus() && _player2->getArmy().getStatus())
     {
+        
+        
         break;
     }
 }
 
+void BattleManager::fillTheField()
+{
+  
+}
+
+std::unique_ptr<Player>& BattleManager::getPlayer1()
+{
+    return _player1;
+}
+
+std::unique_ptr<Player>& BattleManager::getPlayer2()
+{
+    return _player2;
+}

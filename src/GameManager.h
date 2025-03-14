@@ -33,8 +33,6 @@ public:
 private:
     GameState _state;
     bool _mode;
-    std::unique_ptr<Player> _player1;
-    std::unique_ptr<Player> _player2;
     int _difficulty;
     TerminalUI _ui;
     BattleManager _battle;

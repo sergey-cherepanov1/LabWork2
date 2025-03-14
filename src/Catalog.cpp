@@ -59,7 +59,7 @@ std::vector<Hero>& Catalog::getHeroTemplates()
     return _hero_templates;
 }
 
-std::vector<std::unique_ptr<Troop>>& Catalog::getTroopTemplates()
+std::vector<std::shared_ptr<Troop>>& Catalog::getTroopTemplates()
 {
     return _troop_templates;
 }

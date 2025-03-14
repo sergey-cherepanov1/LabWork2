@@ -159,7 +159,7 @@ void TerminalUI::showHeroes()
 void TerminalUI::showTroops()
 {
     std::cout << "=== Available Troops ===\n";
-    std::vector<std::unique_ptr<Troop>>& troops = _catalog.getTroopTemplates();
+    std::vector<std::shared_ptr<Troop>>& troops = _catalog.getTroopTemplates();
     int i = 0;
     for (auto& troop: troops)
     {
@@ -181,7 +181,7 @@ void TerminalUI::showArmy(std::unique_ptr<Player>& player)
     }
     std::cout << "\n\n";
     int i = 0;
-    std::array<std::unique_ptr<Troop>, 6>& troops = player->getArmy().getTroops();
+    std::array<std::shared_ptr<Troop>, 6>& troops = player->getArmy().getTroops();
     for (auto& troop : troops)
     {
         if (troop != nullptr)
@@ -198,16 +198,16 @@ Catalog& TerminalUI::getCatalog()
     return _catalog;
 }
 
-std::unique_ptr<Troop> TerminalUI::selectTroop(int remaining_might, bool& should_end)
+std::shared_ptr<Troop> TerminalUI::selectTroop(int remaining_might, bool& should_end)
 {
     should_end = false;
-    std::unique_ptr<Troop> selected_troop;
+    std::shared_ptr<Troop> selected_troop;
 
     while (true)
     {
         displayInfo(InfoState::TROOPS);
         int troop_index = std::stoi(handleInput(InputState::TROOPS)) - 1;
-        selected_troop = std::make_unique<Troop>(*_catalog.getTroopTemplates()[troop_index]);
+        selected_troop = std::make_shared<Troop>(*_catalog.getTroopTemplates()[troop_index]);
         int troop_might = selected_troop->getMight();
 
         if (troop_might > remaining_might)
@@ -240,7 +240,7 @@ std::unique_ptr<Troop> TerminalUI::selectTroop(int remaining_might, bool& should
     return selected_troop;
 }
 
-int TerminalUI::selectTroopAmount(std::unique_ptr<Troop>& troop, int remaining_might)
+int TerminalUI::selectTroopAmount(std::shared_ptr<Troop>& troop, int remaining_might)
 {
     int troop_might = troop->getMight();
     displayInfo(InfoState::AMOUNT);

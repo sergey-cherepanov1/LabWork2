@@ -4,7 +4,7 @@
 
 #include "GameManager.h"
 
-GameManager::GameManager(): _state(GameState::MENU), _mode(0), _player1(std::make_unique<Player>()), _player2(std::make_unique<AI>()), _difficulty(1), _ui(), _battle() {}
+GameManager::GameManager(): _state(GameState::MENU), _mode(0), _difficulty(1), _ui(), _battle() {}
 
 void GameManager::run()
 {
@@ -30,7 +30,7 @@ void GameManager::update()
             _ui.displayInfo(InfoState::ENTER_NAME_SINGLEPLAYER);
             std::string name1 = _ui.handleInput(InputState::GET_NAME);
 
-            _player1->setName(name1);
+            _battle.getPlayer1()->setName(name1);
 
             _state = GameState::CHOOSE_DIFFICULTY;
         }
@@ -41,13 +41,13 @@ void GameManager::update()
             _ui.displayInfo(InfoState::ENTER_NAME_MULTIPLAYER_1);
             std::string name1 = _ui.handleInput(InputState::GET_NAME);
 
-            _player1->setName(name1);
+            _battle.getPlayer1()->setName(name1);
 
             _ui.displayInfo(InfoState::ENTER_NAME_MULTIPLAYER_2);
             std::string name2 = _ui.handleInput(InputState::GET_NAME);
 
-            _player2 = std::make_unique<Player>(name2, Army());
-            _player2->setName(name2);
+            _battle.getPlayer2() = std::make_unique<Player>(name2, Army());
+            _battle.getPlayer2()->setName(name2);
 
             _state = GameState::PREPARE_ARMY;
         }
@@ -88,17 +88,17 @@ void GameManager::update()
             {
             case 0: /*Difficulty::EASY*/
             {
-                _player1->getArmy().setMaxMight(5500);
+                _battle.getPlayer1()->getArmy().setMaxMight(5500);
                 break;
             }
             case 1: /*Difficulty::NORMAL*/
             {
-                _player1->getArmy().setMaxMight(2500);
+                _battle.getPlayer1()->getArmy().setMaxMight(2500);
                 break;
             }
             case 2: /*Difficulty::HARD*/
             {
-                _player1->getArmy().setMaxMight(1000);
+                _battle.getPlayer1()->getArmy().setMaxMight(1000);
                 break;
             }
             }
@@ -106,29 +106,27 @@ void GameManager::update()
 
             _ui.displayInfo(InfoState::HEROES);
             int hero_index = std::stoi(_ui.handleInput(InputState::ONE_OF_THREE)) - 1;
-            _player1->getArmy().setHero(_ui.getCatalog().getHeroTemplates()[hero_index]);
-            _player1->showMightLeft();
+            _battle.getPlayer1()->getArmy().setHero(_ui.getCatalog().getHeroTemplates()[hero_index]);
+            _battle.getPlayer1()->showMightLeft();
 
             for (int position = 0; position < 6; ++position)
             {
-                int current_might = _player1->getArmy().getCurrentMight();
-                int max_might = _player1->getArmy().getMaxMight();
+                int current_might = _battle.getPlayer1()->getArmy().getCurrentMight();
+                int max_might = _battle.getPlayer1()->getArmy().getMaxMight();
                 int remaining_might = max_might - current_might;
 
                 bool should_end = false;
-                std::unique_ptr<Troop> selected_troop = _ui.selectTroop(remaining_might, should_end);
+                std::shared_ptr<Troop> selected_troop = _ui.selectTroop(remaining_might, should_end);
 
                 if (should_end)
                 {
-                    _ui.showArmy(_player1);
-                    _state = GameState::BATTLE;
                     break;
                 }
 
-                _player1->getArmy().setTroop(position, selected_troop);
-                _player1->showMightLeft();
+                _battle.getPlayer1()->getArmy().setTroop(position, selected_troop);
+                _battle.getPlayer1()->showMightLeft();
             }
-            _ui.showArmy(_player1);
+            _ui.showArmy(_battle.getPlayer1());
             _state = GameState::BATTLE;
             break;
         }
@@ -146,12 +144,13 @@ void GameManager::update()
         {
         case 0:
         {
-            _battle.run(_player1, _player2);
+            
+            _battle.run();
             break;
         }
         case 1:
         {
-            _battle.run(_player1, _player2);
+            _battle.run();
             break;
         }
         }
