@@ -18,9 +18,10 @@ public:
     void update();
     void updateEffects();
     void setAmount(int amount);
-
-    int getTotaltHealth();
-    int getTotaltDamage();
+    void setPosition(int x, int y);
+    void setHasAttacked(bool attacked);
+    void setCurrentStamina(int stamina);
+    void setOwner();
 
     std::string getName();
     int getAmount();
@@ -32,6 +33,10 @@ public:
     int getMight();
     std::vector<Effect> getEffects();
     std::string getDescription();
+    int getX();
+    int getY();
+    bool getOwner();
+    bool hasAttacked();
 
     int getTotalHealth();
     int getTotalAttack();
@@ -51,6 +56,10 @@ private:
     int _total_might;
     std::vector<Effect> _effects;
     std::string _description;
+    int _x;
+    int _y;
+    bool _hasAttacked;
+    bool _owner;
 };
 
 #endif

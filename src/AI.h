@@ -6,12 +6,13 @@
 #define AI_H
 
 #include "Player.h"
+#include "Catalog.h"
 
 class AI : public Player
 {
-
-
+public:
+    AI();
+    void setupArmy(Catalog& catalog);
 };
-
 
 #endif

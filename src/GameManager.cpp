@@ -31,6 +31,7 @@ void GameManager::update()
             std::string name1 = _ui.handleInput(InputState::GET_NAME);
 
             _battle.getPlayer1()->setName(name1);
+            _battle.getPlayer2()->setupArmy(_ui.getCatalog());
 
             _state = GameState::CHOOSE_DIFFICULTY;
         }

@@ -8,6 +8,7 @@
 #include <string>
 #include <iostream>
 #include "Army.h"
+#include "Catalog.h"
 
 class Player
 {
@@ -19,6 +20,7 @@ public:
 
     void setName(std::string name);
     void showMightLeft();
+    virtual void setupArmy(Catalog& catalog) {}
 private:
     std::string _name;
     Army _army;
