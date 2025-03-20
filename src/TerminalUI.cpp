@@ -41,9 +41,8 @@ void TerminalUI::displayInfo(InfoState info_state)
         std::cout << "Enter the number of the hero you have chosen: ";
         break;
     case InfoState::TROOPS:
-        std::cout << "\nSelect your 6 troops.\n\n";
+        std::cout << "\n=== Select Your 6 Troops ===\n\n";
         showTroops();
-        std::cout << "\nChoose units in order; they will be placed on the battlefield from top to bottom (1-6).\n" << "Enter the chosen troop number: ";
         break;
     case InfoState::AMOUNT:
         std::cout << "Enter the amount of units for chosen troop: ";
@@ -152,7 +151,7 @@ void TerminalUI::showHeroes()
         {
             std::cout << "   * " << spell.getName() << "\n   -- Cost: " << spell.getCost() << "\n   -- Description: " << spell.getDescription() << "\n";
         }
-        std::cout << "\n\n";
+        std::cout << "\n";
     }
 }
 
@@ -205,7 +204,6 @@ std::shared_ptr<Troop> TerminalUI::selectTroop(int remaining_might, bool& should
 
     while (true)
     {
-        displayInfo(InfoState::TROOPS);
         int troop_index = std::stoi(handleInput(InputState::TROOPS)) - 1;
         selected_troop = std::make_shared<Troop>(*_catalog.getTroopTemplates()[troop_index]);
         int troop_might = selected_troop->getMight();

@@ -3,13 +3,10 @@
 */
 
 #include "Action.h"
-#include <cstdlib>
 
-Action::Action(std::array<std::array<std::shared_ptr<Troop>, 6>, 6>& field) 
-    : _field(field) 
-{}
+Action::Action(std::array<std::array<std::shared_ptr<Troop>, 6>, 6>& field, Player* player1, Player* player2) : _field(field), _player1(player1), _player2(player2) {}
 
-void Action::move(std::shared_ptr<Troop>& troop)
+bool Action::move(std::shared_ptr<Troop>& troop)
 {
     int current_row = troop->getX();
     int current_col = troop->getY();
@@ -17,7 +14,7 @@ void Action::move(std::shared_ptr<Troop>& troop)
     if (troop->getCurrentStamina() <= 0)
     {
         std::cout << "No stamina left to move.\n";
-        return;
+        return false;
     }
 
     int new_row, new_col;
@@ -39,7 +36,7 @@ void Action::move(std::shared_ptr<Troop>& troop)
             new_row = std::stoi(new_row_str);
             new_col = std::stoi(new_col_str);
         }
-        catch (std::exception& e)
+        catch (const std::exception& e)
         {
             std::cout << "Invalid input: Please enter numbers only.\n";
             continue;
@@ -72,6 +69,7 @@ void Action::move(std::shared_ptr<Troop>& troop)
     troop->setPosition(new_row, new_col);
     troop->setCurrentStamina(troop->getCurrentStamina() - (std::abs(new_row - current_row) + std::abs(new_col - current_col)));
     std::cout << troop->getName() << " moved to Row " << new_row << ", Col " << new_col << ".\n";
+    return true;
 }
 
 bool Action::canAttackTarget(std::shared_ptr<Troop>& troop)
@@ -98,12 +96,18 @@ bool Action::canAttackTarget(std::shared_ptr<Troop>& troop)
     return false;
 }
 
-void Action::attack(std::shared_ptr<Troop>& troop)
+bool Action::attack(std::shared_ptr<Troop>& troop)
 {
     if (troop->hasAttacked())
     {
         std::cout << troop->getName() << " has already attacked this turn.\n";
-        return;
+        return false;
+    }
+
+    if (!canAttackTarget(troop))
+    {
+        std::cout << troop->getName() << " has no enemy targets in range to attack.\n";
+        return false;
     }
 
     int x = troop->getX();
@@ -126,7 +130,7 @@ void Action::attack(std::shared_ptr<Troop>& troop)
             target_x = std::stoi(target_row_str);
             target_y = std::stoi(target_col_str);
         }
-        catch (std::exception& e)
+        catch (const std::exception& e)
         {
             std::cout << "Invalid input: Please enter numbers only.\n";
             continue;
@@ -168,7 +172,118 @@ void Action::attack(std::shared_ptr<Troop>& troop)
     }
 
     std::shared_ptr<Troop>& target = _field[target_x][target_y];
-    std::cout << troop->getName() << " attacks " << target->getName() << " at Row " << target_x << ", Col " << target_y << ".\n";
+    troop->attack(target);
     troop->setHasAttacked(true);
+
+    if (target->getAmount() <= 0)
+    {
+        _field[target_x][target_y] = nullptr;
+    }
+    return true;
 }
 
+void Action::castSpell(std::shared_ptr<Troop>& troop)
+{
+    Player* player = troop->getOwner() ? _player2 : _player1;
+    std::array<Spell, 3>& spells = player->getArmy().getHero().getSpells();
+    int mana = player->getArmy().getHero().getMana();
+
+    std::cout << "Available spells (Mana: " << mana << "):\n";
+    for (size_t i = 0; i < spells.size(); ++i)
+    {
+        std::cout << (i + 1) << ". " << spells[i].getName() << " (Cost: " << spells[i].getCost() << ", " << spells[i].getDescription() << ")\n";
+    }
+    std::cout << "Enter spell number (1-" << spells.size() << ") or 0 to cancel: ";
+    std::string spell_input;
+    std::getline(std::cin, spell_input);
+    int spell_index = std::stoi(spell_input) - 1;
+
+    if (spell_index == -1)
+    {
+        std::cout << "Spell casting cancelled.\n";
+        return;
+    }
+    
+    if (spell_index < 0 || spell_index > 2)
+    {
+        std::cout << "Invalid spell number.\n";
+        return;
+    }
+
+    Spell& spell = spells[spell_index];
+    if (spell.getCost() > mana)
+    {
+        std::cout << "Not enough mana to cast " << spell.getName() << ".\n";
+        return;
+    }
+
+    int target_x = -1, target_y = -1;
+    bool valid_target = false;
+    bool is_positive_effect = spell.getEffect().getValue() > 0;
+
+    while (!valid_target)
+    {
+        std::cout << "Enter target Row (0-5): ";
+        std::string target_row_str;
+        std::getline(std::cin, target_row_str);
+        std::cout << "Enter target Col (0-5): ";
+        std::string target_col_str;
+        std::getline(std::cin, target_col_str);
+
+        try
+        {
+            target_x = std::stoi(target_row_str);
+            target_y = std::stoi(target_col_str);
+        }
+        catch (const std::exception& e)
+        {
+            std::cout << "Invalid input: Please enter numbers only.\n";
+            continue;
+        }
+
+        if (target_x < 0 || target_x >= 6 || target_y < 0 || target_y >= 6)
+        {
+            std::cout << "Target out of bounds: Enter Row and Col between 0 and 5.\n";
+            continue;
+        }
+
+        if (!_field[target_x][target_y])
+        {
+            std::cout << "No target at this position.\n";
+            continue;
+        }
+
+        bool target_owner = _field[target_x][target_y]->getOwner();
+        if (is_positive_effect && target_owner != troop->getOwner())
+        {
+            std::cout << "You can only cast this spell on an ally.\n";
+            continue;
+        }
+        if (!is_positive_effect && target_owner == troop->getOwner())
+        {
+            std::cout << "You can only cast this spell on an enemy.\n";
+            continue;
+        }
+
+        valid_target = true;
+    }
+
+    std::shared_ptr<Troop>& target = _field[target_x][target_y];
+    player->getArmy().getHero().setMana(mana - spell.getCost());
+    Effect effect = spell.getEffect();
+    target->addEffect(effect);
+    std::cout << player->getName() << " casts " << spell.getName() << " on " << target->getName() << ".\n";
+    
+    if (effect.getType() == EffectType::HEALTH && target->getAmount() <= 0)
+    {
+        std::cout << target->getName() << " has been defeated!\n";
+        _field[target_x][target_y] = nullptr;
+    }
+}
+
+void Action::skip(std::shared_ptr<Troop>& troop)
+{
+    troop->setHasAttacked(true);
+    troop->setCurrentStamina(0);
+    std::cout << troop->getName() << " skips its turn.\n";
+}

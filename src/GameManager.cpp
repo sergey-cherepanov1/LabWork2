@@ -110,11 +110,15 @@ void GameManager::update()
             _battle.getPlayer1()->getArmy().setHero(_ui.getCatalog().getHeroTemplates()[hero_index]);
             _battle.getPlayer1()->showMightLeft();
 
+            _ui.displayInfo(InfoState::TROOPS);
             for (int position = 0; position < 6; ++position)
             {
                 int current_might = _battle.getPlayer1()->getArmy().getCurrentMight();
                 int max_might = _battle.getPlayer1()->getArmy().getMaxMight();
                 int remaining_might = max_might - current_might;
+
+                std::cout << "\nSelecting troop for position " << (position + 1) << " (Top to Bottom):\n";
+                std::cout << "Enter the chosen troop number (1-15): ";
 
                 bool should_end = false;
                 std::shared_ptr<Troop> selected_troop = _ui.selectTroop(remaining_might, should_end);
@@ -166,4 +170,3 @@ void GameManager::update()
     }
     }
 }
-

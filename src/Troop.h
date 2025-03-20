@@ -7,13 +7,16 @@
 
 #include <string>
 #include <vector>
+#include <algorithm>
+#include <memory>
+#include <iostream>
 #include "Effect.h"
 
 class Troop
 {
 public:
     Troop();
-    Troop(std::string name, int amount, int health, int attack, int max_stamina, int current_stamina, int initiative, int might, std::vector<Effect> effects, std::string description);
+    Troop(std::string name, int amount, int health, int attack, int max_stamina, int initiative, int might, std::vector<Effect> effects, std::string description);
 
     void update();
     void updateEffects();
@@ -42,12 +45,18 @@ public:
     int getTotalAttack();
     int getTotalMight();
 
+    void attack(std::shared_ptr<Troop>& target);
+    void applyEffects();
+    void addEffect(Effect& effect);
+    void resetEffect(Effect& effect);
+
 private:
     std::string _name;
     int _amount;
     int _health;
     int _total_health;
     int _attack;
+    int _base_attack;
     int _total_attck;
     int _max_stamina;
     int _current_stamina;
@@ -60,6 +69,8 @@ private:
     int _y;
     bool _hasAttacked;
     bool _owner;
+
+    void updateAmountFromHealth(int new_total_health);
 };
 
 #endif

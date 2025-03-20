@@ -22,7 +22,7 @@ void AI::setupArmy(Catalog& catalog)
     getArmy().setTroop(0, std::make_shared<Troop>(*troop_templates[1]));
     getArmy().getTroops()[0]->setAmount(99);
     getArmy().getTroops()[0]->setOwner();
-    
+
     getArmy().setTroop(1, std::make_shared<Troop>(*troop_templates[2]));
     getArmy().getTroops()[1]->setAmount(80);
     getArmy().getTroops()[1]->setOwner();

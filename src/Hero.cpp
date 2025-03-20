@@ -29,3 +29,8 @@ std::string Hero::getDescription()
 {
     return _description;
 }
+
+void Hero::setMana(int mana)
+{
+    _mana = mana;
+}

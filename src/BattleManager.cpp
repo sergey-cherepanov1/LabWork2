@@ -4,7 +4,7 @@
 
 #include "BattleManager.h"
 
-BattleManager::BattleManager() : _player1(std::make_unique<Player>()), _player2(std::make_unique<AI>()), _field(), _queue(), _action(_field) {}
+BattleManager::BattleManager() : _player1(std::make_unique<Player>()), _player2(std::make_unique<AI>()), _field(), _queue(), _action(_field, _player1.get(), _player2.get()) {}
 
 void BattleManager::run()
 {
@@ -14,7 +14,7 @@ void BattleManager::run()
         makeQueue();
         displayField();
         turn();
-        break;
+        updateEffects();
     }
 }
 
@@ -22,35 +22,47 @@ void BattleManager::turn()
 {
     for (auto& troop : _queue)
     {
-        int owner = troop->getOwner();
-        std::string player_name = (owner == 0) ? _player1->getName() : _player2->getName();
+        if (troop->getAmount() <= 0) 
+        {
+            continue;
+        }
+        std::string player_name = troop->getOwner() ? _player2->getName() : _player1->getName();
 
         troop->setHasAttacked(false);
         troop->setCurrentStamina(troop->getMaxStamina());
 
-        while (troop->getCurrentStamina() > 0)
+        while (troop->getCurrentStamina() > 0 || !troop->hasAttacked())
         {
             std::cout << "\n=== Turn Start ===\n";
             std::cout << "This is the turn of " << player_name << "'s " << troop->getName() << ".\n";
+            std::cout << "Position: (" << troop->getX() << ", " << troop->getY() << ")\n";
             std::cout << "Remaining stamina: " << troop->getCurrentStamina() << "\n";
             std::cout << "You can:\n";
-            std::cout << "1. Move\n";
-            std::cout << "2. Attack\n";
-            std::cout << "3. Defend\n";
-            std::cout << "4. Cast Spell\n";
-            std::cout << "5. Skip\n";
-            std::cout << "Enter 1, 2, 3, 4 or 5: ";
+            std::cout << "1. Move" << (troop->getCurrentStamina() <= 0 ? " (unavailable)" : "") << "\n";
+            std::cout << "2. Attack" << (troop->hasAttacked() ? " (unavailable)" : (_action.canAttackTarget(troop) ? "" : " (no targets)")) << "\n";
+            std::cout << "3. Cast Spell\n";
+            std::cout << "4. Skip\n";
+            std::cout << "Enter 1, 2, 3, or 4: ";
             std::string action;
             std::getline(std::cin, action);
             try
             {
                 int action_num = std::stoi(action);
-                if (1 <= action_num && action_num <= 5)
+                if (1 <= action_num && action_num <= 4)
                 {
                     switch (action_num)
                     {
                     case 1:
                         _action.move(troop);
+                        break;
+                    case 2:
+                        _action.attack(troop);
+                        break;
+                    case 3:
+                        _action.castSpell(troop);
+                        break;
+                    case 4:
+                        _action.skip(troop);
                         break;
                     }
                 }
@@ -59,30 +71,32 @@ void BattleManager::turn()
                     std::cout << "Invalid input. Please enter 1, 2, 3, 4 or 5.\n";
                 }
             }
-            catch (std::exception& e)
+            catch (const std::exception& e)
             {
                 std::cout << "Invalid input. Please enter 1, 2, 3, 4 or 5.\n";
             }
             std::cout << "==================\n";
             displayField();
+
+            if (troop->getAmount() <= 0)
+            {
+                break;
+            }
         }
     }
 }
 
 void BattleManager::makeQueue()
 {
-
+    _queue.clear();
     for (int i = 0; i < 6; ++i)
     {
-        std::shared_ptr troop1 = _player1->getArmy().getTroops()[i];
-        std::shared_ptr troop2 = _player2->getArmy().getTroops()[i];
-        if (troop1)
+        for (int j = 0; j < 6; ++j)
         {
-            _queue.push_back(troop1);
-        }
-        if (troop2)
-        {
-            _queue.push_back(troop2);
+            if (_field[i][j] && _field[i][j]->getAmount() > 0)
+            {
+                _queue.push_back(_field[i][j]);
+            }
         }
     }
 
@@ -95,6 +109,25 @@ void BattleManager::makeQueue()
         }
         return a->getInitiative() > b->getInitiative();
     });
+}
+
+void BattleManager::updateEffects()
+{
+    for (int i = 0; i < 6; ++i)
+    {
+        for (int j = 0; j < 6; ++j)
+        {
+            if (_field[i][j] && _field[i][j]->getAmount() > 0)
+            {
+                _field[i][j]->applyEffects();
+                if (_field[i][j]->getAmount() <= 0)
+                {
+                    std::cout << _field[i][j]->getName() << " has been defeated!\n";
+                    _field[i][j] = nullptr;
+                }
+            }
+        }
+    }
 }
 
 void BattleManager::fillTheField()
@@ -180,7 +213,8 @@ void BattleManager::displayField()
                 if (!_field[row][col]->getOwner())
                 {
                     owner = "[P1]";
-                } else 
+                }
+                else
                 {
                     owner = "[P2]";
                 }
@@ -241,12 +275,13 @@ void BattleManager::displayField()
         for (int i = 0; i < 6; ++i)
         {
             if (!troop->getOwner())
-                {
-                    owner = "[P1]";
-                } else 
-                {
-                    owner = "[P2]";
-                }
+            {
+                owner = "[P1]";
+            }
+            else
+            {
+                owner = "[P2]";
+            }
         }
         if (t == _queue.size())
         {

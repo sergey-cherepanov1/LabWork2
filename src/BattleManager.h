@@ -38,6 +38,7 @@ private:
     void displayField();
     void makeQueue();
     void turn();
+    void updateEffects();
 };
 
 
