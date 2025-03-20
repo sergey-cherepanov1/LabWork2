@@ -20,7 +20,14 @@ std::array<std::shared_ptr<Troop>, 6>& Army::getTroops()
 
 bool Army::getStatus()
 {
-    return _status;
+    for (int i = 0; i < 6; ++i)
+    {
+        if (_troops[i])
+        {
+            return 1;
+        }
+    }
+    return 0;
 }
 
 int Army::getMaxMight()

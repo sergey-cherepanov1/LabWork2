@@ -4,12 +4,12 @@
 
 #include "BattleManager.h"
 
-BattleManager::BattleManager() : _player1(std::make_unique<Player>()), _player2(std::make_unique<AI>()), _field(), _queue(), _action(_field, _player1.get(), _player2.get()) {}
+BattleManager::BattleManager() : _player1(std::make_unique<Player>()), _player2(std::make_unique<AI>()), _field(), _queue(), _action(_field, _player1.get(), _player2.get()), _battle_status(true) {}
 
 void BattleManager::run()
 {
     fillTheField();
-    while (_player1->getArmy().getStatus() && _player2->getArmy().getStatus())
+    while (_battle_status)
     {
         makeQueue();
         displayField();
@@ -22,7 +22,11 @@ void BattleManager::turn()
 {
     for (auto& troop : _queue)
     {
-        if (troop->getAmount() <= 0) 
+        if (!_battle_status)
+        {
+            break;
+        }
+        if (troop->getAmount() <= 0)
         {
             continue;
         }
@@ -30,7 +34,7 @@ void BattleManager::turn()
 
         troop->setHasAttacked(false);
         troop->setCurrentStamina(troop->getMaxStamina());
-
+        int valid;
         while (troop->getCurrentStamina() > 0 || !troop->hasAttacked())
         {
             std::cout << "\n=== Turn Start ===\n";
@@ -53,27 +57,38 @@ void BattleManager::turn()
                     switch (action_num)
                     {
                     case 1:
-                        _action.move(troop);
+                        valid = _action.move(troop);
                         break;
                     case 2:
-                        _action.attack(troop);
+                        valid = _action.attack(troop);
                         break;
                     case 3:
-                        _action.castSpell(troop);
+                        valid = _action.castSpell(troop);
                         break;
                     case 4:
                         _action.skip(troop);
+                        break;
+                    }
+                    if (valid == 1)
+                    {
+                        continue;
+                    }
+                    if (valid == 2)
+                    {
+                        _battle_status = false;
                         break;
                     }
                 }
                 else
                 {
                     std::cout << "Invalid input. Please enter 1, 2, 3, 4 or 5.\n";
+                    continue;
                 }
             }
             catch (const std::exception& e)
             {
                 std::cout << "Invalid input. Please enter 1, 2, 3, 4 or 5.\n";
+                continue;
             }
             std::cout << "==================\n";
             displayField();
@@ -123,7 +138,25 @@ void BattleManager::updateEffects()
                 if (_field[i][j]->getAmount() <= 0)
                 {
                     std::cout << _field[i][j]->getName() << " has been defeated!\n";
+                    auto target = _field[i][j];
                     _field[i][j] = nullptr;
+
+                    Player* target_player = target->getOwner() ? _player2.get() : _player1.get();
+                    auto& troops = target_player->getArmy().getTroops();
+                    for (auto& troop_ptr : troops)
+                    {
+                        if (troop_ptr == target)
+                        {
+                            troop_ptr = nullptr;
+                            break;
+                        }
+                    }
+                    if (!target_player->getArmy().getStatus())
+                    {
+                        std::cout << target_player->getName() << "'s army has been defeated!\n";
+                        _battle_status = false;
+                        return;
+                    }
                 }
             }
         }
@@ -134,8 +167,8 @@ void BattleManager::fillTheField()
 {
     for (int i = 0; i < 6; ++i)
     {
-        std::shared_ptr troop1 = _player1->getArmy().getTroops()[i];
-        std::shared_ptr troop2 = _player2->getArmy().getTroops()[i];
+        std::shared_ptr<Troop> troop1 = _player1->getArmy().getTroops()[i];
+        std::shared_ptr<Troop> troop2 = _player2->getArmy().getTroops()[i];
         if (troop1)
         {
             _field[i][0] = troop1;

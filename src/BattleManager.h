@@ -32,6 +32,7 @@ private:
     std::array<std::array<std::shared_ptr<Troop>,6>, 6> _field;
     std::vector<std::shared_ptr<Troop>> _queue;
     Action _action;
+    bool _battle_status;
 
     void printCenteredLine(std::string str);
     void fillTheField();

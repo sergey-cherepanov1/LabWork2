@@ -19,7 +19,7 @@ public:
     int getMana();
     std::array<Spell, 3>& getSpells();
     std::string getDescription();
-    
+
     void setMana(int mana);
 private:
     std::string _name;

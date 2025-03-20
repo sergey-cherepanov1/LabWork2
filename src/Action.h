@@ -15,9 +15,9 @@ class Action
 {
 public:
     Action(std::array<std::array<std::shared_ptr<Troop>, 6>, 6>& field, Player* player1, Player* player2);
-    bool move(std::shared_ptr<Troop>& troop);
-    bool attack(std::shared_ptr<Troop>& troop);
-    void castSpell(std::shared_ptr<Troop>& troop);
+    int move(std::shared_ptr<Troop>& troop);
+    int attack(std::shared_ptr<Troop>& troop);
+    int castSpell(std::shared_ptr<Troop>& troop);
     void skip(std::shared_ptr<Troop>& troop);
 
     bool canAttackTarget(std::shared_ptr<Troop>& troop);

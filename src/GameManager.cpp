@@ -165,7 +165,7 @@ void GameManager::update()
     }
     case GameState::END:
     {
-
+        
         break;
     }
     }

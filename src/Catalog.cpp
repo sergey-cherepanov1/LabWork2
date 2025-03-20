@@ -6,7 +6,7 @@
 
 Catalog::Catalog()
 {
-    _hero_templates = 
+    _hero_templates =
     {
         Hero("Roland", 150, 50,
         {
