@@ -30,77 +30,82 @@ void BattleManager::turn()
         {
             continue;
         }
-        std::string player_name = troop->getOwner() ? _player2.getName() : _player1.getName();
+
+        std::string player_name = troop->getOwner() ? (_mode ? _player2.getName() : _ai.getName()) : _player1.getName();
+        std::cout << "\n=== Turn Start ===\n";
+        std::cout << "This is the turn of " << player_name << "'s " << troop->getName() << ".\n";
 
         troop->setHasAttacked(false);
+        troop->setHasCasted(false);
         troop->setCurrentStamina(troop->getMaxStamina());
-        int valid;
-        while (troop->getCurrentStamina() > 0 || !troop->hasAttacked())
+
+        if (troop->getOwner() && !_mode)
         {
-            std::cout << "\n=== Turn Start ===\n";
-            std::cout << "This is the turn of " << player_name << "'s " << troop->getName() << ".\n";
-            std::cout << "Position: (" << troop->getX() << ", " << troop->getY() << ")\n";
-            std::cout << "Remaining stamina: " << troop->getCurrentStamina() << "\n";
-            std::cout << "You can:\n";
-            std::cout << "1. Move" << (troop->getCurrentStamina() <= 0 ? " (unavailable)" : "") << "\n";
-            std::cout << "2. Attack" << (troop->hasAttacked() ? " (unavailable)" : (_action.canAttackTarget(troop) ? "" : " (no targets)")) << "\n";
-            std::cout << "3. Cast Spell\n";
-            std::cout << "4. Skip\n";
-            std::cout << "Enter 1, 2, 3, or 4: ";
-            std::string action;
-            std::getline(std::cin, action);
-            try
+            _ai.makeTurn(troop, _field, _action, _battle_status);
+            displayField();
+        }
+        else
+        {
+            int valid;
+            while (troop->getCurrentStamina() > 0 || !troop->hasAttacked())
             {
-                int action_num = std::stoi(action);
-                if (1 <= action_num && action_num <= 4)
+                std::cout << "Position: (" << troop->getX() << ", " << troop->getY() << ")\n";
+                std::cout << "Remaining stamina: " << troop->getCurrentStamina() << "\n";
+                std::cout << "You can:\n";
+                std::cout << "1. Move" << (troop->getCurrentStamina() <= 0 ? " (unavailable)" : "") << "\n";
+                std::cout << "2. Attack" << (troop->hasAttacked() ? " (unavailable)" : (_action.canAttackTarget(troop) ? "" : " (no targets)")) << "\n";
+                std::cout << "3. Cast Spell" << (troop->hasCasted() ? " (unavailable)" : "") << "\n";
+                std::cout << "4. Skip\n";
+                std::cout << "Enter 1, 2, 3, or 4: ";
+                std::string action;
+                std::getline(std::cin, action);
+                try
                 {
-                    switch (action_num)
+                    int action_num = std::stoi(action);
+                    if (1 <= action_num && action_num <= 4)
                     {
-                    case 1:
-                        valid = _action.move(troop);
-                        break;
-                    case 2:
-                        valid = _action.attack(troop);
-                        break;
-                    case 3:
-                        valid = _action.castSpell(troop);
-                        break;
-                    case 4:
-                        _action.skip(troop);
-                        break;
+                        switch (action_num)
+                        {
+                        case 1:
+                            valid = _action.move(troop);
+                            break;
+                        case 2:
+                            valid = _action.attack(troop);
+                            break;
+                        case 3:
+                            valid = _action.castSpell(troop);
+                            break;
+                        case 4:
+                            _action.skip(troop);
+                            break;
+                        }
+                        if (valid == 1)
+                        {
+                            continue;
+                        }
+                        if (valid == 2)
+                        {
+                            _battle_status = false;
+                            break;
+                        }
                     }
-                    if (valid == 1)
+                    else
                     {
+                        std::cout << "Invalid input. Please enter 1, 2, 3, or 4.\n";
                         continue;
                     }
-                    if (valid == 2)
-                    {
-                        _battle_status = false;
-                        break;
-                    }
                 }
-                else
+                catch (std::exception& e)
                 {
-                    std::cout << "Invalid input. Please enter 1, 2, 3, 4 or 5.\n";
+                    std::cout << "Invalid input. Please enter 1, 2, 3, or 4.\n";
                     continue;
                 }
-            }
-            catch (std::exception& e)
-            {
-                std::cout << "Invalid input. Please enter 1, 2, 3, 4 or 5.\n";
-                continue;
-            }
-            std::cout << "==================\n";
-            displayField();
-
-            if (troop->getAmount() <= 0)
-            {
-                break;
+                std::cout << "==================\n";
+                displayField();
             }
         }
     }
 }
-
 void BattleManager::makeQueue()
 {
     _queue.clear();

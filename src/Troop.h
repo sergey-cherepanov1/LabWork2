@@ -25,6 +25,7 @@ public:
     void setHasAttacked(bool attacked);
     void setCurrentStamina(int stamina);
     void setOwner();
+    void setHasCasted(bool casted);
 
     std::string getName();
     int getAmount();
@@ -40,6 +41,7 @@ public:
     int getY();
     bool getOwner();
     bool hasAttacked();
+    bool hasCasted();
 
     int getTotalHealth();
     int getTotalAttack();
@@ -68,6 +70,7 @@ private:
     int _x;
     int _y;
     bool _hasAttacked;
+    bool _hasCasted;
     bool _owner;
 
     void updateAmountFromHealth(int new_total_health);

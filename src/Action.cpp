@@ -74,6 +74,16 @@ int Action::move(std::shared_ptr<Troop>& troop)
 
 int Action::attack(std::shared_ptr<Troop>& troop)
 {
+    if (troop->hasAttacked())
+     {
+         std::cout << troop->getName() << " has already attacked this turn.\n";
+         return 1;
+     }
+    if (!canAttackTarget(troop))
+    {
+        std::cout << "No valid targets in range.\n";
+        return 1;
+    }
     std::cout << "Enter target Row (0-5): ";
     std::string target_row_str;
     std::getline(std::cin, target_row_str);
@@ -114,6 +124,12 @@ int Action::attack(std::shared_ptr<Troop>& troop, int target_x, int target_y)
 
 int Action::castSpell(std::shared_ptr<Troop>& troop)
 {
+    if (troop->hasCasted())
+    {
+        std::cout << "This troop has already cast a spell this turn.\n";
+        return 1;
+    }    
+    
     Player& player = troop->getOwner() ? _ai : _player1;
     std::array<Spell, 3>& spells = player.getArmy().getHero().getSpells();
     int mana = player.getArmy().getHero().getMana();
@@ -204,7 +220,8 @@ int Action::castSpell(std::shared_ptr<Troop>& troop)
     Effect effect = spell.getEffect();
     target->addEffect(effect);
     std::cout << troop->getName() << " casts " << spell.getName() << " on " << target->getName() << ".\n";
-
+    troop->setHasCasted(true);
+    
     return removeDefeatedTroop(target, target_x, target_y);
 }
 

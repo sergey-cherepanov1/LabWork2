@@ -4,9 +4,9 @@
 
 #include "Troop.h"
 
-Troop::Troop() : _name("Unknown"), _amount(1), _health(0), _attack(0), _base_attack(0), _max_stamina(1), _current_stamina(1), _initiative(0), _might(0), _effects(), _description(""), _x(-1), _y(-1), _hasAttacked(false), _owner(false) {}
+Troop::Troop() : _name("Unknown"), _amount(1), _health(0), _attack(0), _base_attack(0), _max_stamina(1), _current_stamina(1), _initiative(0), _might(0), _effects(), _description(""), _x(-1), _y(-1), _hasAttacked(false), _hasCasted(false), _owner(false) {}
 
-Troop::Troop(std::string name, int amount, int health, int attack, int max_stamina, int initiative, int might, std::vector<Effect> effects, std::string description) : _name(name), _amount(amount), _health(health), _attack(attack), _base_attack(_attack), _max_stamina(max_stamina), _current_stamina(max_stamina), _initiative(initiative), _might(might), _effects(effects), _description(description), _x(-1), _y(-1), _hasAttacked(false) {}
+Troop::Troop(std::string name, int amount, int health, int attack, int max_stamina, int initiative, int might, std::vector<Effect> effects, std::string description) : _name(name), _amount(amount), _health(health), _attack(attack), _base_attack(_attack), _max_stamina(max_stamina), _current_stamina(max_stamina), _initiative(initiative), _might(might), _effects(effects), _description(description), _x(-1), _y(-1), _hasAttacked(false), _hasCasted(false), _owner(false) {}
 
 void Troop::attack(std::shared_ptr<Troop>& target)
 {
@@ -21,10 +21,6 @@ void Troop::attack(std::shared_ptr<Troop>& target)
     std::cout << _name << " deals " << damage << " damage to " << target->getName()
               << ". " << target->getName() << " now has " << target->getTotalHealth()
               << " total health and " << target->getAmount() << " units remaining.\n";
-    if (target->getAmount() == 0)
-    {
-        std::cout << target->getName() << " has been defeated!\n";
-    }
 }
 
 void Troop::updateAmountFromHealth(int new_total_health)
@@ -261,6 +257,11 @@ bool Troop::hasAttacked()
     return _hasAttacked;
 }
 
+bool Troop::hasCasted()
+{
+    return _hasCasted;
+}
+
 void Troop::setPosition(int x, int y)
 {
     _x = x;
@@ -280,4 +281,9 @@ void Troop::setCurrentStamina(int stamina)
 void Troop::setOwner()
 {
     _owner = !_owner;
+}
+
+void Troop::setHasCasted(bool casted)
+{
+    _hasCasted = casted;
 }
