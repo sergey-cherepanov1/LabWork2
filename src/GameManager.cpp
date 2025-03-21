@@ -26,29 +26,30 @@ void GameManager::update()
         if (menu_input =="1")
         {
             _mode = 0; /*GameMode::SINGLEPLAYER*/
-
+            
             _ui.displayInfo(InfoState::ENTER_NAME_SINGLEPLAYER);
             std::string name1 = _ui.handleInput(InputState::GET_NAME);
 
-            _battle.getPlayer1()->setName(name1);
-            _battle.getPlayer2()->setupArmy(_ui.getCatalog());
+            _battle.getPlayer1().setName(name1);
+            _battle.getAI().setupArmy(_ui.getCatalog());
 
             _state = GameState::CHOOSE_DIFFICULTY;
         }
         else if (menu_input == "2")
         {
+            _state = GameState::END;
             _mode = 1; /*GameMode::MULTIPLAYER*/
-
+            _battle.setMode();
+            
             _ui.displayInfo(InfoState::ENTER_NAME_MULTIPLAYER_1);
             std::string name1 = _ui.handleInput(InputState::GET_NAME);
 
-            _battle.getPlayer1()->setName(name1);
+            _battle.getPlayer1().setName(name1);
 
             _ui.displayInfo(InfoState::ENTER_NAME_MULTIPLAYER_2);
             std::string name2 = _ui.handleInput(InputState::GET_NAME);
 
-            _battle.getPlayer2() = std::make_unique<Player>(name2, Army());
-            _battle.getPlayer2()->setName(name2);
+            _battle.getPlayer2().setName(name2);
 
             _state = GameState::PREPARE_ARMY;
         }
@@ -89,17 +90,17 @@ void GameManager::update()
             {
             case 0: /*Difficulty::EASY*/
             {
-                _battle.getPlayer1()->getArmy().setMaxMight(5500);
+                _battle.getPlayer1().getArmy().setMaxMight(5500);
                 break;
             }
             case 1: /*Difficulty::NORMAL*/
             {
-                _battle.getPlayer1()->getArmy().setMaxMight(2500);
+                _battle.getPlayer1().getArmy().setMaxMight(2500);
                 break;
             }
             case 2: /*Difficulty::HARD*/
             {
-                _battle.getPlayer1()->getArmy().setMaxMight(1000);
+                _battle.getPlayer1().getArmy().setMaxMight(1000);
                 break;
             }
             }
@@ -107,14 +108,14 @@ void GameManager::update()
 
             _ui.displayInfo(InfoState::HEROES);
             int hero_index = std::stoi(_ui.handleInput(InputState::ONE_OF_THREE)) - 1;
-            _battle.getPlayer1()->getArmy().setHero(_ui.getCatalog().getHeroTemplates()[hero_index]);
-            _battle.getPlayer1()->showMightLeft();
+            _battle.getPlayer1().getArmy().setHero(_ui.getCatalog().getHeroTemplates()[hero_index]);
+            _battle.getPlayer1().showMightLeft();
 
             _ui.displayInfo(InfoState::TROOPS);
             for (int position = 0; position < 6; ++position)
             {
-                int current_might = _battle.getPlayer1()->getArmy().getCurrentMight();
-                int max_might = _battle.getPlayer1()->getArmy().getMaxMight();
+                int current_might = _battle.getPlayer1().getArmy().getCurrentMight();
+                int max_might = _battle.getPlayer1().getArmy().getMaxMight();
                 int remaining_might = max_might - current_might;
 
                 std::cout << "\nSelecting troop for position " << (position + 1) << " (Top to Bottom):\n";
@@ -128,8 +129,8 @@ void GameManager::update()
                     break;
                 }
 
-                _battle.getPlayer1()->getArmy().setTroop(position, selected_troop);
-                _battle.getPlayer1()->showMightLeft();
+                _battle.getPlayer1().getArmy().setTroop(position, selected_troop);
+                _battle.getPlayer1().showMightLeft();
             }
             _ui.showArmy(_battle.getPlayer1());
             _state = GameState::BATTLE;

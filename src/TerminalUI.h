@@ -35,7 +35,7 @@ class TerminalUI
 public:
     void displayInfo(InfoState info_state);
     std::string handleInput(InputState input_state);
-    void showArmy(std::unique_ptr<Player>& player);
+    void showArmy(Player& player);
     std::shared_ptr<Troop> selectTroop(int remaining_might, bool& should_end);
 
     Catalog& getCatalog();

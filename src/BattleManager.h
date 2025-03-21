@@ -23,16 +23,20 @@ public:
     BattleManager();
 
     void run();
+    void setMode();
 
-    std::unique_ptr<Player>& getPlayer1();
-    std::unique_ptr<Player>& getPlayer2();
+    Player& getPlayer1();
+    Player& getPlayer2();
+    AI& getAI();
 private:
-    std::unique_ptr<Player> _player1;
-    std::unique_ptr<Player> _player2;
+    Player _player1;
+    Player _player2;
+    AI _ai;
     std::array<std::array<std::shared_ptr<Troop>,6>, 6> _field;
     std::vector<std::shared_ptr<Troop>> _queue;
     Action _action;
     bool _battle_status;
+    bool _mode;
 
     void printCenteredLine(std::string str);
     void fillTheField();

@@ -7,6 +7,7 @@
 
 #include "Troop.h"
 #include "Player.h"
+#include "AI.h"
 #include <array>
 #include <memory>
 #include <iostream>
@@ -14,17 +15,24 @@
 class Action
 {
 public:
-    Action(std::array<std::array<std::shared_ptr<Troop>, 6>, 6>& field, Player* player1, Player* player2);
+    Action(std::array<std::array<std::shared_ptr<Troop>, 6>, 6>& field, Player& player1, Player& player2, AI& ai);
+
+    
     int move(std::shared_ptr<Troop>& troop);
+    
     int attack(std::shared_ptr<Troop>& troop);
+    int attack(std::shared_ptr<Troop>& troop, int target_x, int target_y);
+    
     int castSpell(std::shared_ptr<Troop>& troop);
     void skip(std::shared_ptr<Troop>& troop);
 
     bool canAttackTarget(std::shared_ptr<Troop>& troop);
+    int removeDefeatedTroop(std::shared_ptr<Troop>& target, int target_x, int target_y);
 
 private:
     std::array<std::array<std::shared_ptr<Troop>, 6>, 6>& _field;
-    Player* _player1;
-    Player* _player2;
+    Player& _player1;
+    Player& _player2;
+    AI& _ai;
 };
 #endif

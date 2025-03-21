@@ -11,7 +11,7 @@ void TerminalUI::displayInfo(InfoState info_state)
     case InfoState::MENU:
         std::cout << "=== Main Menu ===\n"
                   << "1. Start Game\n"
-                  << "2. Local Multiplayer\n"
+                  << "2. Local Multiplayer (Unavailable)\n"
                   << "3. Exit\n"
                   << "Enter your choice: ";
         break;
@@ -104,7 +104,7 @@ std::string TerminalUI::handleInput(InputState input_state)
                     std::cout << "Please enter a number between 1 and 15: ";
                 }
             }
-            catch (const std::exception&)
+            catch (std::exception&)
             {
                 std::cout << "Invalid input. Please enter a number between 1 and 15: ";
             }
@@ -124,7 +124,7 @@ std::string TerminalUI::handleInput(InputState input_state)
                     std::cout << "Please enter a number between 1 and 99: ";
                 }
             }
-            catch (const std::exception&)
+            catch (std::exception&)
             {
                 std::cout << "Invalid input. Please enter a number between 1 and 99: ";
             }
@@ -140,14 +140,14 @@ void TerminalUI::showHeroes()
     std::cout << "=== Available Heroes ===\n";
     std::vector<Hero>& heroes = _catalog.getHeroTemplates();
     int i = 0;
-    for (auto hero: heroes)
+    for (auto& hero: heroes)
     {
         i++;
         std::cout << i << ". " << hero.getName() << " (Might: " << hero.getMight()
                   << ", Mana: " << hero.getMana() << ")\n";
         std::cout << "   Spells: \n";
         std::array<Spell, 3>& spells = hero.getSpells();
-        for (auto spell: spells)
+        for (auto& spell: spells)
         {
             std::cout << "   * " << spell.getName() << "\n   -- Cost: " << spell.getCost() << "\n   -- Description: " << spell.getDescription() << "\n";
         }
@@ -167,11 +167,11 @@ void TerminalUI::showTroops()
     }
 }
 
-void TerminalUI::showArmy(std::unique_ptr<Player>& player)
+void TerminalUI::showArmy(Player& player)
 {
-    std::cout << "\n=== " << player->getName() <<"'s Army ===\n";
+    std::cout << "\n=== " << player.getName() <<"'s Army ===\n";
 
-    Hero& hero = player->getArmy().getHero();
+    Hero& hero = player.getArmy().getHero();
     std::cout << hero.getName() << " (Might: " << hero.getMight() << ", Mana: " << hero.getMana() << ")\n";
     std::cout << "   Spells: \n";
     for (auto& spell : hero.getSpells())
@@ -180,7 +180,7 @@ void TerminalUI::showArmy(std::unique_ptr<Player>& player)
     }
     std::cout << "\n\n";
     int i = 0;
-    std::array<std::shared_ptr<Troop>, 6>& troops = player->getArmy().getTroops();
+    std::array<std::shared_ptr<Troop>, 6>& troops = player.getArmy().getTroops();
     for (auto& troop : troops)
     {
         if (troop != nullptr)
@@ -189,7 +189,7 @@ void TerminalUI::showArmy(std::unique_ptr<Player>& player)
             std::cout << i << ". " << troop->getName() << " (Health: " << troop->getTotalHealth() << ", Attack: " << troop->getTotalAttack() << ", Stamina: " << troop->getMaxStamina() << ", Initiative: " << troop->getInitiative() << ", Might: " << troop->getTotalMight() << ", Amout: " << troop->getAmount() << ")\n";
         }
     }
-    player->showMightLeft();
+    player.showMightLeft();
 }
 
 Catalog& TerminalUI::getCatalog()

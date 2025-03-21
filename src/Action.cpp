@@ -4,7 +4,7 @@
 
 #include "Action.h"
 
-Action::Action(std::array<std::array<std::shared_ptr<Troop>, 6>, 6>& field, Player* player1, Player* player2) : _field(field), _player1(player1), _player2(player2) {}
+Action::Action(std::array<std::array<std::shared_ptr<Troop>, 6>, 6>& field, Player& player1, Player& player2, AI& ai) : _field(field), _player1(player1), _player2(player2), _ai(ai) {}
 
 int Action::move(std::shared_ptr<Troop>& troop)
 {
@@ -36,7 +36,7 @@ int Action::move(std::shared_ptr<Troop>& troop)
             new_row = std::stoi(new_row_str);
             new_col = std::stoi(new_col_str);
         }
-        catch (const std::exception& e)
+        catch (std::exception& e)
         {
             std::cout << "Invalid input: Please enter numbers only.\n";
             continue;
@@ -72,30 +72,6 @@ int Action::move(std::shared_ptr<Troop>& troop)
     return 0;
 }
 
-bool Action::canAttackTarget(std::shared_ptr<Troop>& troop)
-{
-    int x = troop->getX();
-    int y = troop->getY();
-    bool owner = troop->getOwner();
-
-    for (int dx = -1; dx <= 1; ++dx)
-    {
-        for (int dy = -1; dy <= 1; ++dy)
-        {
-            int new_x = x + dx;
-            int new_y = y + dy;
-            if (new_x >= 0 && new_x < 6 && new_y >= 0 && new_y < 6 && !(dx == 0 && dy == 0))
-            {
-                if (_field[new_x][new_y] && _field[new_x][new_y] != troop && _field[new_x][new_y]->getOwner() != owner)
-                {
-                    return true;
-                }
-            }
-        }
-    }
-    return false;
-}
-
 int Action::attack(std::shared_ptr<Troop>& troop)
 {
     std::cout << "Enter target Row (0-5): ";
@@ -114,7 +90,7 @@ int Action::attack(std::shared_ptr<Troop>& troop)
         return 1;
     }
 
-    auto target = _field[target_x][target_y];
+    std::shared_ptr<Troop> target = _field[target_x][target_y];
     if (target->getOwner() == troop->getOwner())
     {
         std::cout << "Cannot attack allied unit.\n";
@@ -123,37 +99,24 @@ int Action::attack(std::shared_ptr<Troop>& troop)
 
     troop->attack(target);
     troop->setHasAttacked(true);
-    troop->setCurrentStamina(troop->getCurrentStamina() - 1);
 
-    if (target->getAmount() <= 0)
-    {
-        std::cout << target->getName() << " has been defeated!\n";
-        _field[target_x][target_y] = nullptr;
+    return removeDefeatedTroop(target, target_x, target_y);
+}
 
-        Player* target_player = target->getOwner() ? _player2 : _player1;
-        auto& troops = target_player->getArmy().getTroops();
-        for (auto& troop_ptr : troops)
-        {
-            if (troop_ptr == target)
-            {
-                troop_ptr = nullptr;
-                break;
-            }
-        }
-        if (!target_player->getArmy().getStatus())
-        {
-            std::cout << target_player->getName() << "'s army has been defeated!\n";
-            return 2;
-        }
-    }
-    return 0;
+int Action::attack(std::shared_ptr<Troop>& troop, int target_x, int target_y)
+{
+    std::shared_ptr<Troop> target = _field[target_x][target_y];
+    troop->attack(target);
+    troop->setHasAttacked(true);
+
+    return removeDefeatedTroop(target, target_x, target_y);
 }
 
 int Action::castSpell(std::shared_ptr<Troop>& troop)
 {
-    Player* player = troop->getOwner() ? _player2 : _player1;
-    auto& spells = player->getArmy().getHero().getSpells();
-    int mana = player->getArmy().getHero().getMana();
+    Player& player = troop->getOwner() ? _ai : _player1;
+    std::array<Spell, 3>& spells = player.getArmy().getHero().getSpells();
+    int mana = player.getArmy().getHero().getMana();
 
     std::cout << "Available spells (Mana: " << mana << "):\n";
     for (size_t i = 0; i < spells.size(); ++i)
@@ -203,7 +166,7 @@ int Action::castSpell(std::shared_ptr<Troop>& troop)
             target_x = std::stoi(target_row_str);
             target_y = std::stoi(target_col_str);
         }
-        catch (const std::exception& e)
+        catch (std::exception& e)
         {
             std::cout << "Invalid input: Please enter numbers only.\n";
             continue;
@@ -236,35 +199,65 @@ int Action::castSpell(std::shared_ptr<Troop>& troop)
         valid_target = true;
     }
 
-    auto target = _field[target_x][target_y];
-    player->getArmy().getHero().setMana(mana - spell.getCost());
+    std::shared_ptr<Troop> target = _field[target_x][target_y];
+    player.getArmy().getHero().setMana(mana - spell.getCost());
     Effect effect = spell.getEffect();
     target->addEffect(effect);
     std::cout << troop->getName() << " casts " << spell.getName() << " on " << target->getName() << ".\n";
 
-    if (effect.getType() == EffectType::HEALTH && target->getAmount() <= 0)
+    return removeDefeatedTroop(target, target_x, target_y);
+}
+
+bool Action::canAttackTarget(std::shared_ptr<Troop>& troop)
+{
+    int x = troop->getX();
+    int y = troop->getY();
+    bool owner = troop->getOwner();
+
+    for (int dx = -1; dx <= 1; ++dx)
+    {
+        for (int dy = -1; dy <= 1; ++dy)
+        {
+            int new_x = x + dx;
+            int new_y = y + dy;
+            if (new_x >= 0 && new_x < 6 && new_y >= 0 && new_y < 6 && !(dx == 0 && dy == 0))
+            {
+                if (_field[new_x][new_y] && _field[new_x][new_y] != troop && _field[new_x][new_y]->getOwner() != owner)
+                {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+int Action::removeDefeatedTroop(std::shared_ptr<Troop>& target, int target_x, int target_y)
+{
+    if (target->getAmount() <= 0)
     {
         std::cout << target->getName() << " has been defeated!\n";
         _field[target_x][target_y] = nullptr;
 
-        Player* target_player = target->getOwner() ? _player2 : _player1;
-        auto& troops = target_player->getArmy().getTroops();
-        for (auto& troop_ptr : troops)
+        Player& target_player = target->getOwner() ? _ai : _player1;
+        std::array<std::shared_ptr<Troop>, 6>& troops = target_player.getArmy().getTroops();
+        for (auto& troop : troops)
         {
-            if (troop_ptr == target)
+            if (troop == target)
             {
-                troop_ptr = nullptr;
+                troop = nullptr;
                 break;
             }
         }
-        if (!target_player->getArmy().getStatus())
+        if (!target_player.getArmy().getStatus())
         {
-            std::cout << target_player->getName() << "'s army has been defeated!\n";
+            std::cout << target_player.getName() << "'s army has been defeated!\n";
             return 2;
         }
     }
     return 0;
 }
+
 void Action::skip(std::shared_ptr<Troop>& troop)
 {
     troop->setHasAttacked(true);

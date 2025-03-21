@@ -4,9 +4,7 @@
 
 #include "Player.h"
 
-Player::Player() : _name("AI_bot"), _army() {}
-
-Player::Player(std::string name, Army&& army) : _name(name), _army(std::move(army)) {}
+Player::Player() : _name(), _army() {}
 
 std::string Player::getName()
 {

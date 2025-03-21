@@ -4,7 +4,7 @@
 
 #include "BattleManager.h"
 
-BattleManager::BattleManager() : _player1(std::make_unique<Player>()), _player2(std::make_unique<AI>()), _field(), _queue(), _action(_field, _player1.get(), _player2.get()), _battle_status(true) {}
+BattleManager::BattleManager() : _player1(), _player2(), _ai(), _field(), _queue(), _action(_field, _player1, _player2, _ai), _battle_status(true), _mode(false) {}
 
 void BattleManager::run()
 {
@@ -30,7 +30,7 @@ void BattleManager::turn()
         {
             continue;
         }
-        std::string player_name = troop->getOwner() ? _player2->getName() : _player1->getName();
+        std::string player_name = troop->getOwner() ? _player2.getName() : _player1.getName();
 
         troop->setHasAttacked(false);
         troop->setCurrentStamina(troop->getMaxStamina());
@@ -85,7 +85,7 @@ void BattleManager::turn()
                     continue;
                 }
             }
-            catch (const std::exception& e)
+            catch (std::exception& e)
             {
                 std::cout << "Invalid input. Please enter 1, 2, 3, 4 or 5.\n";
                 continue;
@@ -135,28 +135,10 @@ void BattleManager::updateEffects()
             if (_field[i][j] && _field[i][j]->getAmount() > 0)
             {
                 _field[i][j]->applyEffects();
-                if (_field[i][j]->getAmount() <= 0)
+                if (_action.removeDefeatedTroop(_field[i][j], i, j) == 2)
                 {
-                    std::cout << _field[i][j]->getName() << " has been defeated!\n";
-                    auto target = _field[i][j];
-                    _field[i][j] = nullptr;
-
-                    Player* target_player = target->getOwner() ? _player2.get() : _player1.get();
-                    auto& troops = target_player->getArmy().getTroops();
-                    for (auto& troop_ptr : troops)
-                    {
-                        if (troop_ptr == target)
-                        {
-                            troop_ptr = nullptr;
-                            break;
-                        }
-                    }
-                    if (!target_player->getArmy().getStatus())
-                    {
-                        std::cout << target_player->getName() << "'s army has been defeated!\n";
-                        _battle_status = false;
-                        return;
-                    }
+                    _battle_status = false;
+                    return;
                 }
             }
         }
@@ -167,8 +149,17 @@ void BattleManager::fillTheField()
 {
     for (int i = 0; i < 6; ++i)
     {
-        std::shared_ptr<Troop> troop1 = _player1->getArmy().getTroops()[i];
-        std::shared_ptr<Troop> troop2 = _player2->getArmy().getTroops()[i];
+        std::shared_ptr<Troop> troop1 = _player1.getArmy().getTroops()[i];
+        std::shared_ptr<Troop> troop2;
+        if (!_mode)
+        {
+            troop2 = _ai.getArmy().getTroops()[i];
+        } else
+        {
+            troop2 = _player2.getArmy().getTroops()[i];
+            troop2->setOwner();
+        }
+        
         if (troop1)
         {
             _field[i][0] = troop1;
@@ -206,10 +197,10 @@ void BattleManager::displayField()
     int spaces_between = 45;
     int width = 25;
 
-    Hero& hero1 = _player1->getArmy().getHero();
-    Hero& hero2 = _player2->getArmy().getHero();
+    Hero& hero1 = _player1.getArmy().getHero();
+    Hero& hero2 = !_mode ? _ai.getArmy().getHero() : _player2.getArmy().getHero();
 
-    std::cout << std::left << std::setw(width) << ("[P1]" + _player1->getName() + "'s Hero: " + hero1.getName()) << std::string(spaces_between, ' ') << std::setw(width) << ("[P2]" + _player2->getName() + "'s Hero: " + hero2.getName()) << "\n";
+    std::cout << std::left << std::setw(width) << ("[P1]" + _player1.getName() + "'s Hero: " + hero1.getName()) << std::string(spaces_between, ' ') << std::setw(width) << ("[P2]" + _player2.getName() + "'s Hero: " + hero2.getName()) << "\n";
 
     std::cout << std::setw(width) << ("Mana: " + std::to_string(hero1.getMana())) << std::string(spaces_between, ' ') << std::setw(width) << ("Mana: " + std::to_string(hero2.getMana())) << "\n";
 
@@ -328,12 +319,22 @@ void BattleManager::displayField()
 }
 
 
-std::unique_ptr<Player>& BattleManager::getPlayer1()
+Player& BattleManager::getPlayer1()
 {
     return _player1;
 }
 
-std::unique_ptr<Player>& BattleManager::getPlayer2()
+Player& BattleManager::getPlayer2()
 {
     return _player2;
+}
+
+AI& BattleManager::getAI()
+{
+    return _ai;
+}
+
+void BattleManager::setMode()
+{
+    _mode = !_mode;
 }

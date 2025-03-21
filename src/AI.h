@@ -13,6 +13,7 @@ class AI : public Player
 public:
     AI();
     void setupArmy(Catalog& catalog);
+
 };
 
 #endif
