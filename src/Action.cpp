@@ -268,7 +268,6 @@ int Action::removeDefeatedTroop(std::shared_ptr<Troop>& target, int target_x, in
         }
         if (!target_player.getArmy().getStatus())
         {
-            std::cout << target_player.getName() << "'s army has been defeated!\n";
             return 2;
         }
     }

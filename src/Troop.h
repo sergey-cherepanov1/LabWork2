@@ -72,8 +72,6 @@ private:
     bool _hasAttacked;
     bool _hasCasted;
     bool _owner;
-
-    void updateAmountFromHealth(int new_total_health);
 };
 
 #endif

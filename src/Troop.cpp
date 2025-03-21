@@ -4,9 +4,9 @@
 
 #include "Troop.h"
 
-Troop::Troop() : _name("Unknown"), _amount(1), _health(0), _attack(0), _base_attack(0), _max_stamina(1), _current_stamina(1), _initiative(0), _might(0), _effects(), _description(""), _x(-1), _y(-1), _hasAttacked(false), _hasCasted(false), _owner(false) {}
+Troop::Troop() : _name("Unknown"), _amount(1), _health(0), _total_health(0), _attack(0), _base_attack(0), _max_stamina(1), _current_stamina(1), _initiative(0), _might(0), _effects(), _description(""), _x(-1), _y(-1), _hasAttacked(false), _hasCasted(false), _owner(false) {}
 
-Troop::Troop(std::string name, int amount, int health, int attack, int max_stamina, int initiative, int might, std::vector<Effect> effects, std::string description) : _name(name), _amount(amount), _health(health), _attack(attack), _base_attack(_attack), _max_stamina(max_stamina), _current_stamina(max_stamina), _initiative(initiative), _might(might), _effects(effects), _description(description), _x(-1), _y(-1), _hasAttacked(false), _hasCasted(false), _owner(false) {}
+Troop::Troop(std::string name, int amount, int health, int attack, int max_stamina, int initiative, int might, std::vector<Effect> effects, std::string description) : _name(name), _amount(amount), _health(health), _total_health(_health * _amount), _attack(attack), _base_attack(_attack), _max_stamina(max_stamina), _current_stamina(max_stamina), _initiative(initiative), _might(might), _effects(effects), _description(description), _x(-1), _y(-1), _hasAttacked(false), _hasCasted(false), _owner(false) {}
 
 void Troop::attack(std::shared_ptr<Troop>& target)
 {
@@ -17,16 +17,10 @@ void Troop::attack(std::shared_ptr<Troop>& target)
     int damage = getTotalAttack();
     int target_total_health = target->getTotalHealth();
     int new_total_health = std::max(0, target_total_health - damage);
-    target->updateAmountFromHealth(new_total_health);
+    target->_total_health = new_total_health;
     std::cout << _name << " deals " << damage << " damage to " << target->getName()
               << ". " << target->getName() << " now has " << target->getTotalHealth()
               << " total health and " << target->getAmount() << " units remaining.\n";
-}
-
-void Troop::updateAmountFromHealth(int new_total_health)
-{
-    int new_amount = new_total_health > 0 ? (new_total_health + _health - 1) / _health : 0;
-    _amount = new_amount;
 }
 
 void Troop::applyEffects()
@@ -41,8 +35,7 @@ void Troop::applyEffects()
             {
             case EffectType::HEALTH:
             {
-                int new_total_health = std::max(0, getTotalHealth() + effect.getValue());
-                updateAmountFromHealth(new_total_health);
+                _total_health = std::max(0, getTotalHealth() + effect.getValue());
                 effect_name = "health";
                 break;
             }
@@ -55,9 +48,7 @@ void Troop::applyEffects()
                 effect_name = "stamina";
                 break;
             }
-            std::cout << _name << " affected by " << effect_name << ": "
-                      << (effect.getValue() > 0 ? "+" : "") << effect.getValue()
-                      << " (duration: " << effect.getDuration() << ")\n";
+            std::cout << _name << " affected by " << effect_name << ": " << (effect.getValue() > 0 ? "+" : "") << effect.getValue() << " (duration: " << effect.getDuration() << ")\n";
         }
 
         effect.decreaseDuration();
@@ -79,8 +70,7 @@ void Troop::addEffect(Effect& effect)
         {
         case EffectType::HEALTH:
         {
-            int new_total_health = std::max(0, getTotalHealth() + effect.getValue());
-            updateAmountFromHealth(new_total_health);
+            _total_health = std::max(0, getTotalHealth() + effect.getValue());
             effect_name = "health";
             break;
         }
@@ -105,8 +95,7 @@ void Troop::addEffect(Effect& effect)
             {
             case EffectType::HEALTH:
             {
-                int new_total_health = std::max(0, getTotalHealth() + effect.getValue());
-                updateAmountFromHealth(new_total_health);
+                _total_health = std::max(0, getTotalHealth() + effect.getValue());
                 effect_name = "health";
                 break;
             }
@@ -176,7 +165,7 @@ std::string Troop::getName()
 
 int Troop::getAmount()
 {
-    return _amount;
+    return (_total_health + _health - 1) / _health;
 }
 
 int Troop::getHealth()
@@ -222,11 +211,12 @@ std::string Troop::getDescription()
 void Troop::setAmount(int amount)
 {
     _amount = amount;
+    _total_health = _health * _amount;
 }
 
 int Troop::getTotalHealth()
 {
-    return _health * _amount;
+    return _total_health;
 }
 int Troop::getTotalAttack()
 {

@@ -4,11 +4,11 @@
 
 #include "GameManager.h"
 
-GameManager::GameManager(): _state(GameState::MENU), _mode(0), _difficulty(1), _ui(), _battle() {}
+GameManager::GameManager(): _state(GameState::MENU), _mode(0), _difficulty(1), _ui(), _battle(), _status(true) {}
 
 void GameManager::run()
 {
-    while (_state != GameState::END)
+    while (_status)
     {
         update();
     }
@@ -39,6 +39,7 @@ void GameManager::update()
         {
             _state = GameState::END;
             _mode = 1; /*GameMode::MULTIPLAYER*/
+            break;
             _battle.setMode();
             
             _ui.displayInfo(InfoState::ENTER_NAME_MULTIPLAYER_1);
@@ -146,27 +147,36 @@ void GameManager::update()
     }
     case GameState::BATTLE:
     {
-        switch (_mode)
-        {
-        case 0:
-        {
-
-            _battle.run();
-            break;
-        }
-        case 1:
-        {
-            _battle.run();
-            break;
-        }
-        }
-
+        _battle.run();
         _state = GameState::END;
         break;
     }
     case GameState::END:
     {
-        
+        if (_mode)
+        {
+            std::cout << "\n=== Game Over ===\n";
+            std::cout << "Multiplayer mode is not yet implemented. Game terminated.\n";
+            std::cout << "====================\n";
+        }
+        else
+        {
+            std::cout << "\n=== Battle Ended ===\n";
+            Player& player1 = _battle.getPlayer1();
+            Player& ai = _battle.getAI();
+            
+            if (player1.getArmy().getStatus() && !ai.getArmy().getStatus())
+            {
+                std::cout << player1.getName() << " has won the battle!\n";
+            }
+            else if (!player1.getArmy().getStatus() && ai.getArmy().getStatus())
+            {
+                std::cout << ai.getName() << " has won the battle!\n";
+            }
+            
+            std::cout << "====================\n";
+        }
+        _status = false;
         break;
     }
     }

@@ -36,6 +36,7 @@ private:
     int _difficulty;
     TerminalUI _ui;
     BattleManager _battle;
+    bool _status;
 };
 
 
