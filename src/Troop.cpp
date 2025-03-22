@@ -198,7 +198,7 @@ int Troop::getMight()
     return _might;
 }
 
-std::vector<Effect> Troop::getEffects()
+std::vector<Effect>& Troop::getEffects()
 {
     return _effects;
 }

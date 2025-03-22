@@ -35,7 +35,7 @@ public:
     int getCurrentStamina();
     int getInitiative();
     int getMight();
-    std::vector<Effect> getEffects();
+    std::vector<Effect>& getEffects();
     std::string getDescription();
     int getX();
     int getY();
@@ -59,7 +59,6 @@ private:
     int _total_health;
     int _attack;
     int _base_attack;
-    int _total_attck;
     int _max_stamina;
     int _current_stamina;
     int _initiative;
