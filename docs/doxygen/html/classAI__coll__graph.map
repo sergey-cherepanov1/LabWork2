@@ -1,0 +1,4 @@
+<map id="AI" name="AI">
+<area shape="rect" id="node1" title="Represents an artificial intelligence opponent inheriting from Player." alt="" coords="17,80,56,107"/>
+<area shape="rect" id="node2" href="$classPlayer.html" title="Represents a player in the game with a name and an army." alt="" coords="5,5,68,32"/>
+</map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['spell_15',['Spell',['../classSpell.html',1,'']]]
+  ['player_89',['Player',['../classPlayer.html',1,'']]]
 ];

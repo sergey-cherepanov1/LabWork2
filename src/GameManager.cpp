@@ -4,8 +4,14 @@
 
 #include "GameManager.h"
 
+/**
+ * @brief Default constructor for GameManager.
+ */
 GameManager::GameManager(): _state(GameState::MENU), _mode(0), _difficulty(1), _ui(), _battle(), _status(true) {}
 
+/**
+ * @brief Runs the main game loop.
+ */
 void GameManager::run()
 {
     while (_status)
@@ -14,6 +20,9 @@ void GameManager::run()
     }
 }
 
+/**
+ * @brief Updates the game state based on the current state.
+ */
 void GameManager::update()
 {
     switch (_state)

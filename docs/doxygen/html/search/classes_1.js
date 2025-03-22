@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['catalog_10',['Catalog',['../classCatalog.html',1,'']]]
+  ['battlemanager_84',['BattleManager',['../classBattleManager.html',1,'']]]
 ];

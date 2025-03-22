@@ -4,6 +4,9 @@
 
 #include "TerminalUI.h"
 
+/**
+ * @brief Displays information based on the specified state.
+ */
 void TerminalUI::displayInfo(InfoState info_state)
 {
     switch (info_state)
@@ -50,6 +53,9 @@ void TerminalUI::displayInfo(InfoState info_state)
     }
 }
 
+/**
+ * @brief Handles user input based on the expected input type.
+ */
 std::string TerminalUI::handleInput(InputState input_state)
 {
     std::string input;
@@ -135,6 +141,9 @@ std::string TerminalUI::handleInput(InputState input_state)
     return input;
 }
 
+/**
+ * @brief Displays the list of available heroes.
+ */
 void TerminalUI::showHeroes()
 {
     std::cout << "=== Available Heroes ===\n";
@@ -155,6 +164,9 @@ void TerminalUI::showHeroes()
     }
 }
 
+/**
+ * @brief Displays the list of available troops.
+ */
 void TerminalUI::showTroops()
 {
     std::cout << "=== Available Troops ===\n";
@@ -167,6 +179,9 @@ void TerminalUI::showTroops()
     }
 }
 
+/**
+ * @brief Displays the player's army composition.
+ */
 void TerminalUI::showArmy(Player& player)
 {
     std::cout << "\n=== " << player.getName() <<"'s Army ===\n";
@@ -186,17 +201,23 @@ void TerminalUI::showArmy(Player& player)
         if (troop != nullptr)
         {
             i++;
-            std::cout << i << ". " << troop->getName() << " (Health: " << troop->getTotalHealth() << ", Attack: " << troop->getTotalAttack() << ", Stamina: " << troop->getMaxStamina() << ", Initiative: " << troop->getInitiative() << ", Might: " << troop->getTotalMight() << ", Amout: " << troop->getAmount() << ")\n";
+            std::cout << i << ". " << troop->getName() << " (Health: " << troop->getTotalHealth() << ", Attack: " << troop->getTotalAttack() << ", Stamina: " << troop->getMaxStamina() << ", Initiative: " << troop->getInitiative() << ", Might: " << troop->getTotalMight() << ", Amount: " << troop->getAmount() << ")\n";
         }
     }
     player.showMightLeft();
 }
 
+/**
+ * @brief Gets the catalog of available heroes and troops.
+ */
 Catalog& TerminalUI::getCatalog()
 {
     return _catalog;
 }
 
+/**
+ * @brief Selects a troop for the player's army based on remaining might.
+ */
 std::shared_ptr<Troop> TerminalUI::selectTroop(int remaining_might, bool& should_end)
 {
     should_end = false;
@@ -238,6 +259,9 @@ std::shared_ptr<Troop> TerminalUI::selectTroop(int remaining_might, bool& should
     return selected_troop;
 }
 
+/**
+ * @brief Selects the amount of units for a chosen troop.
+ */
 int TerminalUI::selectTroopAmount(std::shared_ptr<Troop>& troop, int remaining_might)
 {
     int troop_might = troop->getMight();

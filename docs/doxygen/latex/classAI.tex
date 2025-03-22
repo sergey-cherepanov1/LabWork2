@@ -1,0 +1,107 @@
+\hypertarget{classAI}{}\doxysection{AI Class Reference}
+\label{classAI}\index{AI@{AI}}
+
+
+Represents an artificial intelligence opponent inheriting from \mbox{\hyperlink{classPlayer}{Player}}.  
+
+
+
+
+{\ttfamily \#include $<$AI.\+h$>$}
+
+
+
+Inheritance diagram for AI\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=127pt]{classAI__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for AI\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=127pt]{classAI__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAI_a64ec60281e9eb8496f16525615db54b7}{AI}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classAI}{AI}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAI_ab3490cd17a3c4497398e1478c56ab05b}{setup\+Army}} (\mbox{\hyperlink{classCatalog}{Catalog}} \&catalog)
+\begin{DoxyCompactList}\small\item\em Sets up the \mbox{\hyperlink{classAI}{AI}}\textquotesingle{}s army using predefined templates. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAI_a700730c88e5103f30a4ace4c57b48da7}{make\+Turn}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ \&troop, std\+::array$<$ std\+::array$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$, 6 $>$, 6 $>$ \&field, \mbox{\hyperlink{classAction}{Action}} \&action, bool \&battle\+\_\+status)
+\begin{DoxyCompactList}\small\item\em Executes the \mbox{\hyperlink{classAI}{AI}}\textquotesingle{}s turn for a specific troop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents an artificial intelligence opponent inheriting from \mbox{\hyperlink{classPlayer}{Player}}. 
+
+Manages the \mbox{\hyperlink{classAI}{AI}}\textquotesingle{}s army setup and turn-\/based actions during the battle. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAI_a64ec60281e9eb8496f16525615db54b7}\label{classAI_a64ec60281e9eb8496f16525615db54b7}} 
+\index{AI@{AI}!AI@{AI}}
+\index{AI@{AI}!AI@{AI}}
+\doxysubsubsection{\texorpdfstring{AI()}{AI()}}
+{\footnotesize\ttfamily AI\+::\+AI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for \mbox{\hyperlink{classAI}{AI}}. 
+
+Initializes the \mbox{\hyperlink{classAI}{AI}} with a default name and inherits \mbox{\hyperlink{classPlayer}{Player}} properties. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAI_a700730c88e5103f30a4ace4c57b48da7}\label{classAI_a700730c88e5103f30a4ace4c57b48da7}} 
+\index{AI@{AI}!makeTurn@{makeTurn}}
+\index{makeTurn@{makeTurn}!AI@{AI}}
+\doxysubsubsection{\texorpdfstring{makeTurn()}{makeTurn()}}
+{\footnotesize\ttfamily void AI\+::make\+Turn (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ \&}]{troop,  }\item[{std\+::array$<$ std\+::array$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$, 6 $>$, 6 $>$ \&}]{field,  }\item[{\mbox{\hyperlink{classAction}{Action}} \&}]{action,  }\item[{bool \&}]{battle\+\_\+status }\end{DoxyParamCaption})}
+
+
+
+Executes the \mbox{\hyperlink{classAI}{AI}}\textquotesingle{}s turn for a specific troop. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em troop} & Shared pointer to the troop making the turn. \\
+\hline
+{\em field} & Reference to the 6x6 battlefield array. \\
+\hline
+{\em action} & Reference to the \mbox{\hyperlink{classAction}{Action}} object for performing actions. \\
+\hline
+{\em battle\+\_\+status} & Reference to the battle status flag. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAI_ab3490cd17a3c4497398e1478c56ab05b}\label{classAI_ab3490cd17a3c4497398e1478c56ab05b}} 
+\index{AI@{AI}!setupArmy@{setupArmy}}
+\index{setupArmy@{setupArmy}!AI@{AI}}
+\doxysubsubsection{\texorpdfstring{setupArmy()}{setupArmy()}}
+{\footnotesize\ttfamily void AI\+::setup\+Army (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatalog}{Catalog}} \&}]{catalog }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Sets up the \mbox{\hyperlink{classAI}{AI}}\textquotesingle{}s army using predefined templates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em catalog} & Reference to the \mbox{\hyperlink{classCatalog}{Catalog}} containing hero and troop templates. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classPlayer_a2004b1984c82cbf0e89779a22b4c4d8f}{Player}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/AI.\+h\item 
+src/AI.\+cpp\end{DoxyCompactItemize}

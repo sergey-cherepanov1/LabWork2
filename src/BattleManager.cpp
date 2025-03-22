@@ -4,8 +4,18 @@
 
 #include "BattleManager.h"
 
+/**
+ * @brief Default constructor for BattleManager.
+ * 
+ * Initializes players, AI, battlefield, and default battle parameters.
+ */
 BattleManager::BattleManager() : _player1(), _player2(), _ai(), _field(), _queue(), _action(_field, _player1, _player2, _ai), _battle_status(true), _mode(false) {}
 
+/**
+ * @brief Runs the main battle loop.
+ * 
+ * Fills the battlefield, manages turns, and updates effects until the battle ends.
+ */
 void BattleManager::run()
 {
     fillTheField();
@@ -18,6 +28,11 @@ void BattleManager::run()
     }
 }
 
+/**
+ * @brief Executes a single turn for all units in the queue.
+ * 
+ * Handles player and AI turns, including movement, attacks, and spell casting.
+ */
 void BattleManager::turn()
 {
     for (auto& troop : _queue)
@@ -106,6 +121,12 @@ void BattleManager::turn()
         }
     }
 }
+
+/**
+ * @brief Creates the turn queue based on unit initiative and might.
+ * 
+ * Sorts units by initiative (descending) and total might as a tiebreaker.
+ */
 void BattleManager::makeQueue()
 {
     _queue.clear();
@@ -131,6 +152,11 @@ void BattleManager::makeQueue()
     });
 }
 
+/**
+ * @brief Updates effects applied to all troops on the battlefield.
+ * 
+ * Applies effects and removes defeated troops, potentially ending the battle.
+ */
 void BattleManager::updateEffects()
 {
     for (int i = 0; i < 6; ++i)
@@ -150,6 +176,11 @@ void BattleManager::updateEffects()
     }
 }
 
+/**
+ * @brief Fills the battlefield with troops from the players' armies.
+ * 
+ * Places Player 1's troops on the left and Player 2/AI's troops on the right.
+ */
 void BattleManager::fillTheField()
 {
     for (int i = 0; i < 6; ++i)
@@ -178,6 +209,10 @@ void BattleManager::fillTheField()
     }
 }
 
+/**
+ * @brief Prints a centered line to the console with padding.
+ * @param str String to be centered and printed.
+ */
 void BattleManager::printCenteredLine(std::string str)
 {
     int total_spaces = 15 - str.length();
@@ -194,7 +229,11 @@ void BattleManager::printCenteredLine(std::string str)
     std::cout << padded_str;
 }
 
-
+/**
+ * @brief Displays the current state of the battlefield.
+ * 
+ * Shows hero stats, spells, field layout, and turn queue.
+ */
 void BattleManager::displayField()
 {
     std::cout << "\n=== Battle Field ===\n\n";
@@ -323,22 +362,36 @@ void BattleManager::displayField()
     }
 }
 
-
+/**
+ * @brief Gets a reference to the first player.
+ * @return Reference to the Player object for Player 1.
+ */
 Player& BattleManager::getPlayer1()
 {
     return _player1;
 }
 
+/**
+ * @brief Gets a reference to the second player.
+ * @return Reference to the Player object for Player 2.
+ */
 Player& BattleManager::getPlayer2()
 {
     return _player2;
 }
 
+/**
+ * @brief Gets a reference to the AI.
+ * @return Reference to the AI object.
+ */
 AI& BattleManager::getAI()
 {
     return _ai;
 }
 
+/**
+ * @brief Sets the game mode by toggling between PvP and PvE.
+ */
 void BattleManager::setMode()
 {
     _mode = !_mode;

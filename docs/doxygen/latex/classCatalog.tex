@@ -1,14 +1,70 @@
 \hypertarget{classCatalog}{}\doxysection{Catalog Class Reference}
 \label{classCatalog}\index{Catalog@{Catalog}}
+
+
+Stores templates for heroes and troops available in the game.  
+
+
+
+
+{\ttfamily \#include $<$Catalog.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{classCatalog_abe0c6f8f87460d4554a89ec7d46e2fd8}{Catalog}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classCatalog}{Catalog}}. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classHero}{Hero}} $>$ \& \mbox{\hyperlink{classCatalog_afa90835a45d7082dace6a052f77abe16}{get\+Hero\+Templates}} ()
+\begin{DoxyCompactList}\small\item\em Gets the vector of hero templates. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ $>$ \& \mbox{\hyperlink{classCatalog_a0db95337f1b79906f3513f8d769361c7}{get\+Troop\+Templates}} ()
+\begin{DoxyCompactList}\small\item\em Gets the vector of troop templates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Stores templates for heroes and troops available in the game. 
+
+Provides access to predefined hero and troop configurations for army setup. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCatalog_abe0c6f8f87460d4554a89ec7d46e2fd8}\label{classCatalog_abe0c6f8f87460d4554a89ec7d46e2fd8}} 
+\index{Catalog@{Catalog}!Catalog@{Catalog}}
+\index{Catalog@{Catalog}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{Catalog()}{Catalog()}}
+{\footnotesize\ttfamily Catalog\+::\+Catalog (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for \mbox{\hyperlink{classCatalog}{Catalog}}. 
+
+Initializes the catalog with predefined hero and troop templates. 
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classCatalog_afa90835a45d7082dace6a052f77abe16}\label{classCatalog_afa90835a45d7082dace6a052f77abe16}} 
-std\+::vector$<$ \mbox{\hyperlink{classHero}{Hero}} $>$ \& {\bfseries get\+Hero\+Templates} ()
-\item 
-\mbox{\Hypertarget{classCatalog_a846cec79ebbeb0e0facdd3779cc96d8d}\label{classCatalog_a846cec79ebbeb0e0facdd3779cc96d8d}} 
-std\+::vector$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ \& {\bfseries get\+Troop\+Templates} ()
-\end{DoxyCompactItemize}
+\index{Catalog@{Catalog}!getHeroTemplates@{getHeroTemplates}}
+\index{getHeroTemplates@{getHeroTemplates}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{getHeroTemplates()}{getHeroTemplates()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classHero}{Hero}} $>$ \& Catalog\+::get\+Hero\+Templates (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the vector of hero templates. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the vector of \mbox{\hyperlink{classHero}{Hero}} objects. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCatalog_a0db95337f1b79906f3513f8d769361c7}\label{classCatalog_a0db95337f1b79906f3513f8d769361c7}} 
+\index{Catalog@{Catalog}!getTroopTemplates@{getTroopTemplates}}
+\index{getTroopTemplates@{getTroopTemplates}!Catalog@{Catalog}}
+\doxysubsubsection{\texorpdfstring{getTroopTemplates()}{getTroopTemplates()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ $>$ \& Catalog\+::get\+Troop\+Templates (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the vector of troop templates. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the vector of shared pointers to \mbox{\hyperlink{classTroop}{Troop}} objects. 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

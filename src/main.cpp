@@ -4,6 +4,10 @@
 
 #include "GameManager.h"
 
+/**
+ * @brief Entry point of the program.
+ * @return Integer indicating program exit status (0 for success).
+ */
 int main()
 {
     GameManager game;

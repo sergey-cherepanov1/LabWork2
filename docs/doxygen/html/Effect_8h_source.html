@@ -77,25 +77,40 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef EFFECT_H</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define EFFECT_H</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">enum</span> EffectType { HEALTH, DEFENSE, ATTACK, STAMINA };</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classEffect.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classEffect.html">Effect</a></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="classEffect.html">Effect</a>();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="classEffect.html">Effect</a>(EffectType type, <span class="keywordtype">int</span> value, <span class="keywordtype">int</span> duration);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">int</span> getValue() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">int</span> getDuration() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    EffectType getType() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    EffectType _type;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">int</span> _value;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">int</span> _duration;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassEffect_html"><div class="ttname"><a href="classEffect.html">Effect</a></div><div class="ttdef"><b>Definition:</b> Effect.h:11</div></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">enum</span> EffectType { HEALTH, ATTACK, STAMINA };</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classEffect.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classEffect.html">Effect</a></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="classEffect.html#a4dae74244f59936a49847da9217b4126">Effect</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classEffect.html#a4dae74244f59936a49847da9217b4126">Effect</a>(EffectType type, <span class="keywordtype">int</span> value, <span class="keywordtype">int</span> duration, <span class="keywordtype">bool</span> <a class="code" href="classEffect.html#a4574da41a95a80fb387535ca34eb23a4">applyEachTurn</a>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classEffect.html#abc668ab74a7f1e6234101f38fbaf2d0b">getValue</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classEffect.html#aff27aa72dcaf221bb4bf6c7b18c93441">getDuration</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    EffectType <a class="code" href="classEffect.html#aeee0d0cdfd7d06928e3049c61bc2d1ae">getType</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classEffect.html#aad4ebb29b9834471071073663f0bf016">decreaseDuration</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classEffect.html#a4574da41a95a80fb387535ca34eb23a4">applyEachTurn</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    EffectType _type; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">int</span> _value; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">int</span> _duration; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">bool</span> _applyEachTurn; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;};</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassEffect_html"><div class="ttname"><a href="classEffect.html">Effect</a></div><div class="ttdoc">Represents an effect that can modify a troop's attributes.</div><div class="ttdef"><b>Definition:</b> Effect.h:21</div></div>
+<div class="ttc" id="aclassEffect_html_a4574da41a95a80fb387535ca34eb23a4"><div class="ttname"><a href="classEffect.html#a4574da41a95a80fb387535ca34eb23a4">Effect::applyEachTurn</a></div><div class="ttdeci">bool applyEachTurn()</div><div class="ttdoc">Checks if the effect applies each turn.</div><div class="ttdef"><b>Definition:</b> Effect.cpp:20</div></div>
+<div class="ttc" id="aclassEffect_html_a4dae74244f59936a49847da9217b4126"><div class="ttname"><a href="classEffect.html#a4dae74244f59936a49847da9217b4126">Effect::Effect</a></div><div class="ttdeci">Effect()</div><div class="ttdoc">Default constructor for Effect.</div><div class="ttdef"><b>Definition:</b> Effect.cpp:10</div></div>
+<div class="ttc" id="aclassEffect_html_aad4ebb29b9834471071073663f0bf016"><div class="ttname"><a href="classEffect.html#aad4ebb29b9834471071073663f0bf016">Effect::decreaseDuration</a></div><div class="ttdeci">void decreaseDuration()</div><div class="ttdoc">Decreases the duration of the effect by 1.</div><div class="ttdef"><b>Definition:</b> Effect.cpp:52</div></div>
+<div class="ttc" id="aclassEffect_html_abc668ab74a7f1e6234101f38fbaf2d0b"><div class="ttname"><a href="classEffect.html#abc668ab74a7f1e6234101f38fbaf2d0b">Effect::getValue</a></div><div class="ttdeci">int getValue()</div><div class="ttdoc">Gets the value of the effect.</div><div class="ttdef"><b>Definition:</b> Effect.cpp:28</div></div>
+<div class="ttc" id="aclassEffect_html_aeee0d0cdfd7d06928e3049c61bc2d1ae"><div class="ttname"><a href="classEffect.html#aeee0d0cdfd7d06928e3049c61bc2d1ae">Effect::getType</a></div><div class="ttdeci">EffectType getType()</div><div class="ttdoc">Gets the type of the effect.</div><div class="ttdef"><b>Definition:</b> Effect.cpp:44</div></div>
+<div class="ttc" id="aclassEffect_html_aff27aa72dcaf221bb4bf6c7b18c93441"><div class="ttname"><a href="classEffect.html#aff27aa72dcaf221bb4bf6c7b18c93441">Effect::getDuration</a></div><div class="ttdeci">int getDuration()</div><div class="ttdoc">Gets the remaining duration of the effect.</div><div class="ttdef"><b>Definition:</b> Effect.cpp:36</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

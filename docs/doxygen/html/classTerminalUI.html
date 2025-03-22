@@ -69,25 +69,171 @@ $(function() {
 <div class="title">TerminalUI Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Manages the terminal-based user interface for the game.  
+ <a href="classTerminalUI.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="TerminalUI_8h_source.html">TerminalUI.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7adb4e62217c47e36f1e71594cbb4664"><td class="memItemLeft" align="right" valign="top"><a id="a7adb4e62217c47e36f1e71594cbb4664"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>displayInfo</b> (InfoState info_state)</td></tr>
+<tr class="memitem:a7adb4e62217c47e36f1e71594cbb4664"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalUI.html#a7adb4e62217c47e36f1e71594cbb4664">displayInfo</a> (InfoState info_state)</td></tr>
+<tr class="memdesc:a7adb4e62217c47e36f1e71594cbb4664"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays information based on the specified state.  <a href="classTerminalUI.html#a7adb4e62217c47e36f1e71594cbb4664">More...</a><br /></td></tr>
 <tr class="separator:a7adb4e62217c47e36f1e71594cbb4664"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2d96b8d6fa2a8ed8eda0cd4e8109203"><td class="memItemLeft" align="right" valign="top"><a id="af2d96b8d6fa2a8ed8eda0cd4e8109203"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>handleInput</b> (InputState input_state)</td></tr>
+<tr class="memitem:af2d96b8d6fa2a8ed8eda0cd4e8109203"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalUI.html#af2d96b8d6fa2a8ed8eda0cd4e8109203">handleInput</a> (InputState input_state)</td></tr>
+<tr class="memdesc:af2d96b8d6fa2a8ed8eda0cd4e8109203"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles user input based on the expected input type.  <a href="classTerminalUI.html#af2d96b8d6fa2a8ed8eda0cd4e8109203">More...</a><br /></td></tr>
 <tr class="separator:af2d96b8d6fa2a8ed8eda0cd4e8109203"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6201806bfb770ccbbfff4e89fd40a8dc"><td class="memItemLeft" align="right" valign="top"><a id="a6201806bfb770ccbbfff4e89fd40a8dc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>showArmy</b> (<a class="el" href="classPlayer.html">Player</a> &amp;player)</td></tr>
+<tr class="memitem:a6201806bfb770ccbbfff4e89fd40a8dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalUI.html#a6201806bfb770ccbbfff4e89fd40a8dc">showArmy</a> (<a class="el" href="classPlayer.html">Player</a> &amp;player)</td></tr>
+<tr class="memdesc:a6201806bfb770ccbbfff4e89fd40a8dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays the player's army composition.  <a href="classTerminalUI.html#a6201806bfb770ccbbfff4e89fd40a8dc">More...</a><br /></td></tr>
 <tr class="separator:a6201806bfb770ccbbfff4e89fd40a8dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6c4d52516f422c23b5739a11fc983f4"><td class="memItemLeft" align="right" valign="top"><a id="af6c4d52516f422c23b5739a11fc983f4"></a>
-<a class="el" href="classTroop.html">Troop</a>&#160;</td><td class="memItemRight" valign="bottom"><b>selectTroop</b> (int remaining_might, bool &amp;should_end)</td></tr>
-<tr class="separator:af6c4d52516f422c23b5739a11fc983f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1c8d2b0ece28f623f264fb0c0426ddc"><td class="memItemLeft" align="right" valign="top"><a id="aa1c8d2b0ece28f623f264fb0c0426ddc"></a>
-<a class="el" href="classCatalog.html">Catalog</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getCatalog</b> ()</td></tr>
+<tr class="memitem:a670ecef710dd43977e76dc6e3c00bbdb"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classTroop.html">Troop</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalUI.html#a670ecef710dd43977e76dc6e3c00bbdb">selectTroop</a> (int remaining_might, bool &amp;should_end)</td></tr>
+<tr class="memdesc:a670ecef710dd43977e76dc6e3c00bbdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selects a troop for the player's army based on remaining might.  <a href="classTerminalUI.html#a670ecef710dd43977e76dc6e3c00bbdb">More...</a><br /></td></tr>
+<tr class="separator:a670ecef710dd43977e76dc6e3c00bbdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1c8d2b0ece28f623f264fb0c0426ddc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCatalog.html">Catalog</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTerminalUI.html#aa1c8d2b0ece28f623f264fb0c0426ddc">getCatalog</a> ()</td></tr>
+<tr class="memdesc:aa1c8d2b0ece28f623f264fb0c0426ddc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the catalog of available heroes and troops.  <a href="classTerminalUI.html#aa1c8d2b0ece28f623f264fb0c0426ddc">More...</a><br /></td></tr>
 <tr class="separator:aa1c8d2b0ece28f623f264fb0c0426ddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Manages the terminal-based user interface for the game. </p>
+<p>Handles displaying information, processing user input, and army selection. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7adb4e62217c47e36f1e71594cbb4664"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7adb4e62217c47e36f1e71594cbb4664">&#9670;&nbsp;</a></span>displayInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TerminalUI::displayInfo </td>
+          <td>(</td>
+          <td class="paramtype">InfoState&#160;</td>
+          <td class="paramname"><em>info_state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Displays information based on the specified state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">info_state</td><td>The type of information to display (e.g., menu, prompts). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa1c8d2b0ece28f623f264fb0c0426ddc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1c8d2b0ece28f623f264fb0c0426ddc">&#9670;&nbsp;</a></span>getCatalog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCatalog.html">Catalog</a> &amp; TerminalUI::getCatalog </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the catalog of available heroes and troops. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the <a class="el" href="classCatalog.html" title="Stores templates for heroes and troops available in the game.">Catalog</a> object. </dd></dl>
+
+</div>
+</div>
+<a id="af2d96b8d6fa2a8ed8eda0cd4e8109203"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2d96b8d6fa2a8ed8eda0cd4e8109203">&#9670;&nbsp;</a></span>handleInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string TerminalUI::handleInput </td>
+          <td>(</td>
+          <td class="paramtype">InputState&#160;</td>
+          <td class="paramname"><em>input_state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles user input based on the expected input type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input_state</td><td>The type of input expected from the user. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>String containing the validated user input. </dd></dl>
+
+</div>
+</div>
+<a id="a670ecef710dd43977e76dc6e3c00bbdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a670ecef710dd43977e76dc6e3c00bbdb">&#9670;&nbsp;</a></span>selectTroop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classTroop.html">Troop</a> &gt; TerminalUI::selectTroop </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>remaining_might</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;&#160;</td>
+          <td class="paramname"><em>should_end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Selects a troop for the player's army based on remaining might. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">remaining_might</td><td>Remaining might available for troop selection. </td></tr>
+    <tr><td class="paramname">should_end</td><td>Reference to a flag indicating if selection should end. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Shared pointer to the selected <a class="el" href="classTroop.html" title="Represents a troop unit in the game with combat attributes and effects.">Troop</a> object, or nullptr if selection ends. </dd></dl>
+
+</div>
+</div>
+<a id="a6201806bfb770ccbbfff4e89fd40a8dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6201806bfb770ccbbfff4e89fd40a8dc">&#9670;&nbsp;</a></span>showArmy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TerminalUI::showArmy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPlayer.html">Player</a> &amp;&#160;</td>
+          <td class="paramname"><em>player</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Displays the player's army composition. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">player</td><td>Reference to the <a class="el" href="classPlayer.html" title="Represents a player in the game with a name and an army.">Player</a> whose army is to be displayed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="TerminalUI_8h_source.html">TerminalUI.h</a></li>
 <li>src/TerminalUI.cpp</li>

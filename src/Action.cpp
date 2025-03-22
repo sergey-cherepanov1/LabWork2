@@ -4,8 +4,14 @@
 
 #include "Action.h"
 
+/**
+ * @brief Constructor for Action.
+ */
 Action::Action(std::array<std::array<std::shared_ptr<Troop>, 6>, 6>& field, Player& player1, Player& player2, AI& ai) : _field(field), _player1(player1), _player2(player2), _ai(ai) {}
 
+/**
+ * @brief Moves a troop to a new position on the battlefield.
+ */
 int Action::move(std::shared_ptr<Troop>& troop)
 {
     int current_row = troop->getX();
@@ -72,6 +78,9 @@ int Action::move(std::shared_ptr<Troop>& troop)
     return 0;
 }
 
+/**
+ * @brief Performs an attack by a troop on a player-selected target.
+ */
 int Action::attack(std::shared_ptr<Troop>& troop)
 {
     if (troop->hasAttacked())
@@ -113,6 +122,9 @@ int Action::attack(std::shared_ptr<Troop>& troop)
     return removeDefeatedTroop(target, target_x, target_y);
 }
 
+/**
+ * @brief Performs an attack by a troop on a specific target (used by AI).
+ */
 int Action::attack(std::shared_ptr<Troop>& troop, int target_x, int target_y)
 {
     std::shared_ptr<Troop> target = _field[target_x][target_y];
@@ -122,6 +134,9 @@ int Action::attack(std::shared_ptr<Troop>& troop, int target_x, int target_y)
     return removeDefeatedTroop(target, target_x, target_y);
 }
 
+/**
+ * @brief Casts a spell by a troop using the hero's abilities.
+ */
 int Action::castSpell(std::shared_ptr<Troop>& troop)
 {
     if (troop->hasCasted())
@@ -225,6 +240,9 @@ int Action::castSpell(std::shared_ptr<Troop>& troop)
     return removeDefeatedTroop(target, target_x, target_y);
 }
 
+/**
+ * @brief Checks if there are valid attack targets within range of a troop.
+ */
 bool Action::canAttackTarget(std::shared_ptr<Troop>& troop)
 {
     int x = troop->getX();
@@ -249,6 +267,9 @@ bool Action::canAttackTarget(std::shared_ptr<Troop>& troop)
     return false;
 }
 
+/**
+ * @brief Removes a defeated troop from the battlefield.
+ */
 int Action::removeDefeatedTroop(std::shared_ptr<Troop>& target, int target_x, int target_y)
 {
     if (target->getAmount() <= 0)
@@ -274,6 +295,9 @@ int Action::removeDefeatedTroop(std::shared_ptr<Troop>& target, int target_x, in
     return 0;
 }
 
+/**
+ * @brief Skips the turn for a troop.
+ */
 void Action::skip(std::shared_ptr<Troop>& troop)
 {
     troop->setHasAttacked(true);

@@ -80,25 +80,36 @@ $(function() {
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;Effect.h&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classSpell.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSpell.html">Spell</a></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="classSpell.html">Spell</a>();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="classSpell.html">Spell</a>(<span class="keyword">const</span> std::string&amp; name, <span class="keywordtype">int</span> mana_cost, <span class="keyword">const</span> <a class="code" href="classEffect.html">Effect</a>&amp; effect, <span class="keyword">const</span> std::string&amp; description);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    std::string getName() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">int</span> getManaCost() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="classEffect.html">Effect</a> getEffect() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    std::string getDescription() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    std::string _name;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">int</span> _mana_cost;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classEffect.html">Effect</a> _effect;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    std::string _description;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classSpell.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSpell.html">Spell</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classSpell.html#a614361c1702859a162e1572030166cb0">Spell</a>();</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassEffect_html"><div class="ttname"><a href="classEffect.html">Effect</a></div><div class="ttdef"><b>Definition:</b> Effect.h:11</div></div>
-<div class="ttc" id="aclassSpell_html"><div class="ttname"><a href="classSpell.html">Spell</a></div><div class="ttdef"><b>Definition:</b> Spell.h:12</div></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classSpell.html#a614361c1702859a162e1572030166cb0">Spell</a>(std::string name, <span class="keywordtype">int</span> cost, <a class="code" href="classEffect.html">Effect</a> effect, std::string description);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    std::string <a class="code" href="classSpell.html#a85454785ad7dc5969fe44ecb6e93610e">getName</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classSpell.html#abea63c2ff1c2244bdb866540d874c247">getCost</a>();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="classEffect.html">Effect</a> <a class="code" href="classSpell.html#afbb63aa05f334ed93a9949fc26661076">getEffect</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    std::string <a class="code" href="classSpell.html#ac6ac1f2def27f6e0ed691dc418729d44">getDescription</a>();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    std::string _name; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">int</span> _cost; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="classEffect.html">Effect</a> _effect; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    std::string _description; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassEffect_html"><div class="ttname"><a href="classEffect.html">Effect</a></div><div class="ttdoc">Represents an effect that can modify a troop's attributes.</div><div class="ttdef"><b>Definition:</b> Effect.h:21</div></div>
+<div class="ttc" id="aclassSpell_html"><div class="ttname"><a href="classSpell.html">Spell</a></div><div class="ttdoc">Represents a magical spell that can be cast by a hero.</div><div class="ttdef"><b>Definition:</b> Spell.h:18</div></div>
+<div class="ttc" id="aclassSpell_html_a614361c1702859a162e1572030166cb0"><div class="ttname"><a href="classSpell.html#a614361c1702859a162e1572030166cb0">Spell::Spell</a></div><div class="ttdeci">Spell()</div><div class="ttdoc">Default constructor for Spell.</div><div class="ttdef"><b>Definition:</b> Spell.cpp:10</div></div>
+<div class="ttc" id="aclassSpell_html_a85454785ad7dc5969fe44ecb6e93610e"><div class="ttname"><a href="classSpell.html#a85454785ad7dc5969fe44ecb6e93610e">Spell::getName</a></div><div class="ttdeci">std::string getName()</div><div class="ttdoc">Gets the name of the spell.</div><div class="ttdef"><b>Definition:</b> Spell.cpp:20</div></div>
+<div class="ttc" id="aclassSpell_html_abea63c2ff1c2244bdb866540d874c247"><div class="ttname"><a href="classSpell.html#abea63c2ff1c2244bdb866540d874c247">Spell::getCost</a></div><div class="ttdeci">int getCost()</div><div class="ttdoc">Gets the mana cost of the spell.</div><div class="ttdef"><b>Definition:</b> Spell.cpp:28</div></div>
+<div class="ttc" id="aclassSpell_html_ac6ac1f2def27f6e0ed691dc418729d44"><div class="ttname"><a href="classSpell.html#ac6ac1f2def27f6e0ed691dc418729d44">Spell::getDescription</a></div><div class="ttdeci">std::string getDescription()</div><div class="ttdoc">Gets the description of the spell.</div><div class="ttdef"><b>Definition:</b> Spell.cpp:44</div></div>
+<div class="ttc" id="aclassSpell_html_afbb63aa05f334ed93a9949fc26661076"><div class="ttname"><a href="classSpell.html#afbb63aa05f334ed93a9949fc26661076">Spell::getEffect</a></div><div class="ttdeci">Effect getEffect()</div><div class="ttdoc">Gets the effect associated with the spell.</div><div class="ttdef"><b>Definition:</b> Spell.cpp:36</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

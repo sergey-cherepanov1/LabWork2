@@ -1,15 +1,65 @@
 \hypertarget{classGameManager}{}\doxysection{Game\+Manager Class Reference}
 \label{classGameManager}\index{GameManager@{GameManager}}
+
+
+Manages the overall game flow and state transitions.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Manager.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classGameManager_abbde8090c24ca199815ba1e85059c96f}\label{classGameManager_abbde8090c24ca199815ba1e85059c96f}} 
-void {\bfseries run} ()
-\item 
-\mbox{\Hypertarget{classGameManager_a7ecc3a14cd9e92f50729b37d1364953f}\label{classGameManager_a7ecc3a14cd9e92f50729b37d1364953f}} 
-void {\bfseries update} ()
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classGameManager_aa0e2424dc1a39d380e5b6605b179bf05}{Game\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classGameManager}{Game\+Manager}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameManager_abbde8090c24ca199815ba1e85059c96f}{run}} ()
+\begin{DoxyCompactList}\small\item\em Runs the main game loop. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameManager_a7ecc3a14cd9e92f50729b37d1364953f}{update}} ()
+\begin{DoxyCompactList}\small\item\em Updates the game state based on the current state. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Manages the overall game flow and state transitions. 
+
+Coordinates the game loop, user interface, and battle management. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGameManager_aa0e2424dc1a39d380e5b6605b179bf05}\label{classGameManager_aa0e2424dc1a39d380e5b6605b179bf05}} 
+\index{GameManager@{GameManager}!GameManager@{GameManager}}
+\index{GameManager@{GameManager}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{GameManager()}{GameManager()}}
+{\footnotesize\ttfamily Game\+Manager\+::\+Game\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for \mbox{\hyperlink{classGameManager}{Game\+Manager}}. 
+
+Initializes the game state to MENU and sets up default parameters. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGameManager_abbde8090c24ca199815ba1e85059c96f}\label{classGameManager_abbde8090c24ca199815ba1e85059c96f}} 
+\index{GameManager@{GameManager}!run@{run}}
+\index{run@{run}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Game\+Manager\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Runs the main game loop. 
+
+Continuously updates the game state until the game ends. \mbox{\Hypertarget{classGameManager_a7ecc3a14cd9e92f50729b37d1364953f}\label{classGameManager_a7ecc3a14cd9e92f50729b37d1364953f}} 
+\index{GameManager@{GameManager}!update@{update}}
+\index{update@{update}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Game\+Manager\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates the game state based on the current state. 
+
+Handles transitions between menu, difficulty selection, army preparation, battle, and end states. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

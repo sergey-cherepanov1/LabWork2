@@ -1,26 +1,157 @@
 \hypertarget{classHero}{}\doxysection{Hero Class Reference}
 \label{classHero}\index{Hero@{Hero}}
+
+
+Represents a hero leading an army with unique abilities and spells.  
+
+
+
+
+{\ttfamily \#include $<$Hero.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classHero_a63c2b35140898521ce686925fab9ac0b}\label{classHero_a63c2b35140898521ce686925fab9ac0b}} 
-{\bfseries Hero} (std\+::string name, int might, int mana, std\+::vector$<$ \mbox{\hyperlink{classSpell}{Spell}} $>$ spells, std\+::string description)
-\item 
-\mbox{\Hypertarget{classHero_ade246d363b9021a7e7aa811bb1410e6d}\label{classHero_ade246d363b9021a7e7aa811bb1410e6d}} 
-std\+::string {\bfseries get\+Name} ()
-\item 
-\mbox{\Hypertarget{classHero_af46b064531083bc4cad23430e9120b20}\label{classHero_af46b064531083bc4cad23430e9120b20}} 
-int {\bfseries get\+Might} ()
-\item 
-\mbox{\Hypertarget{classHero_aac7f5f0cd85828f6b0c9805ffba82c83}\label{classHero_aac7f5f0cd85828f6b0c9805ffba82c83}} 
-int {\bfseries get\+Mana} ()
-\item 
-\mbox{\Hypertarget{classHero_a1f7ea42f3264600a21ab024f805c11fd}\label{classHero_a1f7ea42f3264600a21ab024f805c11fd}} 
-std\+::vector$<$ \mbox{\hyperlink{classSpell}{Spell}} $>$ \& {\bfseries get\+Spells} ()
-\item 
+\mbox{\hyperlink{classHero_ab5920677a4b5cb59d6f513922d037dca}{Hero}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classHero}{Hero}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classHero_aa6cee742dff21316eeb3583e0c75a11f}{Hero}} (std\+::string name, int might, int mana, std\+::array$<$ \mbox{\hyperlink{classSpell}{Spell}}, 3 $>$ spells, std\+::string description)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classHero}{Hero}} with specific parameters. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classHero_ade246d363b9021a7e7aa811bb1410e6d}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Gets the name of the hero. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classHero_af46b064531083bc4cad23430e9120b20}{get\+Might}} ()
+\begin{DoxyCompactList}\small\item\em Gets the might value of the hero. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classHero_aac7f5f0cd85828f6b0c9805ffba82c83}{get\+Mana}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current mana points of the hero. \end{DoxyCompactList}\item 
+std\+::array$<$ \mbox{\hyperlink{classSpell}{Spell}}, 3 $>$ \& \mbox{\hyperlink{classHero_a2ff11b9d34453be15ec5cebb302ec93b}{get\+Spells}} ()
+\begin{DoxyCompactList}\small\item\em Gets the array of spells available to the hero. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classHero_a3490b289b6691d17a5214b113a8c1c89}{get\+Description}} ()
+\begin{DoxyCompactList}\small\item\em Gets the description of the hero. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classHero_a2d2405497d7f0c87120f13b40aac4950}{set\+Mana}} (int mana)
+\begin{DoxyCompactList}\small\item\em Sets the mana points of the hero. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a hero leading an army with unique abilities and spells. 
+
+Stores the hero\textquotesingle{}s name, might, mana, spells, and description. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classHero_ab5920677a4b5cb59d6f513922d037dca}\label{classHero_ab5920677a4b5cb59d6f513922d037dca}} 
+\index{Hero@{Hero}!Hero@{Hero}}
+\index{Hero@{Hero}!Hero@{Hero}}
+\doxysubsubsection{\texorpdfstring{Hero()}{Hero()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Hero\+::\+Hero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for \mbox{\hyperlink{classHero}{Hero}}. 
+
+Initializes a hero with default values. \mbox{\Hypertarget{classHero_aa6cee742dff21316eeb3583e0c75a11f}\label{classHero_aa6cee742dff21316eeb3583e0c75a11f}} 
+\index{Hero@{Hero}!Hero@{Hero}}
+\index{Hero@{Hero}!Hero@{Hero}}
+\doxysubsubsection{\texorpdfstring{Hero()}{Hero()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Hero\+::\+Hero (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{int}]{might,  }\item[{int}]{mana,  }\item[{std\+::array$<$ \mbox{\hyperlink{classSpell}{Spell}}, 3 $>$}]{spells,  }\item[{std\+::string}]{description }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classHero}{Hero}} with specific parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the hero. \\
+\hline
+{\em might} & Might value of the hero. \\
+\hline
+{\em mana} & Mana points of the hero. \\
+\hline
+{\em spells} & Array of 3 spells available to the hero. \\
+\hline
+{\em description} & Description of the hero\textquotesingle{}s background or abilities. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classHero_a3490b289b6691d17a5214b113a8c1c89}\label{classHero_a3490b289b6691d17a5214b113a8c1c89}} 
-std\+::string {\bfseries get\+Description} ()
-\end{DoxyCompactItemize}
+\index{Hero@{Hero}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!Hero@{Hero}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}}
+{\footnotesize\ttfamily std\+::string Hero\+::get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the description of the hero. 
+
+\begin{DoxyReturn}{Returns}
+String containing the hero\textquotesingle{}s description. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHero_aac7f5f0cd85828f6b0c9805ffba82c83}\label{classHero_aac7f5f0cd85828f6b0c9805ffba82c83}} 
+\index{Hero@{Hero}!getMana@{getMana}}
+\index{getMana@{getMana}!Hero@{Hero}}
+\doxysubsubsection{\texorpdfstring{getMana()}{getMana()}}
+{\footnotesize\ttfamily int Hero\+::get\+Mana (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the current mana points of the hero. 
+
+\begin{DoxyReturn}{Returns}
+Integer representing the hero\textquotesingle{}s mana. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHero_af46b064531083bc4cad23430e9120b20}\label{classHero_af46b064531083bc4cad23430e9120b20}} 
+\index{Hero@{Hero}!getMight@{getMight}}
+\index{getMight@{getMight}!Hero@{Hero}}
+\doxysubsubsection{\texorpdfstring{getMight()}{getMight()}}
+{\footnotesize\ttfamily int Hero\+::get\+Might (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the might value of the hero. 
+
+\begin{DoxyReturn}{Returns}
+Integer representing the hero\textquotesingle{}s might. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHero_ade246d363b9021a7e7aa811bb1410e6d}\label{classHero_ade246d363b9021a7e7aa811bb1410e6d}} 
+\index{Hero@{Hero}!getName@{getName}}
+\index{getName@{getName}!Hero@{Hero}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Hero\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the name of the hero. 
+
+\begin{DoxyReturn}{Returns}
+String containing the hero\textquotesingle{}s name. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHero_a2ff11b9d34453be15ec5cebb302ec93b}\label{classHero_a2ff11b9d34453be15ec5cebb302ec93b}} 
+\index{Hero@{Hero}!getSpells@{getSpells}}
+\index{getSpells@{getSpells}!Hero@{Hero}}
+\doxysubsubsection{\texorpdfstring{getSpells()}{getSpells()}}
+{\footnotesize\ttfamily std\+::array$<$ \mbox{\hyperlink{classSpell}{Spell}}, 3 $>$ \& Hero\+::get\+Spells (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the array of spells available to the hero. 
+
+\begin{DoxyReturn}{Returns}
+Reference to an array of 3 \mbox{\hyperlink{classSpell}{Spell}} objects. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHero_a2d2405497d7f0c87120f13b40aac4950}\label{classHero_a2d2405497d7f0c87120f13b40aac4950}} 
+\index{Hero@{Hero}!setMana@{setMana}}
+\index{setMana@{setMana}!Hero@{Hero}}
+\doxysubsubsection{\texorpdfstring{setMana()}{setMana()}}
+{\footnotesize\ttfamily void Hero\+::set\+Mana (\begin{DoxyParamCaption}\item[{int}]{mana }\end{DoxyParamCaption})}
+
+
+
+Sets the mana points of the hero. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mana} & New mana value to set. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

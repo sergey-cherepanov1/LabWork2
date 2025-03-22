@@ -69,22 +69,193 @@ $(function() {
 <div class="title">Effect Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents an effect that can modify a troop's attributes.  
+ <a href="classEffect.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Effect_8h_source.html">Effect.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2257736daed85f7ffb50035eb713dc6f"><td class="memItemLeft" align="right" valign="top"><a id="a2257736daed85f7ffb50035eb713dc6f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Effect</b> (EffectType type, int value, int duration)</td></tr>
-<tr class="separator:a2257736daed85f7ffb50035eb713dc6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f79f0d8f56ef160b152df0cd149c2ea"><td class="memItemLeft" align="right" valign="top"><a id="a9f79f0d8f56ef160b152df0cd149c2ea"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getValue</b> () const</td></tr>
-<tr class="separator:a9f79f0d8f56ef160b152df0cd149c2ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59b346589a8b2de7c0ddbce473e3e61d"><td class="memItemLeft" align="right" valign="top"><a id="a59b346589a8b2de7c0ddbce473e3e61d"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getDuration</b> () const</td></tr>
-<tr class="separator:a59b346589a8b2de7c0ddbce473e3e61d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd58f70aa8804375f846c1a7136ba74d"><td class="memItemLeft" align="right" valign="top"><a id="abd58f70aa8804375f846c1a7136ba74d"></a>
-EffectType&#160;</td><td class="memItemRight" valign="bottom"><b>getType</b> () const</td></tr>
-<tr class="separator:abd58f70aa8804375f846c1a7136ba74d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dae74244f59936a49847da9217b4126"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEffect.html#a4dae74244f59936a49847da9217b4126">Effect</a> ()</td></tr>
+<tr class="memdesc:a4dae74244f59936a49847da9217b4126"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for <a class="el" href="classEffect.html" title="Represents an effect that can modify a troop&#39;s attributes.">Effect</a>.  <a href="classEffect.html#a4dae74244f59936a49847da9217b4126">More...</a><br /></td></tr>
+<tr class="separator:a4dae74244f59936a49847da9217b4126"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf2f20fe5efca1a44c1ffee5978ab520"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEffect.html#acf2f20fe5efca1a44c1ffee5978ab520">Effect</a> (EffectType type, int value, int duration, bool <a class="el" href="classEffect.html#a4574da41a95a80fb387535ca34eb23a4">applyEachTurn</a>)</td></tr>
+<tr class="memdesc:acf2f20fe5efca1a44c1ffee5978ab520"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="classEffect.html" title="Represents an effect that can modify a troop&#39;s attributes.">Effect</a> with specific parameters.  <a href="classEffect.html#acf2f20fe5efca1a44c1ffee5978ab520">More...</a><br /></td></tr>
+<tr class="separator:acf2f20fe5efca1a44c1ffee5978ab520"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc668ab74a7f1e6234101f38fbaf2d0b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEffect.html#abc668ab74a7f1e6234101f38fbaf2d0b">getValue</a> ()</td></tr>
+<tr class="memdesc:abc668ab74a7f1e6234101f38fbaf2d0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the value of the effect.  <a href="classEffect.html#abc668ab74a7f1e6234101f38fbaf2d0b">More...</a><br /></td></tr>
+<tr class="separator:abc668ab74a7f1e6234101f38fbaf2d0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff27aa72dcaf221bb4bf6c7b18c93441"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEffect.html#aff27aa72dcaf221bb4bf6c7b18c93441">getDuration</a> ()</td></tr>
+<tr class="memdesc:aff27aa72dcaf221bb4bf6c7b18c93441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the remaining duration of the effect.  <a href="classEffect.html#aff27aa72dcaf221bb4bf6c7b18c93441">More...</a><br /></td></tr>
+<tr class="separator:aff27aa72dcaf221bb4bf6c7b18c93441"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeee0d0cdfd7d06928e3049c61bc2d1ae"><td class="memItemLeft" align="right" valign="top">EffectType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEffect.html#aeee0d0cdfd7d06928e3049c61bc2d1ae">getType</a> ()</td></tr>
+<tr class="memdesc:aeee0d0cdfd7d06928e3049c61bc2d1ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the type of the effect.  <a href="classEffect.html#aeee0d0cdfd7d06928e3049c61bc2d1ae">More...</a><br /></td></tr>
+<tr class="separator:aeee0d0cdfd7d06928e3049c61bc2d1ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad4ebb29b9834471071073663f0bf016"><td class="memItemLeft" align="right" valign="top"><a id="aad4ebb29b9834471071073663f0bf016"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEffect.html#aad4ebb29b9834471071073663f0bf016">decreaseDuration</a> ()</td></tr>
+<tr class="memdesc:aad4ebb29b9834471071073663f0bf016"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decreases the duration of the effect by 1. <br /></td></tr>
+<tr class="separator:aad4ebb29b9834471071073663f0bf016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4574da41a95a80fb387535ca34eb23a4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEffect.html#a4574da41a95a80fb387535ca34eb23a4">applyEachTurn</a> ()</td></tr>
+<tr class="memdesc:a4574da41a95a80fb387535ca34eb23a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the effect applies each turn.  <a href="classEffect.html#a4574da41a95a80fb387535ca34eb23a4">More...</a><br /></td></tr>
+<tr class="separator:a4574da41a95a80fb387535ca34eb23a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents an effect that can modify a troop's attributes. </p>
+<p>Effects can alter health, attack, or stamina and may persist for multiple turns. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4dae74244f59936a49847da9217b4126"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dae74244f59936a49847da9217b4126">&#9670;&nbsp;</a></span>Effect() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Effect::Effect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default constructor for <a class="el" href="classEffect.html" title="Represents an effect that can modify a troop&#39;s attributes.">Effect</a>. </p>
+<p>Initializes an effect with default values (HEALTH, 0 value, 0 duration). </p>
+
+</div>
+</div>
+<a id="acf2f20fe5efca1a44c1ffee5978ab520"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf2f20fe5efca1a44c1ffee5978ab520">&#9670;&nbsp;</a></span>Effect() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Effect::Effect </td>
+          <td>(</td>
+          <td class="paramtype">EffectType&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>duration</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>applyEachTurn</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor for <a class="el" href="classEffect.html" title="Represents an effect that can modify a troop&#39;s attributes.">Effect</a> with specific parameters. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>Type of the effect (HEALTH, ATTACK, or STAMINA). </td></tr>
+    <tr><td class="paramname">value</td><td>Value of the effect (positive or negative). </td></tr>
+    <tr><td class="paramname">duration</td><td>Number of turns the effect lasts. </td></tr>
+    <tr><td class="paramname">applyEachTurn</td><td>Whether the effect applies every turn or once. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4574da41a95a80fb387535ca34eb23a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4574da41a95a80fb387535ca34eb23a4">&#9670;&nbsp;</a></span>applyEachTurn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Effect::applyEachTurn </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the effect applies each turn. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the effect is applied every turn, false if applied once. </dd></dl>
+
+</div>
+</div>
+<a id="aff27aa72dcaf221bb4bf6c7b18c93441"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff27aa72dcaf221bb4bf6c7b18c93441">&#9670;&nbsp;</a></span>getDuration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Effect::getDuration </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the remaining duration of the effect. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of turns the effect will persist. </dd></dl>
+
+</div>
+</div>
+<a id="aeee0d0cdfd7d06928e3049c61bc2d1ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeee0d0cdfd7d06928e3049c61bc2d1ae">&#9670;&nbsp;</a></span>getType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EffectType Effect::getType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the type of the effect. </p>
+<dl class="section return"><dt>Returns</dt><dd>EffectType enum value (HEALTH, ATTACK, or STAMINA). </dd></dl>
+
+</div>
+</div>
+<a id="abc668ab74a7f1e6234101f38fbaf2d0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc668ab74a7f1e6234101f38fbaf2d0b">&#9670;&nbsp;</a></span>getValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Effect::getValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the value of the effect. </p>
+<dl class="section return"><dt>Returns</dt><dd>Integer value of the effect. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="Effect_8h_source.html">Effect.h</a></li>
 <li>src/Effect.cpp</li>

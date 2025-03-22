@@ -69,37 +69,303 @@ $(function() {
 <div class="title">Army Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents a player's army, consisting of a hero and up to 6 troops.  
+ <a href="classArmy.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Army_8h_source.html">Army.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a70e22509fa75413bd65f98ddf71e958d"><td class="memItemLeft" align="right" valign="top"><a id="a70e22509fa75413bd65f98ddf71e958d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Army</b> (<a class="el" href="classHero.html">Hero</a> hero, std::array&lt; <a class="el" href="classTroop.html">Troop</a>, 6 &gt; troops, int max_might)</td></tr>
-<tr class="separator:a70e22509fa75413bd65f98ddf71e958d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad15473943e2494b253517f9e92a40e98"><td class="memItemLeft" align="right" valign="top"><a id="ad15473943e2494b253517f9e92a40e98"></a>
-<a class="el" href="classHero.html">Hero</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getHero</b> ()</td></tr>
+<tr class="memitem:ae3a3e50665f25ecaa2336245ee625f95"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArmy.html#ae3a3e50665f25ecaa2336245ee625f95">Army</a> ()</td></tr>
+<tr class="memdesc:ae3a3e50665f25ecaa2336245ee625f95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for <a class="el" href="classArmy.html" title="Represents a player&#39;s army, consisting of a hero and up to 6 troops.">Army</a>.  <a href="classArmy.html#ae3a3e50665f25ecaa2336245ee625f95">More...</a><br /></td></tr>
+<tr class="separator:ae3a3e50665f25ecaa2336245ee625f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fcacb92fd55ba937bd79b2621070eb9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArmy.html#a2fcacb92fd55ba937bd79b2621070eb9">Army</a> (<a class="el" href="classHero.html">Hero</a> hero, std::array&lt; std::shared_ptr&lt; <a class="el" href="classTroop.html">Troop</a> &gt;, 6 &gt; troops, int max_might)</td></tr>
+<tr class="memdesc:a2fcacb92fd55ba937bd79b2621070eb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="classArmy.html" title="Represents a player&#39;s army, consisting of a hero and up to 6 troops.">Army</a> with specific parameters.  <a href="classArmy.html#a2fcacb92fd55ba937bd79b2621070eb9">More...</a><br /></td></tr>
+<tr class="separator:a2fcacb92fd55ba937bd79b2621070eb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad15473943e2494b253517f9e92a40e98"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classHero.html">Hero</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArmy.html#ad15473943e2494b253517f9e92a40e98">getHero</a> ()</td></tr>
+<tr class="memdesc:ad15473943e2494b253517f9e92a40e98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the hero leading the army.  <a href="classArmy.html#ad15473943e2494b253517f9e92a40e98">More...</a><br /></td></tr>
 <tr class="separator:ad15473943e2494b253517f9e92a40e98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa788bab9b9eca825057570912db5e246"><td class="memItemLeft" align="right" valign="top"><a id="aa788bab9b9eca825057570912db5e246"></a>
-std::array&lt; <a class="el" href="classTroop.html">Troop</a>, 6 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getTroops</b> ()</td></tr>
-<tr class="separator:aa788bab9b9eca825057570912db5e246"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b1e21aa038fb0f7603756c86d836b25"><td class="memItemLeft" align="right" valign="top"><a id="a4b1e21aa038fb0f7603756c86d836b25"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getStatus</b> ()</td></tr>
+<tr class="memitem:afaa98f9f65e8264dcae451598ec209e0"><td class="memItemLeft" align="right" valign="top">std::array&lt; std::shared_ptr&lt; <a class="el" href="classTroop.html">Troop</a> &gt;, 6 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArmy.html#afaa98f9f65e8264dcae451598ec209e0">getTroops</a> ()</td></tr>
+<tr class="memdesc:afaa98f9f65e8264dcae451598ec209e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the array of troops in the army.  <a href="classArmy.html#afaa98f9f65e8264dcae451598ec209e0">More...</a><br /></td></tr>
+<tr class="separator:afaa98f9f65e8264dcae451598ec209e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b1e21aa038fb0f7603756c86d836b25"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArmy.html#a4b1e21aa038fb0f7603756c86d836b25">getStatus</a> ()</td></tr>
+<tr class="memdesc:a4b1e21aa038fb0f7603756c86d836b25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the status of the army.  <a href="classArmy.html#a4b1e21aa038fb0f7603756c86d836b25">More...</a><br /></td></tr>
 <tr class="separator:a4b1e21aa038fb0f7603756c86d836b25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a10d093e8e6193dfa38464faa095d53"><td class="memItemLeft" align="right" valign="top"><a id="a2a10d093e8e6193dfa38464faa095d53"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getCurrentMight</b> ()</td></tr>
+<tr class="memitem:a2a10d093e8e6193dfa38464faa095d53"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArmy.html#a2a10d093e8e6193dfa38464faa095d53">getCurrentMight</a> ()</td></tr>
+<tr class="memdesc:a2a10d093e8e6193dfa38464faa095d53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current total might of the army.  <a href="classArmy.html#a2a10d093e8e6193dfa38464faa095d53">More...</a><br /></td></tr>
 <tr class="separator:a2a10d093e8e6193dfa38464faa095d53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d9c701cb28275052fa5c749072adb92"><td class="memItemLeft" align="right" valign="top"><a id="a2d9c701cb28275052fa5c749072adb92"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getMaxMight</b> ()</td></tr>
+<tr class="memitem:a2d9c701cb28275052fa5c749072adb92"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArmy.html#a2d9c701cb28275052fa5c749072adb92">getMaxMight</a> ()</td></tr>
+<tr class="memdesc:a2d9c701cb28275052fa5c749072adb92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the maximum allowed might for the army.  <a href="classArmy.html#a2d9c701cb28275052fa5c749072adb92">More...</a><br /></td></tr>
 <tr class="separator:a2d9c701cb28275052fa5c749072adb92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae60756b6634b7f83485562d7c10249a"><td class="memItemLeft" align="right" valign="top"><a id="aae60756b6634b7f83485562d7c10249a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaxMight</b> (int max_might)</td></tr>
+<tr class="memitem:aae60756b6634b7f83485562d7c10249a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArmy.html#aae60756b6634b7f83485562d7c10249a">setMaxMight</a> (int max_might)</td></tr>
+<tr class="memdesc:aae60756b6634b7f83485562d7c10249a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the maximum might for the army.  <a href="classArmy.html#aae60756b6634b7f83485562d7c10249a">More...</a><br /></td></tr>
 <tr class="separator:aae60756b6634b7f83485562d7c10249a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b0492c85f1c659a7c9b2b383c39d94d"><td class="memItemLeft" align="right" valign="top"><a id="a4b0492c85f1c659a7c9b2b383c39d94d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setHero</b> (<a class="el" href="classHero.html">Hero</a> &amp;hero)</td></tr>
+<tr class="memitem:a4b0492c85f1c659a7c9b2b383c39d94d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArmy.html#a4b0492c85f1c659a7c9b2b383c39d94d">setHero</a> (<a class="el" href="classHero.html">Hero</a> &amp;hero)</td></tr>
+<tr class="memdesc:a4b0492c85f1c659a7c9b2b383c39d94d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the hero leading the army.  <a href="classArmy.html#a4b0492c85f1c659a7c9b2b383c39d94d">More...</a><br /></td></tr>
 <tr class="separator:a4b0492c85f1c659a7c9b2b383c39d94d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2397f0d13cae0662242d35cae6e23394"><td class="memItemLeft" align="right" valign="top"><a id="a2397f0d13cae0662242d35cae6e23394"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setTroop</b> (int position, <a class="el" href="classTroop.html">Troop</a> &amp;troop)</td></tr>
-<tr class="separator:a2397f0d13cae0662242d35cae6e23394"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe64200b8f43586245b02c3e7bdd6967"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArmy.html#abe64200b8f43586245b02c3e7bdd6967">setTroop</a> (int position, std::shared_ptr&lt; <a class="el" href="classTroop.html">Troop</a> &gt; troop)</td></tr>
+<tr class="memdesc:abe64200b8f43586245b02c3e7bdd6967"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a troop at a specific position in the army.  <a href="classArmy.html#abe64200b8f43586245b02c3e7bdd6967">More...</a><br /></td></tr>
+<tr class="separator:abe64200b8f43586245b02c3e7bdd6967"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents a player's army, consisting of a hero and up to 6 troops. </p>
+<p>Manages the composition, might, and status of the army during the game. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae3a3e50665f25ecaa2336245ee625f95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3a3e50665f25ecaa2336245ee625f95">&#9670;&nbsp;</a></span>Army() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Army::Army </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default constructor for <a class="el" href="classArmy.html" title="Represents a player&#39;s army, consisting of a hero and up to 6 troops.">Army</a>. </p>
+<p>Initializes an empty army with default values. </p>
+
+</div>
+</div>
+<a id="a2fcacb92fd55ba937bd79b2621070eb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fcacb92fd55ba937bd79b2621070eb9">&#9670;&nbsp;</a></span>Army() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Army::Army </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classHero.html">Hero</a>&#160;</td>
+          <td class="paramname"><em>hero</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::array&lt; std::shared_ptr&lt; <a class="el" href="classTroop.html">Troop</a> &gt;, 6 &gt;&#160;</td>
+          <td class="paramname"><em>troops</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>max_might</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor for <a class="el" href="classArmy.html" title="Represents a player&#39;s army, consisting of a hero and up to 6 troops.">Army</a> with specific parameters. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hero</td><td>The hero leading the army. </td></tr>
+    <tr><td class="paramname">troops</td><td>Array of up to 6 troops in the army. </td></tr>
+    <tr><td class="paramname">max_might</td><td>Maximum might allowed for the army. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2a10d093e8e6193dfa38464faa095d53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a10d093e8e6193dfa38464faa095d53">&#9670;&nbsp;</a></span>getCurrentMight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Army::getCurrentMight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the current total might of the army. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current might value, calculated from the hero and troops. </dd></dl>
+
+</div>
+</div>
+<a id="ad15473943e2494b253517f9e92a40e98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad15473943e2494b253517f9e92a40e98">&#9670;&nbsp;</a></span>getHero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classHero.html">Hero</a> &amp; Army::getHero </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the hero leading the army. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the <a class="el" href="classHero.html" title="Represents a hero leading an army with unique abilities and spells.">Hero</a> object. </dd></dl>
+
+</div>
+</div>
+<a id="a2d9c701cb28275052fa5c749072adb92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d9c701cb28275052fa5c749072adb92">&#9670;&nbsp;</a></span>getMaxMight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Army::getMaxMight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the maximum allowed might for the army. </p>
+<dl class="section return"><dt>Returns</dt><dd>Maximum might value. </dd></dl>
+
+</div>
+</div>
+<a id="a4b1e21aa038fb0f7603756c86d836b25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b1e21aa038fb0f7603756c86d836b25">&#9670;&nbsp;</a></span>getStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Army::getStatus </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks the status of the army. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the army has at least one troop remaining, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="afaa98f9f65e8264dcae451598ec209e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaa98f9f65e8264dcae451598ec209e0">&#9670;&nbsp;</a></span>getTroops()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt; std::shared_ptr&lt; <a class="el" href="classTroop.html">Troop</a> &gt;, 6 &gt; &amp; Army::getTroops </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the array of troops in the army. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the array of shared pointers to <a class="el" href="classTroop.html" title="Represents a troop unit in the game with combat attributes and effects.">Troop</a> objects. </dd></dl>
+
+</div>
+</div>
+<a id="a4b0492c85f1c659a7c9b2b383c39d94d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b0492c85f1c659a7c9b2b383c39d94d">&#9670;&nbsp;</a></span>setHero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Army::setHero </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classHero.html">Hero</a> &amp;&#160;</td>
+          <td class="paramname"><em>hero</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the hero leading the army. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hero</td><td>Reference to the <a class="el" href="classHero.html" title="Represents a hero leading an army with unique abilities and spells.">Hero</a> object to set. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aae60756b6634b7f83485562d7c10249a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae60756b6634b7f83485562d7c10249a">&#9670;&nbsp;</a></span>setMaxMight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Army::setMaxMight </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>max_might</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the maximum might for the army. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">max_might</td><td>New maximum might value. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abe64200b8f43586245b02c3e7bdd6967"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe64200b8f43586245b02c3e7bdd6967">&#9670;&nbsp;</a></span>setTroop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Army::setTroop </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classTroop.html">Troop</a> &gt;&#160;</td>
+          <td class="paramname"><em>troop</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets a troop at a specific position in the army. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>Index (0-5) where the troop will be placed. </td></tr>
+    <tr><td class="paramname">troop</td><td>Shared pointer to the <a class="el" href="classTroop.html" title="Represents a troop unit in the game with combat attributes and effects.">Troop</a> object to set. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="Army_8h_source.html">Army.h</a></li>
 <li>src/Army.cpp</li>

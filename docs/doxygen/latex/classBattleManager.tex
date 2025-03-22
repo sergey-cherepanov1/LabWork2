@@ -1,0 +1,124 @@
+\hypertarget{classBattleManager}{}\doxysection{Battle\+Manager Class Reference}
+\label{classBattleManager}\index{BattleManager@{BattleManager}}
+
+
+Manages the flow of battle between players or a player and \mbox{\hyperlink{classAI}{AI}}.  
+
+
+
+
+{\ttfamily \#include $<$Battle\+Manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBattleManager_aa9a88dab27e2e596e5546e095f3202ce}{Battle\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classBattleManager}{Battle\+Manager}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBattleManager_a5d60e3ece2f9d776161160b639769f5b}{run}} ()
+\begin{DoxyCompactList}\small\item\em Runs the main battle loop. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBattleManager_a4d1137e6e01956df87b362793abe7969}{set\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em Sets the game mode (single-\/player or multiplayer). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer}{Player}} \& \mbox{\hyperlink{classBattleManager_a017b6a6e9abe8f534c6af8fbb9a3d99e}{get\+Player1}} ()
+\begin{DoxyCompactList}\small\item\em Gets a reference to the first player. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer}{Player}} \& \mbox{\hyperlink{classBattleManager_ace3152c9b02ab1e230cc550a92e842aa}{get\+Player2}} ()
+\begin{DoxyCompactList}\small\item\em Gets a reference to the second player. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAI}{AI}} \& \mbox{\hyperlink{classBattleManager_a147bebebdc836d21a400697deb7abdec}{get\+AI}} ()
+\begin{DoxyCompactList}\small\item\em Gets a reference to the artificial intelligence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the flow of battle between players or a player and \mbox{\hyperlink{classAI}{AI}}. 
+
+Responsible for initializing the battlefield, managing turn order, displaying the battle state, and updating effects on units. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBattleManager_aa9a88dab27e2e596e5546e095f3202ce}\label{classBattleManager_aa9a88dab27e2e596e5546e095f3202ce}} 
+\index{BattleManager@{BattleManager}!BattleManager@{BattleManager}}
+\index{BattleManager@{BattleManager}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{BattleManager()}{BattleManager()}}
+{\footnotesize\ttfamily Battle\+Manager\+::\+Battle\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for \mbox{\hyperlink{classBattleManager}{Battle\+Manager}}. 
+
+Initializes players, battlefield, and basic parameters.
+
+Initializes players, \mbox{\hyperlink{classAI}{AI}}, battlefield, and default battle parameters. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBattleManager_a147bebebdc836d21a400697deb7abdec}\label{classBattleManager_a147bebebdc836d21a400697deb7abdec}} 
+\index{BattleManager@{BattleManager}!getAI@{getAI}}
+\index{getAI@{getAI}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{getAI()}{getAI()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAI}{AI}} \& Battle\+Manager\+::get\+AI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets a reference to the artificial intelligence. 
+
+Gets a reference to the \mbox{\hyperlink{classAI}{AI}}.
+
+\begin{DoxyReturn}{Returns}
+Reference to the \mbox{\hyperlink{classAI}{AI}} object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBattleManager_a017b6a6e9abe8f534c6af8fbb9a3d99e}\label{classBattleManager_a017b6a6e9abe8f534c6af8fbb9a3d99e}} 
+\index{BattleManager@{BattleManager}!getPlayer1@{getPlayer1}}
+\index{getPlayer1@{getPlayer1}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{getPlayer1()}{getPlayer1()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlayer}{Player}} \& Battle\+Manager\+::get\+Player1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets a reference to the first player. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the \mbox{\hyperlink{classPlayer}{Player}} object for the first player.
+
+Reference to the \mbox{\hyperlink{classPlayer}{Player}} object for \mbox{\hyperlink{classPlayer}{Player}} 1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBattleManager_ace3152c9b02ab1e230cc550a92e842aa}\label{classBattleManager_ace3152c9b02ab1e230cc550a92e842aa}} 
+\index{BattleManager@{BattleManager}!getPlayer2@{getPlayer2}}
+\index{getPlayer2@{getPlayer2}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{getPlayer2()}{getPlayer2()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlayer}{Player}} \& Battle\+Manager\+::get\+Player2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets a reference to the second player. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the \mbox{\hyperlink{classPlayer}{Player}} object for the second player.
+
+Reference to the \mbox{\hyperlink{classPlayer}{Player}} object for \mbox{\hyperlink{classPlayer}{Player}} 2. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBattleManager_a5d60e3ece2f9d776161160b639769f5b}\label{classBattleManager_a5d60e3ece2f9d776161160b639769f5b}} 
+\index{BattleManager@{BattleManager}!run@{run}}
+\index{run@{run}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Battle\+Manager\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Runs the main battle loop. 
+
+Fills the field, manages turn order, and updates the battle state until completion.
+
+Fills the battlefield, manages turns, and updates effects until the battle ends. \mbox{\Hypertarget{classBattleManager_a4d1137e6e01956df87b362793abe7969}\label{classBattleManager_a4d1137e6e01956df87b362793abe7969}} 
+\index{BattleManager@{BattleManager}!setMode@{setMode}}
+\index{setMode@{setMode}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{setMode()}{setMode()}}
+{\footnotesize\ttfamily void Battle\+Manager\+::set\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sets the game mode (single-\/player or multiplayer). 
+
+Sets the game mode by toggling between PvP and PvE.
+
+Switches between PvP and PvE modes. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Battle\+Manager.\+h\item 
+src/Battle\+Manager.\+cpp\end{DoxyCompactItemize}

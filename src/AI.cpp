@@ -5,11 +5,17 @@
 #include "AI.h"
 #include "Action.h"
 
+/**
+ * @brief Default constructor for AI.
+ */
 AI::AI() : Player()
 {
     setName("AI Bot");
 }
 
+/**
+ * @brief Sets up the AI's army using predefined templates.
+ */
 void AI::setupArmy(Catalog& catalog)
 {
     getArmy().setMaxMight(3000);
@@ -57,6 +63,9 @@ void AI::setupArmy(Catalog& catalog)
     }
 }
 
+/**
+ * @brief Executes the AI's turn for a specific troop.
+ */
 void AI::makeTurn(std::shared_ptr<Troop>& troop, std::array<std::array<std::shared_ptr<Troop>, 6>, 6>& field, Action& action, bool& battle_status)
 {
     int x = troop->getX();
