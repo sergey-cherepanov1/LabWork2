@@ -42,7 +42,7 @@ enum class InputState
 /**
  * @class TerminalUI
  * @brief Manages the terminal-based user interface for the game.
- * 
+ *
  * Handles displaying information, processing user input, and army selection.
  */
 class TerminalUI

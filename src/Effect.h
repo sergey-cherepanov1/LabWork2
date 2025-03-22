@@ -14,7 +14,7 @@ enum EffectType { HEALTH, ATTACK, STAMINA };
 /**
  * @class Effect
  * @brief Represents an effect that can modify a troop's attributes.
- * 
+ *
  * Effects can alter health, attack, or stamina and may persist for multiple turns.
  */
 class Effect
@@ -22,7 +22,7 @@ class Effect
 public:
     /**
      * @brief Default constructor for Effect.
-     * 
+     *
      * Initializes an effect with default values (HEALTH, 0 value, 0 duration).
      */
     Effect();

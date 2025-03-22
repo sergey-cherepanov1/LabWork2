@@ -84,10 +84,10 @@ int Action::move(std::shared_ptr<Troop>& troop)
 int Action::attack(std::shared_ptr<Troop>& troop)
 {
     if (troop->hasAttacked())
-     {
-         std::cout << troop->getName() << " has already attacked this turn.\n";
-         return 1;
-     }
+    {
+        std::cout << troop->getName() << " has already attacked this turn.\n";
+        return 1;
+    }
     if (!canAttackTarget(troop))
     {
         std::cout << "No valid targets in range.\n";
@@ -143,8 +143,8 @@ int Action::castSpell(std::shared_ptr<Troop>& troop)
     {
         std::cout << "This troop has already cast a spell this turn.\n";
         return 1;
-    }    
-    
+    }
+
     Player& player = troop->getOwner() ? _ai : _player1;
     std::array<Spell, 3>& spells = player.getArmy().getHero().getSpells();
     int mana = player.getArmy().getHero().getMana();
@@ -152,7 +152,7 @@ int Action::castSpell(std::shared_ptr<Troop>& troop)
     std::cout << "Available spells (Mana: " << mana << "):\n";
     for (size_t i = 0; i < spells.size(); ++i)
     {
-        std::cout << (i + 1) << ". " << spells[i].getName() << " (Cost: " << spells[i].getCost() 
+        std::cout << (i + 1) << ". " << spells[i].getName() << " (Cost: " << spells[i].getCost()
                   << ", " << spells[i].getDescription() << ")\n";
     }
     std::cout << "Enter spell number (1-" << spells.size() << ") or 0 to cancel: ";
@@ -236,7 +236,7 @@ int Action::castSpell(std::shared_ptr<Troop>& troop)
     target->addEffect(effect);
     std::cout << troop->getName() << " casts " << spell.getName() << " on " << target->getName() << ".\n";
     troop->setHasCasted(true);
-    
+
     return removeDefeatedTroop(target, target_x, target_y);
 }
 

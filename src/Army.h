@@ -13,7 +13,7 @@
 /**
  * @class Army
  * @brief Represents a player's army, consisting of a hero and up to 6 troops.
- * 
+ *
  * Manages the composition, might, and status of the army during the game.
  */
 class Army
@@ -21,7 +21,7 @@ class Army
 public:
     /**
      * @brief Default constructor for Army.
-     * 
+     *
      * Initializes an empty army with default values.
      */
     Army();
@@ -74,7 +74,7 @@ public:
      * @brief Sets the hero leading the army.
      * @param hero Reference to the Hero object to set.
      */
-    void setHero(Hero& hero);
+    void setHero(Hero hero);
 
     /**
      * @brief Sets a troop at a specific position in the army.
@@ -83,19 +83,19 @@ public:
      */
     void setTroop(int position, std::shared_ptr<Troop> troop);
 
+    /**
+     * @brief Updates the current might of the army.
+     *
+     * Recalculates the total might based on the hero and remaining troops.
+     */
+    void updateCurrentMight();
+
 private:
     Hero _hero; ///< The hero leading the army.
     std::array<std::shared_ptr<Troop>, 6> _troops; ///< Array of up to 6 troops.
     int _max_might; ///< Maximum might allowed for the army.
     int _current_might; ///< Current total might of the army.
     bool _status; ///< Status of the army (true if active, false if defeated).
-
-    /**
-     * @brief Updates the current might of the army.
-     * 
-     * Recalculates the total might based on the hero and remaining troops.
-     */
-    void updateCurrentMight();
 };
 
 #endif

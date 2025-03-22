@@ -6,14 +6,14 @@
 
 /**
  * @brief Default constructor for BattleManager.
- * 
+ *
  * Initializes players, AI, battlefield, and default battle parameters.
  */
 BattleManager::BattleManager() : _player1(), _player2(), _ai(), _field(), _queue(), _action(_field, _player1, _player2, _ai), _battle_status(true), _mode(false) {}
 
 /**
  * @brief Runs the main battle loop.
- * 
+ *
  * Fills the battlefield, manages turns, and updates effects until the battle ends.
  */
 void BattleManager::run()
@@ -30,7 +30,7 @@ void BattleManager::run()
 
 /**
  * @brief Executes a single turn for all units in the queue.
- * 
+ *
  * Handles player and AI turns, including movement, attacks, and spell casting.
  */
 void BattleManager::turn()
@@ -124,7 +124,7 @@ void BattleManager::turn()
 
 /**
  * @brief Creates the turn queue based on unit initiative and might.
- * 
+ *
  * Sorts units by initiative (descending) and total might as a tiebreaker.
  */
 void BattleManager::makeQueue()
@@ -154,7 +154,7 @@ void BattleManager::makeQueue()
 
 /**
  * @brief Updates effects applied to all troops on the battlefield.
- * 
+ *
  * Applies effects and removes defeated troops, potentially ending the battle.
  */
 void BattleManager::updateEffects()
@@ -178,7 +178,7 @@ void BattleManager::updateEffects()
 
 /**
  * @brief Fills the battlefield with troops from the players' armies.
- * 
+ *
  * Places Player 1's troops on the left and Player 2/AI's troops on the right.
  */
 void BattleManager::fillTheField()
@@ -190,12 +190,13 @@ void BattleManager::fillTheField()
         if (!_mode)
         {
             troop2 = _ai.getArmy().getTroops()[i];
-        } else
+        }
+        else
         {
             troop2 = _player2.getArmy().getTroops()[i];
             troop2->setOwner();
         }
-        
+
         if (troop1)
         {
             _field[i][0] = troop1;
@@ -231,7 +232,7 @@ void BattleManager::printCenteredLine(std::string str)
 
 /**
  * @brief Displays the current state of the battlefield.
- * 
+ *
  * Shows hero stats, spells, field layout, and turn queue.
  */
 void BattleManager::displayField()
@@ -387,6 +388,24 @@ Player& BattleManager::getPlayer2()
 AI& BattleManager::getAI()
 {
     return _ai;
+}
+
+/**
+ * @brief Gets a reference to the troop queue for turn order.
+ * @return Reference to the vector of shared pointers to Troop objects of a queue.
+ */
+std::vector<std::shared_ptr<Troop>>& BattleManager::getQueue()
+{
+    return _queue;
+}
+
+/**
+ * @brief Gets a reference to the battlefield.
+ * @return Reference to the 6x6 array of shared pointers to Troop objects of battlefield.
+ */
+std::array<std::array<std::shared_ptr<Troop>, 6>, 6>& BattleManager::getField()
+{
+    return _field;
 }
 
 /**

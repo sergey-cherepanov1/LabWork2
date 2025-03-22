@@ -15,7 +15,7 @@
 /**
  * @class Action
  * @brief Handles actions that a troop can perform during a battle.
- * 
+ *
  * Manages movement, attacks, spell casting, and skipping turns for troops on the battlefield.
  */
 class Action
@@ -36,7 +36,7 @@ public:
      * @return 0 on success, 1 if move is invalid or stamina is insufficient.
      */
     int move(std::shared_ptr<Troop>& troop);
-    
+
     /**
      * @brief Performs an attack by a troop on a player-selected target.
      * @param troop Shared pointer to the attacking troop.
@@ -52,7 +52,7 @@ public:
      * @return 0 on success, 1 if attack fails, 2 if battle ends due to defeat.
      */
     int attack(std::shared_ptr<Troop>& troop, int target_x, int target_y);
-    
+
     /**
      * @brief Casts a spell by a troop using the hero's abilities.
      * @param troop Shared pointer to the troop casting the spell.

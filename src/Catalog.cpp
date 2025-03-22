@@ -17,7 +17,7 @@ Catalog::Catalog()
         Spell("Boost", 5, Effect(EffectType::ATTACK, 5, 3, false), "Increases attack for 3 turns.")
     };
     _hero_templates.push_back(Hero("Arion", 500, 30, spells1, "A fiery mage with destructive spells."));
-    
+
     std::array<Spell, 3> spells2
     {
         Spell("Poison", 6, Effect(EffectType::HEALTH, -5, 3, true), "Deals damage each turn for 3 turns."),
@@ -25,7 +25,7 @@ Catalog::Catalog()
         Spell("Drain", 9, Effect(EffectType::STAMINA, -2, 2, true), "Reduces enemy stamina each turn.")
     };
     _hero_templates.push_back(Hero("Liora", 400, 25, spells2, "A cunning sorceress with subtle magic."));
-    
+
     std::array<Spell, 3> spells3
     {
         Spell("Thunder", 12, Effect(EffectType::HEALTH, -25, 0, false), "Strikes with powerful lightning."),
@@ -33,7 +33,7 @@ Catalog::Catalog()
         Spell("Haste", 8, Effect(EffectType::STAMINA, 2, 2, false), "Increases stamina for 2 turns.")
     };
     _hero_templates.push_back(Hero("Tharok", 600, 20, spells3, "A mighty warrior with storm magic."));
-    
+
     _troop_templates.push_back(std::make_shared<Troop>("Peasant", 1, 5, 2, 2, 2, 2, std::vector<Effect>(), "Simple folk with pitchforks."));
     _troop_templates.push_back(std::make_shared<Troop>("Archer", 1, 7, 5, 2, 3, 5, std::vector<Effect>(), "Ranged fighters with bows."));
     _troop_templates.push_back(std::make_shared<Troop>("Swordsman", 1, 10, 7, 3, 4, 10, std::vector<Effect>(), "Skilled melee warriors."));

@@ -15,7 +15,7 @@
 /**
  * @class Troop
  * @brief Represents a troop unit in the game with combat attributes and effects.
- * 
+ *
  * Manages a troop's stats, position, actions, and applied effects during battle.
  */
 class Troop
@@ -23,7 +23,7 @@ class Troop
 public:
     /**
      * @brief Default constructor for Troop.
-     * 
+     *
      * Initializes a troop with default values.
      */
     Troop();

@@ -65,7 +65,7 @@ int Army::getCurrentMight()
 /**
  * @brief Sets the hero leading the army.
  */
-void Army::setHero(Hero& hero)
+void Army::setHero(Hero hero)
 {
     _hero = hero;
 }

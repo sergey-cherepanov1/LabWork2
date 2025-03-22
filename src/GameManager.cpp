@@ -35,7 +35,7 @@ void GameManager::update()
         if (menu_input =="1")
         {
             _mode = 0; /*GameMode::SINGLEPLAYER*/
-            
+
             _ui.displayInfo(InfoState::ENTER_NAME_SINGLEPLAYER);
             std::string name1 = _ui.handleInput(InputState::GET_NAME);
 
@@ -50,7 +50,7 @@ void GameManager::update()
             _mode = 1; /*GameMode::MULTIPLAYER*/
             break;
             _battle.setMode();
-            
+
             _ui.displayInfo(InfoState::ENTER_NAME_MULTIPLAYER_1);
             std::string name1 = _ui.handleInput(InputState::GET_NAME);
 
@@ -173,7 +173,7 @@ void GameManager::update()
             std::cout << "\n=== Battle Ended ===\n";
             Player& player1 = _battle.getPlayer1();
             Player& ai = _battle.getAI();
-            
+
             if (player1.getArmy().getStatus() && !ai.getArmy().getStatus())
             {
                 std::cout << player1.getName() << " has won the battle!\n";
@@ -182,11 +182,51 @@ void GameManager::update()
             {
                 std::cout << ai.getName() << " has won the battle!\n";
             }
-            
+
             std::cout << "====================\n";
         }
         _status = false;
         break;
     }
     }
+}
+
+GameState GameManager::getState()
+{
+    return _state;
+}
+
+bool GameManager::getStatus()
+{
+    return _status;
+}
+
+void GameManager::setState(GameState state)
+{
+    _state = state;
+}
+
+int GameManager::getDifficulty()
+{
+    return _difficulty;
+}
+
+void GameManager::setDifficulty(int difficulty)
+{
+    _difficulty = difficulty;
+}
+
+bool GameManager::getMode()
+{
+    return _mode;
+}
+
+void GameManager::setMode(bool mode)
+{
+    _mode = mode;
+}
+
+BattleManager& GameManager::getBattle()
+{
+    return _battle;
 }

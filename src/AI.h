@@ -17,7 +17,7 @@ class Action; // Forward declaration
 /**
  * @class AI
  * @brief Represents an artificial intelligence opponent inheriting from Player.
- * 
+ *
  * Manages the AI's army setup and turn-based actions during the battle.
  */
 class AI : public Player
@@ -25,7 +25,7 @@ class AI : public Player
 public:
     /**
      * @brief Default constructor for AI.
-     * 
+     *
      * Initializes the AI with a default name and inherits Player properties.
      */
     AI();

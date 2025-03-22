@@ -12,7 +12,7 @@
 /**
  * @class Hero
  * @brief Represents a hero leading an army with unique abilities and spells.
- * 
+ *
  * Stores the hero's name, might, mana, spells, and description.
  */
 class Hero
@@ -20,7 +20,7 @@ class Hero
 public:
     /**
      * @brief Default constructor for Hero.
-     * 
+     *
      * Initializes a hero with default values.
      */
     Hero();

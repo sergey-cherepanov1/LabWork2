@@ -13,7 +13,7 @@
 /**
  * @class Player
  * @brief Represents a player in the game with a name and an army.
- * 
+ *
  * Base class for human players and AI, managing player-specific data and actions.
  */
 class Player
@@ -21,7 +21,7 @@ class Player
 public:
     /**
      * @brief Default constructor for Player.
-     * 
+     *
      * Initializes a player with an empty name and an empty army.
      */
     Player();
@@ -52,7 +52,7 @@ public:
     /**
      * @brief Virtual method to set up the player's army.
      * @param catalog Reference to the Catalog containing hero and troop templates.
-     * 
+     *
      * Override this method in derived classes (e.g., AI) to define army setup behavior.
      */
     virtual void setupArmy(Catalog& catalog) {}

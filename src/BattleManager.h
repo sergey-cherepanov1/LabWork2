@@ -20,7 +20,7 @@
 /**
  * @class BattleManager
  * @brief Manages the flow of battle between players or a player and AI.
- * 
+ *
  * Responsible for initializing the battlefield, managing turn order, displaying the battle state,
  * and updating effects on units.
  */
@@ -29,21 +29,21 @@ class BattleManager
 public:
     /**
      * @brief Default constructor for BattleManager.
-     * 
+     *
      * Initializes players, battlefield, and basic parameters.
      */
     BattleManager();
 
     /**
      * @brief Runs the main battle loop.
-     * 
+     *
      * Fills the field, manages turn order, and updates the battle state until completion.
      */
     void run();
 
     /**
      * @brief Sets the game mode (single-player or multiplayer).
-     * 
+     *
      * Switches between PvP and PvE modes.
      */
     void setMode();
@@ -66,15 +66,17 @@ public:
      */
     AI& getAI();
 
-private:
-    Player _player1; ///< First player.
-    Player _player2; ///< Second player (used in multiplayer mode).
-    AI _ai; ///< Artificial intelligence (used in single-player mode).
-    std::array<std::array<std::shared_ptr<Troop>, 6>, 6> _field; ///< 2D array representing the battlefield (6x6).
-    std::vector<std::shared_ptr<Troop>> _queue; ///< Queue of units for turns.
-    Action _action; ///< Object for managing unit actions.
-    bool _battle_status; ///< Battle status (true - ongoing, false - finished).
-    bool _mode; ///< Game mode (false - PvE, true - PvP).
+    /**
+     * @brief Gets a reference to the troop queue for turn order.
+     * @return Reference to the vector of shared pointers to Troop objects of a queue.
+     */
+    std::vector<std::shared_ptr<Troop>>& getQueue();
+
+    /**
+     * @brief Gets a reference to the battlefield.
+     * @return Reference to the 6x6 array of shared pointers to Troop objects of battlefield.
+     */
+    std::array<std::array<std::shared_ptr<Troop>, 6>, 6>& getField();
 
     /**
      * @brief Prints a centered line to the console.
@@ -106,6 +108,15 @@ private:
      * @brief Updates effects applied to units.
      */
     void updateEffects();
+private:
+    Player _player1; ///< First player.
+    Player _player2; ///< Second player (used in multiplayer mode).
+    AI _ai; ///< Artificial intelligence (used in single-player mode).
+    std::array<std::array<std::shared_ptr<Troop>, 6>, 6> _field; ///< 2D array representing the battlefield (6x6).
+    std::vector<std::shared_ptr<Troop>> _queue; ///< Queue of units for turns.
+    Action _action; ///< Object for managing unit actions.
+    bool _battle_status; ///< Battle status (true - ongoing, false - finished).
+    bool _mode; ///< Game mode (false - PvE, true - PvP).
 };
 
 #endif

@@ -13,7 +13,7 @@
 /**
  * @class Catalog
  * @brief Stores templates for heroes and troops available in the game.
- * 
+ *
  * Provides access to predefined hero and troop configurations for army setup.
  */
 class Catalog
@@ -21,7 +21,7 @@ class Catalog
 public:
     /**
      * @brief Default constructor for Catalog.
-     * 
+     *
      * Initializes the catalog with predefined hero and troop templates.
      */
     Catalog();

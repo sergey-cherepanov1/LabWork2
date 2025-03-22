@@ -11,7 +11,7 @@
 /**
  * @class Spell
  * @brief Represents a magical spell that can be cast by a hero.
- * 
+ *
  * Stores the spell's name, mana cost, associated effect, and description.
  */
 class Spell
@@ -19,7 +19,7 @@ class Spell
 public:
     /**
      * @brief Default constructor for Spell.
-     * 
+     *
      * Initializes a spell with default values.
      */
     Spell();

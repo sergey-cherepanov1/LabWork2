@@ -107,7 +107,7 @@ void AI::makeTurn(std::shared_ptr<Troop>& troop, std::array<std::array<std::shar
 
         if (new_x >= 0 && new_x < 6 && new_y >= 0 && new_y < 6 && !field[new_x][new_y])
         {
-            std::cout << troop->getName() << " (AI) moves from (" << x << ", " << y << ") to (" 
+            std::cout << troop->getName() << " (AI) moves from (" << x << ", " << y << ") to ("
                       << new_x << ", " << new_y << ").\n";
             field[x][y] = nullptr;
             field[new_x][new_y] = troop;
@@ -126,7 +126,7 @@ void AI::makeTurn(std::shared_ptr<Troop>& troop, std::array<std::array<std::shar
 
     if (nearest_target && !troop->hasAttacked() && action.canAttackTarget(troop))
     {
-        std::cout << troop->getName() << " (AI) attacks " << nearest_target->getName() << " at (" 
+        std::cout << troop->getName() << " (AI) attacks " << nearest_target->getName() << " at ("
                   << target_x << ", " << target_y << ").\n";
         int result = action.attack(troop, target_x, target_y);
         if (result == 2)
