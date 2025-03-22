@@ -103,21 +103,45 @@ $(function() {
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGameManager.html#a7ecc3a14cd9e92f50729b37d1364953f">update</a>();</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    GameState _state; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">bool</span> _mode; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">int</span> _difficulty; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="classTerminalUI.html">TerminalUI</a> _ui; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="classBattleManager.html">BattleManager</a> _battle; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">bool</span> _status; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    GameState <a class="code" href="classGameManager.html#ad180a83f9010ba298842e3edbbd10f7a">getState</a>();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classGameManager.html#a75107b710cdc2e9af59b44302b387590">getStatus</a>();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGameManager.html#a90e91bc7fc4a14c87eb1ef4812a8855f">setState</a>(GameState state);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classGameManager.html#ae50fc06f36d2726d6b1769ce73f29f67">getDifficulty</a>();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGameManager.html#a5957b87bb1f1dd1316ca7340140cd2f4">setDifficulty</a>(<span class="keywordtype">int</span> difficulty);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classGameManager.html#a80d553a131276575f86c0af218ee10f8">getMode</a>();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGameManager.html#a8c728e14ebd402bff881850bb7ea0e63">setMode</a>(<span class="keywordtype">bool</span> mode);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="classBattleManager.html">BattleManager</a>&amp; <a class="code" href="classGameManager.html#a1df3d2d759d559c37afb33aab7e9783c">getBattle</a>();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    GameState _state; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">bool</span> _mode; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">int</span> _difficulty; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <a class="code" href="classTerminalUI.html">TerminalUI</a> _ui; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="classBattleManager.html">BattleManager</a> _battle; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">bool</span> _status; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;};</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassBattleManager_html"><div class="ttname"><a href="classBattleManager.html">BattleManager</a></div><div class="ttdoc">Manages the flow of battle between players or a player and AI.</div><div class="ttdef"><b>Definition:</b> BattleManager.h:28</div></div>
 <div class="ttc" id="aclassGameManager_html"><div class="ttname"><a href="classGameManager.html">GameManager</a></div><div class="ttdoc">Manages the overall game flow and state transitions.</div><div class="ttdef"><b>Definition:</b> GameManager.h:36</div></div>
+<div class="ttc" id="aclassGameManager_html_a1df3d2d759d559c37afb33aab7e9783c"><div class="ttname"><a href="classGameManager.html#a1df3d2d759d559c37afb33aab7e9783c">GameManager::getBattle</a></div><div class="ttdeci">BattleManager &amp; getBattle()</div><div class="ttdoc">Gets a reference to the battle manager.</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:229</div></div>
+<div class="ttc" id="aclassGameManager_html_a5957b87bb1f1dd1316ca7340140cd2f4"><div class="ttname"><a href="classGameManager.html#a5957b87bb1f1dd1316ca7340140cd2f4">GameManager::setDifficulty</a></div><div class="ttdeci">void setDifficulty(int difficulty)</div><div class="ttdoc">Sets the difficulty level of the game.</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:214</div></div>
+<div class="ttc" id="aclassGameManager_html_a75107b710cdc2e9af59b44302b387590"><div class="ttname"><a href="classGameManager.html#a75107b710cdc2e9af59b44302b387590">GameManager::getStatus</a></div><div class="ttdeci">bool getStatus()</div><div class="ttdoc">Gets the current status of the game or entity.</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:199</div></div>
 <div class="ttc" id="aclassGameManager_html_a7ecc3a14cd9e92f50729b37d1364953f"><div class="ttname"><a href="classGameManager.html#a7ecc3a14cd9e92f50729b37d1364953f">GameManager::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Updates the game state based on the current state.</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:26</div></div>
+<div class="ttc" id="aclassGameManager_html_a80d553a131276575f86c0af218ee10f8"><div class="ttname"><a href="classGameManager.html#a80d553a131276575f86c0af218ee10f8">GameManager::getMode</a></div><div class="ttdeci">bool getMode()</div><div class="ttdoc">Gets the current game mode.</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:219</div></div>
+<div class="ttc" id="aclassGameManager_html_a8c728e14ebd402bff881850bb7ea0e63"><div class="ttname"><a href="classGameManager.html#a8c728e14ebd402bff881850bb7ea0e63">GameManager::setMode</a></div><div class="ttdeci">void setMode(bool mode)</div><div class="ttdoc">Sets the game mode.</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:224</div></div>
+<div class="ttc" id="aclassGameManager_html_a90e91bc7fc4a14c87eb1ef4812a8855f"><div class="ttname"><a href="classGameManager.html#a90e91bc7fc4a14c87eb1ef4812a8855f">GameManager::setState</a></div><div class="ttdeci">void setState(GameState state)</div><div class="ttdoc">Sets the current state of the game.</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:204</div></div>
 <div class="ttc" id="aclassGameManager_html_aa0e2424dc1a39d380e5b6605b179bf05"><div class="ttname"><a href="classGameManager.html#aa0e2424dc1a39d380e5b6605b179bf05">GameManager::GameManager</a></div><div class="ttdeci">GameManager()</div><div class="ttdoc">Default constructor for GameManager.</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:10</div></div>
 <div class="ttc" id="aclassGameManager_html_abbde8090c24ca199815ba1e85059c96f"><div class="ttname"><a href="classGameManager.html#abbde8090c24ca199815ba1e85059c96f">GameManager::run</a></div><div class="ttdeci">void run()</div><div class="ttdoc">Runs the main game loop.</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:15</div></div>
+<div class="ttc" id="aclassGameManager_html_ad180a83f9010ba298842e3edbbd10f7a"><div class="ttname"><a href="classGameManager.html#ad180a83f9010ba298842e3edbbd10f7a">GameManager::getState</a></div><div class="ttdeci">GameState getState()</div><div class="ttdoc">Gets the current state of the game.</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:194</div></div>
+<div class="ttc" id="aclassGameManager_html_ae50fc06f36d2726d6b1769ce73f29f67"><div class="ttname"><a href="classGameManager.html#ae50fc06f36d2726d6b1769ce73f29f67">GameManager::getDifficulty</a></div><div class="ttdeci">int getDifficulty()</div><div class="ttdoc">Gets the current difficulty level of the game.</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:209</div></div>
 <div class="ttc" id="aclassTerminalUI_html"><div class="ttname"><a href="classTerminalUI.html">TerminalUI</a></div><div class="ttdoc">Manages the terminal-based user interface for the game.</div><div class="ttdef"><b>Definition:</b> TerminalUI.h:49</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

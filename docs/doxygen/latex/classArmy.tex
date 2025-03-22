@@ -28,10 +28,12 @@ int \mbox{\hyperlink{classArmy_a2d9c701cb28275052fa5c749072adb92}{get\+Max\+Migh
 \begin{DoxyCompactList}\small\item\em Gets the maximum allowed might for the army. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classArmy_aae60756b6634b7f83485562d7c10249a}{set\+Max\+Might}} (int max\+\_\+might)
 \begin{DoxyCompactList}\small\item\em Sets the maximum might for the army. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classArmy_a4b0492c85f1c659a7c9b2b383c39d94d}{set\+Hero}} (\mbox{\hyperlink{classHero}{Hero}} \&hero)
+void \mbox{\hyperlink{classArmy_a811309c2be62e8378d005e2559ac81eb}{set\+Hero}} (\mbox{\hyperlink{classHero}{Hero}} hero)
 \begin{DoxyCompactList}\small\item\em Sets the hero leading the army. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classArmy_abe64200b8f43586245b02c3e7bdd6967}{set\+Troop}} (int position, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ troop)
-\begin{DoxyCompactList}\small\item\em Sets a troop at a specific position in the army. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sets a troop at a specific position in the army. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classArmy_ade30083464e11b5658ba67521fc1c4d4}{update\+Current\+Might}} ()
+\begin{DoxyCompactList}\small\item\em Updates the current might of the army. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -137,11 +139,11 @@ Gets the array of troops in the army.
 \begin{DoxyReturn}{Returns}
 Reference to the array of shared pointers to \mbox{\hyperlink{classTroop}{Troop}} objects. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classArmy_a4b0492c85f1c659a7c9b2b383c39d94d}\label{classArmy_a4b0492c85f1c659a7c9b2b383c39d94d}} 
+\mbox{\Hypertarget{classArmy_a811309c2be62e8378d005e2559ac81eb}\label{classArmy_a811309c2be62e8378d005e2559ac81eb}} 
 \index{Army@{Army}!setHero@{setHero}}
 \index{setHero@{setHero}!Army@{Army}}
 \doxysubsubsection{\texorpdfstring{setHero()}{setHero()}}
-{\footnotesize\ttfamily void Army\+::set\+Hero (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classHero}{Hero}} \&}]{hero }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Army\+::set\+Hero (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classHero}{Hero}}}]{hero }\end{DoxyParamCaption})}
 
 
 
@@ -184,7 +186,17 @@ Sets a troop at a specific position in the army.
 {\em troop} & Shared pointer to the \mbox{\hyperlink{classTroop}{Troop}} object to set. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classArmy_ade30083464e11b5658ba67521fc1c4d4}\label{classArmy_ade30083464e11b5658ba67521fc1c4d4}} 
+\index{Army@{Army}!updateCurrentMight@{updateCurrentMight}}
+\index{updateCurrentMight@{updateCurrentMight}!Army@{Army}}
+\doxysubsubsection{\texorpdfstring{updateCurrentMight()}{updateCurrentMight()}}
+{\footnotesize\ttfamily void Army\+::update\+Current\+Might (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Updates the current might of the army. 
+
+Recalculates the total might based on the hero and remaining troops. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

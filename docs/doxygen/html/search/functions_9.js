@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['removedefeatedtroop_150',['removeDefeatedTroop',['../classAction.html#a7aa3603960d53fc6113483ee8ffe361f',1,'Action']]],
-  ['reseteffect_151',['resetEffect',['../classTroop.html#a2c4bd7f7507b382d78be989b2ca20573',1,'Troop']]],
-  ['run_152',['run',['../classBattleManager.html#a5d60e3ece2f9d776161160b639769f5b',1,'BattleManager::run()'],['../classGameManager.html#abbde8090c24ca199815ba1e85059c96f',1,'GameManager::run()']]]
+  ['player_173',['Player',['../classPlayer.html#affe0cc3cb714f6deb4e62f0c0d3f1fd8',1,'Player']]],
+  ['printcenteredline_174',['printCenteredLine',['../classBattleManager.html#afb90feadc709ccfdf6e8be336fed1c14',1,'BattleManager']]]
 ];

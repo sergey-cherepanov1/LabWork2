@@ -23,7 +23,23 @@ void \mbox{\hyperlink{classBattleManager_a4d1137e6e01956df87b362793abe7969}{set\
 \mbox{\hyperlink{classPlayer}{Player}} \& \mbox{\hyperlink{classBattleManager_ace3152c9b02ab1e230cc550a92e842aa}{get\+Player2}} ()
 \begin{DoxyCompactList}\small\item\em Gets a reference to the second player. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classAI}{AI}} \& \mbox{\hyperlink{classBattleManager_a147bebebdc836d21a400697deb7abdec}{get\+AI}} ()
-\begin{DoxyCompactList}\small\item\em Gets a reference to the artificial intelligence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets a reference to the artificial intelligence. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ $>$ \& \mbox{\hyperlink{classBattleManager_a6852625166082eeb0da5de4d19529496}{get\+Queue}} ()
+\begin{DoxyCompactList}\small\item\em Gets a reference to the troop queue for turn order. \end{DoxyCompactList}\item 
+std\+::array$<$ std\+::array$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$, 6 $>$, 6 $>$ \& \mbox{\hyperlink{classBattleManager_a2d51406d5c8e11ea63f7ab45cee33a1d}{get\+Field}} ()
+\begin{DoxyCompactList}\small\item\em Gets a reference to the battlefield. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBattleManager_afb90feadc709ccfdf6e8be336fed1c14}{print\+Centered\+Line}} (std\+::string str)
+\begin{DoxyCompactList}\small\item\em Prints a centered line to the console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBattleManager_a1e5697f553f2438aba5e24e363e587fa}{fill\+The\+Field}} ()
+\begin{DoxyCompactList}\small\item\em Fills the battlefield with units from the players\textquotesingle{} armies. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBattleManager_a4ce1ec10c6fbc679499983d9b52fc2f9}{display\+Field}} ()
+\begin{DoxyCompactList}\small\item\em Displays the current state of the battlefield in the console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBattleManager_a05a23cdc0d269cf48215e7e8572d160c}{make\+Queue}} ()
+\begin{DoxyCompactList}\small\item\em Creates the turn queue based on unit initiative. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBattleManager_a288780e3e3eccfa9c212d5d5f2077f01}{turn}} ()
+\begin{DoxyCompactList}\small\item\em Executes one turn for all units in the queue. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBattleManager_a40568ca91601ed2b6d94185aba41db43}{update\+Effects}} ()
+\begin{DoxyCompactList}\small\item\em Updates effects applied to units. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -47,7 +63,31 @@ Initializes players, battlefield, and basic parameters.
 Initializes players, \mbox{\hyperlink{classAI}{AI}}, battlefield, and default battle parameters. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classBattleManager_a147bebebdc836d21a400697deb7abdec}\label{classBattleManager_a147bebebdc836d21a400697deb7abdec}} 
+\mbox{\Hypertarget{classBattleManager_a4ce1ec10c6fbc679499983d9b52fc2f9}\label{classBattleManager_a4ce1ec10c6fbc679499983d9b52fc2f9}} 
+\index{BattleManager@{BattleManager}!displayField@{displayField}}
+\index{displayField@{displayField}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{displayField()}{displayField()}}
+{\footnotesize\ttfamily void Battle\+Manager\+::display\+Field (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays the current state of the battlefield in the console. 
+
+Displays the current state of the battlefield.
+
+Shows hero stats, spells, field layout, and turn queue. \mbox{\Hypertarget{classBattleManager_a1e5697f553f2438aba5e24e363e587fa}\label{classBattleManager_a1e5697f553f2438aba5e24e363e587fa}} 
+\index{BattleManager@{BattleManager}!fillTheField@{fillTheField}}
+\index{fillTheField@{fillTheField}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{fillTheField()}{fillTheField()}}
+{\footnotesize\ttfamily void Battle\+Manager\+::fill\+The\+Field (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Fills the battlefield with units from the players\textquotesingle{} armies. 
+
+Fills the battlefield with troops from the players\textquotesingle{} armies.
+
+Places \mbox{\hyperlink{classPlayer}{Player}} 1\textquotesingle{}s troops on the left and \mbox{\hyperlink{classPlayer}{Player}} 2/\+AI\textquotesingle{}s troops on the right. \mbox{\Hypertarget{classBattleManager_a147bebebdc836d21a400697deb7abdec}\label{classBattleManager_a147bebebdc836d21a400697deb7abdec}} 
 \index{BattleManager@{BattleManager}!getAI@{getAI}}
 \index{getAI@{getAI}!BattleManager@{BattleManager}}
 \doxysubsubsection{\texorpdfstring{getAI()}{getAI()}}
@@ -61,6 +101,19 @@ Gets a reference to the \mbox{\hyperlink{classAI}{AI}}.
 
 \begin{DoxyReturn}{Returns}
 Reference to the \mbox{\hyperlink{classAI}{AI}} object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBattleManager_a2d51406d5c8e11ea63f7ab45cee33a1d}\label{classBattleManager_a2d51406d5c8e11ea63f7ab45cee33a1d}} 
+\index{BattleManager@{BattleManager}!getField@{getField}}
+\index{getField@{getField}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{getField()}{getField()}}
+{\footnotesize\ttfamily std\+::array$<$ std\+::array$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$, 6 $>$, 6 $>$ \& Battle\+Manager\+::get\+Field (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets a reference to the battlefield. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the 6x6 array of shared pointers to \mbox{\hyperlink{classTroop}{Troop}} objects of battlefield. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classBattleManager_a017b6a6e9abe8f534c6af8fbb9a3d99e}\label{classBattleManager_a017b6a6e9abe8f534c6af8fbb9a3d99e}} 
 \index{BattleManager@{BattleManager}!getPlayer1@{getPlayer1}}
@@ -92,6 +145,50 @@ Reference to the \mbox{\hyperlink{classPlayer}{Player}} object for the second pl
 
 Reference to the \mbox{\hyperlink{classPlayer}{Player}} object for \mbox{\hyperlink{classPlayer}{Player}} 2. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classBattleManager_a6852625166082eeb0da5de4d19529496}\label{classBattleManager_a6852625166082eeb0da5de4d19529496}} 
+\index{BattleManager@{BattleManager}!getQueue@{getQueue}}
+\index{getQueue@{getQueue}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{getQueue()}{getQueue()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ $>$ \& Battle\+Manager\+::get\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets a reference to the troop queue for turn order. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the vector of shared pointers to \mbox{\hyperlink{classTroop}{Troop}} objects of a queue. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBattleManager_a05a23cdc0d269cf48215e7e8572d160c}\label{classBattleManager_a05a23cdc0d269cf48215e7e8572d160c}} 
+\index{BattleManager@{BattleManager}!makeQueue@{makeQueue}}
+\index{makeQueue@{makeQueue}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{makeQueue()}{makeQueue()}}
+{\footnotesize\ttfamily void Battle\+Manager\+::make\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates the turn queue based on unit initiative. 
+
+Creates the turn queue based on unit initiative and might.
+
+Sorts units by initiative (descending) and total might as a tiebreaker. \mbox{\Hypertarget{classBattleManager_afb90feadc709ccfdf6e8be336fed1c14}\label{classBattleManager_afb90feadc709ccfdf6e8be336fed1c14}} 
+\index{BattleManager@{BattleManager}!printCenteredLine@{printCenteredLine}}
+\index{printCenteredLine@{printCenteredLine}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{printCenteredLine()}{printCenteredLine()}}
+{\footnotesize\ttfamily void Battle\+Manager\+::print\+Centered\+Line (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
+
+
+Prints a centered line to the console. 
+
+Prints a centered line to the console with padding.
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & String to be printed.\\
+\hline
+{\em str} & String to be centered and printed. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classBattleManager_a5d60e3ece2f9d776161160b639769f5b}\label{classBattleManager_a5d60e3ece2f9d776161160b639769f5b}} 
 \index{BattleManager@{BattleManager}!run@{run}}
 \index{run@{run}!BattleManager@{BattleManager}}
@@ -116,7 +213,31 @@ Sets the game mode (single-\/player or multiplayer).
 
 Sets the game mode by toggling between PvP and PvE.
 
-Switches between PvP and PvE modes. 
+Switches between PvP and PvE modes. \mbox{\Hypertarget{classBattleManager_a288780e3e3eccfa9c212d5d5f2077f01}\label{classBattleManager_a288780e3e3eccfa9c212d5d5f2077f01}} 
+\index{BattleManager@{BattleManager}!turn@{turn}}
+\index{turn@{turn}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{turn()}{turn()}}
+{\footnotesize\ttfamily void Battle\+Manager\+::turn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Executes one turn for all units in the queue. 
+
+Executes a single turn for all units in the queue.
+
+Handles player and \mbox{\hyperlink{classAI}{AI}} turns, including movement, attacks, and spell casting. \mbox{\Hypertarget{classBattleManager_a40568ca91601ed2b6d94185aba41db43}\label{classBattleManager_a40568ca91601ed2b6d94185aba41db43}} 
+\index{BattleManager@{BattleManager}!updateEffects@{updateEffects}}
+\index{updateEffects@{updateEffects}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{updateEffects()}{updateEffects()}}
+{\footnotesize\ttfamily void Battle\+Manager\+::update\+Effects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates effects applied to units. 
+
+Updates effects applied to all troops on the battlefield.
+
+Applies effects and removes defeated troops, potentially ending the battle. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

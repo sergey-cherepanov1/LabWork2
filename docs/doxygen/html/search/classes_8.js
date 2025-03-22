@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['terminalui_91',['TerminalUI',['../classTerminalUI.html',1,'']]],
-  ['troop_92',['Troop',['../classTroop.html',1,'']]]
+  ['terminalui_106',['TerminalUI',['../classTerminalUI.html',1,'']]],
+  ['troop_107',['Troop',['../classTroop.html',1,'']]]
 ];

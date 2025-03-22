@@ -17,7 +17,23 @@ Manages the overall game flow and state transitions.
 void \mbox{\hyperlink{classGameManager_abbde8090c24ca199815ba1e85059c96f}{run}} ()
 \begin{DoxyCompactList}\small\item\em Runs the main game loop. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classGameManager_a7ecc3a14cd9e92f50729b37d1364953f}{update}} ()
-\begin{DoxyCompactList}\small\item\em Updates the game state based on the current state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Updates the game state based on the current state. \end{DoxyCompactList}\item 
+Game\+State \mbox{\hyperlink{classGameManager_ad180a83f9010ba298842e3edbbd10f7a}{get\+State}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current state of the game. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGameManager_a75107b710cdc2e9af59b44302b387590}{get\+Status}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current status of the game or entity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameManager_a90e91bc7fc4a14c87eb1ef4812a8855f}{set\+State}} (Game\+State state)
+\begin{DoxyCompactList}\small\item\em Sets the current state of the game. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classGameManager_ae50fc06f36d2726d6b1769ce73f29f67}{get\+Difficulty}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current difficulty level of the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameManager_a5957b87bb1f1dd1316ca7340140cd2f4}{set\+Difficulty}} (int difficulty)
+\begin{DoxyCompactList}\small\item\em Sets the difficulty level of the game. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGameManager_a80d553a131276575f86c0af218ee10f8}{get\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current game mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameManager_a8c728e14ebd402bff881850bb7ea0e63}{set\+Mode}} (bool mode)
+\begin{DoxyCompactList}\small\item\em Sets the game mode. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBattleManager}{Battle\+Manager}} \& \mbox{\hyperlink{classGameManager_a1df3d2d759d559c37afb33aab7e9783c}{get\+Battle}} ()
+\begin{DoxyCompactList}\small\item\em Gets a reference to the battle manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -39,6 +55,71 @@ Default constructor for \mbox{\hyperlink{classGameManager}{Game\+Manager}}.
 Initializes the game state to MENU and sets up default parameters. 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGameManager_a1df3d2d759d559c37afb33aab7e9783c}\label{classGameManager_a1df3d2d759d559c37afb33aab7e9783c}} 
+\index{GameManager@{GameManager}!getBattle@{getBattle}}
+\index{getBattle@{getBattle}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{getBattle()}{getBattle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBattleManager}{Battle\+Manager}} \& Game\+Manager\+::get\+Battle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets a reference to the battle manager. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the \mbox{\hyperlink{classBattleManager}{Battle\+Manager}} object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameManager_ae50fc06f36d2726d6b1769ce73f29f67}\label{classGameManager_ae50fc06f36d2726d6b1769ce73f29f67}} 
+\index{GameManager@{GameManager}!getDifficulty@{getDifficulty}}
+\index{getDifficulty@{getDifficulty}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{getDifficulty()}{getDifficulty()}}
+{\footnotesize\ttfamily int Game\+Manager\+::get\+Difficulty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the current difficulty level of the game. 
+
+\begin{DoxyReturn}{Returns}
+The difficulty level (e.\+g., 0 for Easy, 1 for Normal, 2 for Hard). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameManager_a80d553a131276575f86c0af218ee10f8}\label{classGameManager_a80d553a131276575f86c0af218ee10f8}} 
+\index{GameManager@{GameManager}!getMode@{getMode}}
+\index{getMode@{getMode}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{getMode()}{getMode()}}
+{\footnotesize\ttfamily bool Game\+Manager\+::get\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the current game mode. 
+
+\begin{DoxyReturn}{Returns}
+True if multiplayer mode is active, false if single-\/player mode is active. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameManager_ad180a83f9010ba298842e3edbbd10f7a}\label{classGameManager_ad180a83f9010ba298842e3edbbd10f7a}} 
+\index{GameManager@{GameManager}!getState@{getState}}
+\index{getState@{getState}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily Game\+State Game\+Manager\+::get\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the current state of the game. 
+
+\begin{DoxyReturn}{Returns}
+The current Game\+State value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGameManager_a75107b710cdc2e9af59b44302b387590}\label{classGameManager_a75107b710cdc2e9af59b44302b387590}} 
+\index{GameManager@{GameManager}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}}
+{\footnotesize\ttfamily bool Game\+Manager\+::get\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the current status of the game or entity. 
+
+\begin{DoxyReturn}{Returns}
+True if the status is active or alive, false otherwise. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classGameManager_abbde8090c24ca199815ba1e85059c96f}\label{classGameManager_abbde8090c24ca199815ba1e85059c96f}} 
 \index{GameManager@{GameManager}!run@{run}}
 \index{run@{run}!GameManager@{GameManager}}
@@ -49,7 +130,52 @@ Initializes the game state to MENU and sets up default parameters.
 
 Runs the main game loop. 
 
-Continuously updates the game state until the game ends. \mbox{\Hypertarget{classGameManager_a7ecc3a14cd9e92f50729b37d1364953f}\label{classGameManager_a7ecc3a14cd9e92f50729b37d1364953f}} 
+Continuously updates the game state until the game ends. \mbox{\Hypertarget{classGameManager_a5957b87bb1f1dd1316ca7340140cd2f4}\label{classGameManager_a5957b87bb1f1dd1316ca7340140cd2f4}} 
+\index{GameManager@{GameManager}!setDifficulty@{setDifficulty}}
+\index{setDifficulty@{setDifficulty}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{setDifficulty()}{setDifficulty()}}
+{\footnotesize\ttfamily void Game\+Manager\+::set\+Difficulty (\begin{DoxyParamCaption}\item[{int}]{difficulty }\end{DoxyParamCaption})}
+
+
+
+Sets the difficulty level of the game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em difficulty} & The new difficulty level to set (e.\+g., 0 for Easy, 1 for Normal, 2 for Hard). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGameManager_a8c728e14ebd402bff881850bb7ea0e63}\label{classGameManager_a8c728e14ebd402bff881850bb7ea0e63}} 
+\index{GameManager@{GameManager}!setMode@{setMode}}
+\index{setMode@{setMode}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{setMode()}{setMode()}}
+{\footnotesize\ttfamily void Game\+Manager\+::set\+Mode (\begin{DoxyParamCaption}\item[{bool}]{mode }\end{DoxyParamCaption})}
+
+
+
+Sets the game mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The new game mode to set (true for multiplayer, false for single-\/player). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGameManager_a90e91bc7fc4a14c87eb1ef4812a8855f}\label{classGameManager_a90e91bc7fc4a14c87eb1ef4812a8855f}} 
+\index{GameManager@{GameManager}!setState@{setState}}
+\index{setState@{setState}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{setState()}{setState()}}
+{\footnotesize\ttfamily void Game\+Manager\+::set\+State (\begin{DoxyParamCaption}\item[{Game\+State}]{state }\end{DoxyParamCaption})}
+
+
+
+Sets the current state of the game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & The new Game\+State value to set. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGameManager_a7ecc3a14cd9e92f50729b37d1364953f}\label{classGameManager_a7ecc3a14cd9e92f50729b37d1364953f}} 
 \index{GameManager@{GameManager}!update@{update}}
 \index{update@{update}!GameManager@{GameManager}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
