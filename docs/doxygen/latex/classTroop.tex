@@ -1,0 +1,505 @@
+\hypertarget{classTroop}{}\doxysection{Troop Class Reference}
+\label{classTroop}\index{Troop@{Troop}}
+
+
+Represents a troop unit in the game with combat attributes and effects.  
+
+
+
+
+{\ttfamily \#include $<$Troop.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTroop_ae1ee45c05317c433a2881c75603984e7}{Troop}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classTroop}{Troop}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTroop_a75c5bc8284772e8da28339a2ee9e35c1}{Troop}} (std\+::string name, int amount, int health, int \mbox{\hyperlink{classTroop_a55f4e4a62d16d1b05e6b5a31c5cf70aa}{attack}}, int max\+\_\+stamina, int initiative, int might, std\+::vector$<$ \mbox{\hyperlink{classEffect}{Effect}} $>$ effects, std\+::string description)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classTroop}{Troop}} with specific parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTroop_af573a34c9aad34e00de58e296dec7809}{set\+Amount}} (int amount)
+\begin{DoxyCompactList}\small\item\em Sets the number of units in the troop. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTroop_aa536d14a18b2f3d2a280f32bcd66eff5}{set\+Position}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Sets the position of the troop on the battlefield. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTroop_ac7c59582a0486ed5f236693f99ae2f3a}{set\+Has\+Attacked}} (bool attacked)
+\begin{DoxyCompactList}\small\item\em Sets whether the troop has attacked this turn. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTroop_a4dfb6a33cdbc42026e10cf9ff0116266}{set\+Current\+Stamina}} (int stamina)
+\begin{DoxyCompactList}\small\item\em Sets the current stamina of the troop. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTroop_ac98eacc19f17c1bfc6a22132a84e50da}{set\+Owner}} ()
+\begin{DoxyCompactList}\small\item\em Toggles the owner of the troop (\mbox{\hyperlink{classPlayer}{Player}} 1 or \mbox{\hyperlink{classPlayer}{Player}} 2/\+AI). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTroop_a449d332123fcd8562f16be43d2e4808a}{set\+Has\+Casted}} (bool casted)
+\begin{DoxyCompactList}\small\item\em Sets whether the troop has cast a spell this turn. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classTroop_a61101f801ecaac6ed7f04856eb2cf42d}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Gets the name of the troop. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTroop_a694629b6018d7c3cf027df15c2aa93b6}{get\+Amount}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current number of units in the troop. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTroop_a1fbbeaa78a00fc50ac618043ef2ec8e2}{get\+Health}} ()
+\begin{DoxyCompactList}\small\item\em Gets the health per unit of the troop. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTroop_a7bbfc0414fa08bfbe170a4708c4d0f32}{get\+Attack}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current attack value per unit. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTroop_a2c4df3bcef40dbb83b0e131e54092f1f}{get\+Max\+Stamina}} ()
+\begin{DoxyCompactList}\small\item\em Gets the maximum stamina of the troop. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTroop_a33c569ea2f57c1a2b92ca9a7500f4ed3}{get\+Current\+Stamina}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current stamina of the troop. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTroop_a33ea298108e0b02284fe469a66c061a7}{get\+Initiative}} ()
+\begin{DoxyCompactList}\small\item\em Gets the initiative value of the troop. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTroop_ac1571a40eac57627490e12b9a6f4bf03}{get\+Might}} ()
+\begin{DoxyCompactList}\small\item\em Gets the might value per unit. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classEffect}{Effect}} $>$ \& \mbox{\hyperlink{classTroop_a254f2cf99a36bb9cc7324ee05fef18ec}{get\+Effects}} ()
+\begin{DoxyCompactList}\small\item\em Gets the vector of effects applied to the troop. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classTroop_a979bad2c9c18d4a8f05e056e439cc535}{get\+Description}} ()
+\begin{DoxyCompactList}\small\item\em Gets the description of the troop. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTroop_a32936f88552835d4d2be2dd3dd3aa45e}{getX}} ()
+\begin{DoxyCompactList}\small\item\em Gets the X-\/coordinate of the troop on the battlefield. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTroop_a2c6cc1e98be65fb2e124a2fcdc133b5f}{getY}} ()
+\begin{DoxyCompactList}\small\item\em Gets the Y-\/coordinate of the troop on the battlefield. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTroop_a89358a3d43c58e4a619ac85cdda0f307}{get\+Owner}} ()
+\begin{DoxyCompactList}\small\item\em Gets the owner of the troop. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTroop_a6cd1c1e19f02a20bb90ca0e169234c62}{has\+Attacked}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the troop has attacked this turn. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTroop_a5fd503e74a153f670f9678bba1ccb517}{has\+Casted}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the troop has cast a spell this turn. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTroop_ad779cb796b9c055cee9a57a446d82c92}{get\+Total\+Health}} ()
+\begin{DoxyCompactList}\small\item\em Gets the total health of the troop (health $\ast$ amount). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTroop_a672f48ea2f53ee5132ad5fc686c47caf}{get\+Total\+Attack}} ()
+\begin{DoxyCompactList}\small\item\em Gets the total attack of the troop (attack $\ast$ amount). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTroop_adae49e666a48e296b99a8422cd30183a}{get\+Total\+Might}} ()
+\begin{DoxyCompactList}\small\item\em Gets the total might of the troop (might $\ast$ amount). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTroop_a55f4e4a62d16d1b05e6b5a31c5cf70aa}{attack}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ \&target)
+\begin{DoxyCompactList}\small\item\em Performs an attack on a target troop. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTroop_a34485c92be2dfa7303e23c5a81e8f48f}\label{classTroop_a34485c92be2dfa7303e23c5a81e8f48f}} 
+void \mbox{\hyperlink{classTroop_a34485c92be2dfa7303e23c5a81e8f48f}{apply\+Effects}} ()
+\begin{DoxyCompactList}\small\item\em Applies all active effects to the troop. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTroop_abe5dfba7a1ebca61002c55d382fa52eb}{add\+Effect}} (\mbox{\hyperlink{classEffect}{Effect}} \&effect)
+\begin{DoxyCompactList}\small\item\em Adds a new effect to the troop. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTroop_a2c4bd7f7507b382d78be989b2ca20573}{reset\+Effect}} (\mbox{\hyperlink{classEffect}{Effect}} \&effect)
+\begin{DoxyCompactList}\small\item\em Resets an effect when it expires. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a troop unit in the game with combat attributes and effects. 
+
+Manages a troop\textquotesingle{}s stats, position, actions, and applied effects during battle. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTroop_ae1ee45c05317c433a2881c75603984e7}\label{classTroop_ae1ee45c05317c433a2881c75603984e7}} 
+\index{Troop@{Troop}!Troop@{Troop}}
+\index{Troop@{Troop}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{Troop()}{Troop()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Troop\+::\+Troop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for \mbox{\hyperlink{classTroop}{Troop}}. 
+
+Initializes a troop with default values. \mbox{\Hypertarget{classTroop_a75c5bc8284772e8da28339a2ee9e35c1}\label{classTroop_a75c5bc8284772e8da28339a2ee9e35c1}} 
+\index{Troop@{Troop}!Troop@{Troop}}
+\index{Troop@{Troop}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{Troop()}{Troop()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Troop\+::\+Troop (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{int}]{amount,  }\item[{int}]{health,  }\item[{int}]{attack,  }\item[{int}]{max\+\_\+stamina,  }\item[{int}]{initiative,  }\item[{int}]{might,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classEffect}{Effect}} $>$}]{effects,  }\item[{std\+::string}]{description }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classTroop}{Troop}} with specific parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the troop. \\
+\hline
+{\em amount} & Number of units in the troop. \\
+\hline
+{\em health} & Health per unit. \\
+\hline
+{\em attack} & Attack value per unit. \\
+\hline
+{\em max\+\_\+stamina} & Maximum stamina of the troop. \\
+\hline
+{\em initiative} & Initiative value determining turn order. \\
+\hline
+{\em might} & Might value per unit. \\
+\hline
+{\em effects} & Vector of effects applied to the troop. \\
+\hline
+{\em description} & Description of the troop. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTroop_abe5dfba7a1ebca61002c55d382fa52eb}\label{classTroop_abe5dfba7a1ebca61002c55d382fa52eb}} 
+\index{Troop@{Troop}!addEffect@{addEffect}}
+\index{addEffect@{addEffect}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{addEffect()}{addEffect()}}
+{\footnotesize\ttfamily void Troop\+::add\+Effect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEffect}{Effect}} \&}]{effect }\end{DoxyParamCaption})}
+
+
+
+Adds a new effect to the troop. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em effect} & Reference to the \mbox{\hyperlink{classEffect}{Effect}} object to add. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTroop_a55f4e4a62d16d1b05e6b5a31c5cf70aa}\label{classTroop_a55f4e4a62d16d1b05e6b5a31c5cf70aa}} 
+\index{Troop@{Troop}!attack@{attack}}
+\index{attack@{attack}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{attack()}{attack()}}
+{\footnotesize\ttfamily void Troop\+::attack (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ \&}]{target }\end{DoxyParamCaption})}
+
+
+
+Performs an attack on a target troop. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Shared pointer to the target troop. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTroop_a694629b6018d7c3cf027df15c2aa93b6}\label{classTroop_a694629b6018d7c3cf027df15c2aa93b6}} 
+\index{Troop@{Troop}!getAmount@{getAmount}}
+\index{getAmount@{getAmount}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{getAmount()}{getAmount()}}
+{\footnotesize\ttfamily int Troop\+::get\+Amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the current number of units in the troop. 
+
+\begin{DoxyReturn}{Returns}
+Integer representing the number of units. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTroop_a7bbfc0414fa08bfbe170a4708c4d0f32}\label{classTroop_a7bbfc0414fa08bfbe170a4708c4d0f32}} 
+\index{Troop@{Troop}!getAttack@{getAttack}}
+\index{getAttack@{getAttack}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{getAttack()}{getAttack()}}
+{\footnotesize\ttfamily int Troop\+::get\+Attack (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the current attack value per unit. 
+
+\begin{DoxyReturn}{Returns}
+Integer representing attack per unit. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTroop_a33c569ea2f57c1a2b92ca9a7500f4ed3}\label{classTroop_a33c569ea2f57c1a2b92ca9a7500f4ed3}} 
+\index{Troop@{Troop}!getCurrentStamina@{getCurrentStamina}}
+\index{getCurrentStamina@{getCurrentStamina}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{getCurrentStamina()}{getCurrentStamina()}}
+{\footnotesize\ttfamily int Troop\+::get\+Current\+Stamina (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the current stamina of the troop. 
+
+\begin{DoxyReturn}{Returns}
+Integer representing current stamina. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTroop_a979bad2c9c18d4a8f05e056e439cc535}\label{classTroop_a979bad2c9c18d4a8f05e056e439cc535}} 
+\index{Troop@{Troop}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}}
+{\footnotesize\ttfamily std\+::string Troop\+::get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the description of the troop. 
+
+\begin{DoxyReturn}{Returns}
+String containing the troop\textquotesingle{}s description. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTroop_a254f2cf99a36bb9cc7324ee05fef18ec}\label{classTroop_a254f2cf99a36bb9cc7324ee05fef18ec}} 
+\index{Troop@{Troop}!getEffects@{getEffects}}
+\index{getEffects@{getEffects}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{getEffects()}{getEffects()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classEffect}{Effect}} $>$ \& Troop\+::get\+Effects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the vector of effects applied to the troop. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the vector of \mbox{\hyperlink{classEffect}{Effect}} objects. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTroop_a1fbbeaa78a00fc50ac618043ef2ec8e2}\label{classTroop_a1fbbeaa78a00fc50ac618043ef2ec8e2}} 
+\index{Troop@{Troop}!getHealth@{getHealth}}
+\index{getHealth@{getHealth}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{getHealth()}{getHealth()}}
+{\footnotesize\ttfamily int Troop\+::get\+Health (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the health per unit of the troop. 
+
+\begin{DoxyReturn}{Returns}
+Integer representing health per unit. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTroop_a33ea298108e0b02284fe469a66c061a7}\label{classTroop_a33ea298108e0b02284fe469a66c061a7}} 
+\index{Troop@{Troop}!getInitiative@{getInitiative}}
+\index{getInitiative@{getInitiative}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{getInitiative()}{getInitiative()}}
+{\footnotesize\ttfamily int Troop\+::get\+Initiative (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the initiative value of the troop. 
+
+\begin{DoxyReturn}{Returns}
+Integer representing initiative. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTroop_a2c4df3bcef40dbb83b0e131e54092f1f}\label{classTroop_a2c4df3bcef40dbb83b0e131e54092f1f}} 
+\index{Troop@{Troop}!getMaxStamina@{getMaxStamina}}
+\index{getMaxStamina@{getMaxStamina}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{getMaxStamina()}{getMaxStamina()}}
+{\footnotesize\ttfamily int Troop\+::get\+Max\+Stamina (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the maximum stamina of the troop. 
+
+\begin{DoxyReturn}{Returns}
+Integer representing maximum stamina. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTroop_ac1571a40eac57627490e12b9a6f4bf03}\label{classTroop_ac1571a40eac57627490e12b9a6f4bf03}} 
+\index{Troop@{Troop}!getMight@{getMight}}
+\index{getMight@{getMight}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{getMight()}{getMight()}}
+{\footnotesize\ttfamily int Troop\+::get\+Might (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the might value per unit. 
+
+\begin{DoxyReturn}{Returns}
+Integer representing might per unit. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTroop_a61101f801ecaac6ed7f04856eb2cf42d}\label{classTroop_a61101f801ecaac6ed7f04856eb2cf42d}} 
+\index{Troop@{Troop}!getName@{getName}}
+\index{getName@{getName}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Troop\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the name of the troop. 
+
+\begin{DoxyReturn}{Returns}
+String containing the troop\textquotesingle{}s name. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTroop_a89358a3d43c58e4a619ac85cdda0f307}\label{classTroop_a89358a3d43c58e4a619ac85cdda0f307}} 
+\index{Troop@{Troop}!getOwner@{getOwner}}
+\index{getOwner@{getOwner}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{getOwner()}{getOwner()}}
+{\footnotesize\ttfamily bool Troop\+::get\+Owner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the owner of the troop. 
+
+\begin{DoxyReturn}{Returns}
+True if owned by \mbox{\hyperlink{classPlayer}{Player}} 2/\+AI, false if owned by \mbox{\hyperlink{classPlayer}{Player}} 1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTroop_a672f48ea2f53ee5132ad5fc686c47caf}\label{classTroop_a672f48ea2f53ee5132ad5fc686c47caf}} 
+\index{Troop@{Troop}!getTotalAttack@{getTotalAttack}}
+\index{getTotalAttack@{getTotalAttack}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{getTotalAttack()}{getTotalAttack()}}
+{\footnotesize\ttfamily int Troop\+::get\+Total\+Attack (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the total attack of the troop (attack $\ast$ amount). 
+
+Gets the total attack of the troop.
+
+\begin{DoxyReturn}{Returns}
+Integer representing total attack. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTroop_ad779cb796b9c055cee9a57a446d82c92}\label{classTroop_ad779cb796b9c055cee9a57a446d82c92}} 
+\index{Troop@{Troop}!getTotalHealth@{getTotalHealth}}
+\index{getTotalHealth@{getTotalHealth}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{getTotalHealth()}{getTotalHealth()}}
+{\footnotesize\ttfamily int Troop\+::get\+Total\+Health (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the total health of the troop (health $\ast$ amount). 
+
+Gets the total health of the troop.
+
+\begin{DoxyReturn}{Returns}
+Integer representing total health. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTroop_adae49e666a48e296b99a8422cd30183a}\label{classTroop_adae49e666a48e296b99a8422cd30183a}} 
+\index{Troop@{Troop}!getTotalMight@{getTotalMight}}
+\index{getTotalMight@{getTotalMight}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{getTotalMight()}{getTotalMight()}}
+{\footnotesize\ttfamily int Troop\+::get\+Total\+Might (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the total might of the troop (might $\ast$ amount). 
+
+Gets the total might of the troop.
+
+\begin{DoxyReturn}{Returns}
+Integer representing total might. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTroop_a32936f88552835d4d2be2dd3dd3aa45e}\label{classTroop_a32936f88552835d4d2be2dd3dd3aa45e}} 
+\index{Troop@{Troop}!getX@{getX}}
+\index{getX@{getX}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{getX()}{getX()}}
+{\footnotesize\ttfamily int Troop\+::getX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the X-\/coordinate of the troop on the battlefield. 
+
+\begin{DoxyReturn}{Returns}
+Integer representing the X-\/coordinate. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTroop_a2c6cc1e98be65fb2e124a2fcdc133b5f}\label{classTroop_a2c6cc1e98be65fb2e124a2fcdc133b5f}} 
+\index{Troop@{Troop}!getY@{getY}}
+\index{getY@{getY}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{getY()}{getY()}}
+{\footnotesize\ttfamily int Troop\+::getY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the Y-\/coordinate of the troop on the battlefield. 
+
+\begin{DoxyReturn}{Returns}
+Integer representing the Y-\/coordinate. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTroop_a6cd1c1e19f02a20bb90ca0e169234c62}\label{classTroop_a6cd1c1e19f02a20bb90ca0e169234c62}} 
+\index{Troop@{Troop}!hasAttacked@{hasAttacked}}
+\index{hasAttacked@{hasAttacked}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{hasAttacked()}{hasAttacked()}}
+{\footnotesize\ttfamily bool Troop\+::has\+Attacked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the troop has attacked this turn. 
+
+\begin{DoxyReturn}{Returns}
+True if the troop has attacked, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTroop_a5fd503e74a153f670f9678bba1ccb517}\label{classTroop_a5fd503e74a153f670f9678bba1ccb517}} 
+\index{Troop@{Troop}!hasCasted@{hasCasted}}
+\index{hasCasted@{hasCasted}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{hasCasted()}{hasCasted()}}
+{\footnotesize\ttfamily bool Troop\+::has\+Casted (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the troop has cast a spell this turn. 
+
+\begin{DoxyReturn}{Returns}
+True if the troop has cast a spell, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTroop_a2c4bd7f7507b382d78be989b2ca20573}\label{classTroop_a2c4bd7f7507b382d78be989b2ca20573}} 
+\index{Troop@{Troop}!resetEffect@{resetEffect}}
+\index{resetEffect@{resetEffect}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{resetEffect()}{resetEffect()}}
+{\footnotesize\ttfamily void Troop\+::reset\+Effect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEffect}{Effect}} \&}]{effect }\end{DoxyParamCaption})}
+
+
+
+Resets an effect when it expires. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em effect} & Reference to the \mbox{\hyperlink{classEffect}{Effect}} object to reset. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTroop_af573a34c9aad34e00de58e296dec7809}\label{classTroop_af573a34c9aad34e00de58e296dec7809}} 
+\index{Troop@{Troop}!setAmount@{setAmount}}
+\index{setAmount@{setAmount}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{setAmount()}{setAmount()}}
+{\footnotesize\ttfamily void Troop\+::set\+Amount (\begin{DoxyParamCaption}\item[{int}]{amount }\end{DoxyParamCaption})}
+
+
+
+Sets the number of units in the troop. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & New number of units. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTroop_a4dfb6a33cdbc42026e10cf9ff0116266}\label{classTroop_a4dfb6a33cdbc42026e10cf9ff0116266}} 
+\index{Troop@{Troop}!setCurrentStamina@{setCurrentStamina}}
+\index{setCurrentStamina@{setCurrentStamina}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{setCurrentStamina()}{setCurrentStamina()}}
+{\footnotesize\ttfamily void Troop\+::set\+Current\+Stamina (\begin{DoxyParamCaption}\item[{int}]{stamina }\end{DoxyParamCaption})}
+
+
+
+Sets the current stamina of the troop. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stamina} & New stamina value. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTroop_ac7c59582a0486ed5f236693f99ae2f3a}\label{classTroop_ac7c59582a0486ed5f236693f99ae2f3a}} 
+\index{Troop@{Troop}!setHasAttacked@{setHasAttacked}}
+\index{setHasAttacked@{setHasAttacked}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{setHasAttacked()}{setHasAttacked()}}
+{\footnotesize\ttfamily void Troop\+::set\+Has\+Attacked (\begin{DoxyParamCaption}\item[{bool}]{attacked }\end{DoxyParamCaption})}
+
+
+
+Sets whether the troop has attacked this turn. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attacked} & True if the troop has attacked, false otherwise. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTroop_a449d332123fcd8562f16be43d2e4808a}\label{classTroop_a449d332123fcd8562f16be43d2e4808a}} 
+\index{Troop@{Troop}!setHasCasted@{setHasCasted}}
+\index{setHasCasted@{setHasCasted}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{setHasCasted()}{setHasCasted()}}
+{\footnotesize\ttfamily void Troop\+::set\+Has\+Casted (\begin{DoxyParamCaption}\item[{bool}]{casted }\end{DoxyParamCaption})}
+
+
+
+Sets whether the troop has cast a spell this turn. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em casted} & True if the troop has cast a spell, false otherwise. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTroop_ac98eacc19f17c1bfc6a22132a84e50da}\label{classTroop_ac98eacc19f17c1bfc6a22132a84e50da}} 
+\index{Troop@{Troop}!setOwner@{setOwner}}
+\index{setOwner@{setOwner}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{setOwner()}{setOwner()}}
+{\footnotesize\ttfamily void Troop\+::set\+Owner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Toggles the owner of the troop (\mbox{\hyperlink{classPlayer}{Player}} 1 or \mbox{\hyperlink{classPlayer}{Player}} 2/\+AI). 
+
+Toggles the owner of the troop. \mbox{\Hypertarget{classTroop_aa536d14a18b2f3d2a280f32bcd66eff5}\label{classTroop_aa536d14a18b2f3d2a280f32bcd66eff5}} 
+\index{Troop@{Troop}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!Troop@{Troop}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void Troop\+::set\+Position (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Sets the position of the troop on the battlefield. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & X-\/coordinate on the battlefield. \\
+\hline
+{\em y} & Y-\/coordinate on the battlefield. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Troop.\+h\item 
+src/Troop.\+cpp\end{DoxyCompactItemize}

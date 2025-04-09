@@ -1,0 +1,129 @@
+\hypertarget{classEffect}{}\doxysection{Effect Class Reference}
+\label{classEffect}\index{Effect@{Effect}}
+
+
+Represents an effect that can modify a troop\textquotesingle{}s attributes.  
+
+
+
+
+{\ttfamily \#include $<$Effect.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEffect_a4dae74244f59936a49847da9217b4126}{Effect}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classEffect}{Effect}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEffect_acf2f20fe5efca1a44c1ffee5978ab520}{Effect}} (Effect\+Type type, int value, int duration, bool \mbox{\hyperlink{classEffect_a4574da41a95a80fb387535ca34eb23a4}{apply\+Each\+Turn}})
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classEffect}{Effect}} with specific parameters. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEffect_abc668ab74a7f1e6234101f38fbaf2d0b}{get\+Value}} ()
+\begin{DoxyCompactList}\small\item\em Gets the value of the effect. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEffect_aff27aa72dcaf221bb4bf6c7b18c93441}{get\+Duration}} ()
+\begin{DoxyCompactList}\small\item\em Gets the remaining duration of the effect. \end{DoxyCompactList}\item 
+Effect\+Type \mbox{\hyperlink{classEffect_aeee0d0cdfd7d06928e3049c61bc2d1ae}{get\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Gets the type of the effect. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEffect_aad4ebb29b9834471071073663f0bf016}\label{classEffect_aad4ebb29b9834471071073663f0bf016}} 
+void \mbox{\hyperlink{classEffect_aad4ebb29b9834471071073663f0bf016}{decrease\+Duration}} ()
+\begin{DoxyCompactList}\small\item\em Decreases the duration of the effect by 1. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEffect_a4574da41a95a80fb387535ca34eb23a4}{apply\+Each\+Turn}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the effect applies each turn. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents an effect that can modify a troop\textquotesingle{}s attributes. 
+
+Effects can alter health, attack, or stamina and may persist for multiple turns. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEffect_a4dae74244f59936a49847da9217b4126}\label{classEffect_a4dae74244f59936a49847da9217b4126}} 
+\index{Effect@{Effect}!Effect@{Effect}}
+\index{Effect@{Effect}!Effect@{Effect}}
+\doxysubsubsection{\texorpdfstring{Effect()}{Effect()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Effect\+::\+Effect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for \mbox{\hyperlink{classEffect}{Effect}}. 
+
+Initializes an effect with default values (HEALTH, 0 value, 0 duration). \mbox{\Hypertarget{classEffect_acf2f20fe5efca1a44c1ffee5978ab520}\label{classEffect_acf2f20fe5efca1a44c1ffee5978ab520}} 
+\index{Effect@{Effect}!Effect@{Effect}}
+\index{Effect@{Effect}!Effect@{Effect}}
+\doxysubsubsection{\texorpdfstring{Effect()}{Effect()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Effect\+::\+Effect (\begin{DoxyParamCaption}\item[{Effect\+Type}]{type,  }\item[{int}]{value,  }\item[{int}]{duration,  }\item[{bool}]{apply\+Each\+Turn }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classEffect}{Effect}} with specific parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Type of the effect (HEALTH, ATTACK, or STAMINA). \\
+\hline
+{\em value} & Value of the effect (positive or negative). \\
+\hline
+{\em duration} & Number of turns the effect lasts. \\
+\hline
+{\em apply\+Each\+Turn} & Whether the effect applies every turn or once. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEffect_a4574da41a95a80fb387535ca34eb23a4}\label{classEffect_a4574da41a95a80fb387535ca34eb23a4}} 
+\index{Effect@{Effect}!applyEachTurn@{applyEachTurn}}
+\index{applyEachTurn@{applyEachTurn}!Effect@{Effect}}
+\doxysubsubsection{\texorpdfstring{applyEachTurn()}{applyEachTurn()}}
+{\footnotesize\ttfamily bool Effect\+::apply\+Each\+Turn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the effect applies each turn. 
+
+\begin{DoxyReturn}{Returns}
+True if the effect is applied every turn, false if applied once. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEffect_aff27aa72dcaf221bb4bf6c7b18c93441}\label{classEffect_aff27aa72dcaf221bb4bf6c7b18c93441}} 
+\index{Effect@{Effect}!getDuration@{getDuration}}
+\index{getDuration@{getDuration}!Effect@{Effect}}
+\doxysubsubsection{\texorpdfstring{getDuration()}{getDuration()}}
+{\footnotesize\ttfamily int Effect\+::get\+Duration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the remaining duration of the effect. 
+
+\begin{DoxyReturn}{Returns}
+Number of turns the effect will persist. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEffect_aeee0d0cdfd7d06928e3049c61bc2d1ae}\label{classEffect_aeee0d0cdfd7d06928e3049c61bc2d1ae}} 
+\index{Effect@{Effect}!getType@{getType}}
+\index{getType@{getType}!Effect@{Effect}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily Effect\+Type Effect\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the type of the effect. 
+
+\begin{DoxyReturn}{Returns}
+Effect\+Type enum value (HEALTH, ATTACK, or STAMINA). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEffect_abc668ab74a7f1e6234101f38fbaf2d0b}\label{classEffect_abc668ab74a7f1e6234101f38fbaf2d0b}} 
+\index{Effect@{Effect}!getValue@{getValue}}
+\index{getValue@{getValue}!Effect@{Effect}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}}
+{\footnotesize\ttfamily int Effect\+::get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the value of the effect. 
+
+\begin{DoxyReturn}{Returns}
+Integer value of the effect. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Effect.\+h\item 
+src/Effect.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,126 @@
+\hypertarget{classSpell}{}\doxysection{Spell Class Reference}
+\label{classSpell}\index{Spell@{Spell}}
+
+
+Represents a magical spell that can be cast by a hero.  
+
+
+
+
+{\ttfamily \#include $<$Spell.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSpell_a614361c1702859a162e1572030166cb0}{Spell}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classSpell}{Spell}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSpell_a9bce300413e7312f9f9b6f2deb2436a3}{Spell}} (std\+::string name, int cost, \mbox{\hyperlink{classEffect}{Effect}} effect, std\+::string description)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classSpell}{Spell}} with specific parameters. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classSpell_a85454785ad7dc5969fe44ecb6e93610e}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Gets the name of the spell. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSpell_abea63c2ff1c2244bdb866540d874c247}{get\+Cost}} ()
+\begin{DoxyCompactList}\small\item\em Gets the mana cost of the spell. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEffect}{Effect}} \mbox{\hyperlink{classSpell_afbb63aa05f334ed93a9949fc26661076}{get\+Effect}} ()
+\begin{DoxyCompactList}\small\item\em Gets the effect associated with the spell. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classSpell_ac6ac1f2def27f6e0ed691dc418729d44}{get\+Description}} ()
+\begin{DoxyCompactList}\small\item\em Gets the description of the spell. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a magical spell that can be cast by a hero. 
+
+Stores the spell\textquotesingle{}s name, mana cost, associated effect, and description. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSpell_a614361c1702859a162e1572030166cb0}\label{classSpell_a614361c1702859a162e1572030166cb0}} 
+\index{Spell@{Spell}!Spell@{Spell}}
+\index{Spell@{Spell}!Spell@{Spell}}
+\doxysubsubsection{\texorpdfstring{Spell()}{Spell()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Spell\+::\+Spell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for \mbox{\hyperlink{classSpell}{Spell}}. 
+
+Initializes a spell with default values. \mbox{\Hypertarget{classSpell_a9bce300413e7312f9f9b6f2deb2436a3}\label{classSpell_a9bce300413e7312f9f9b6f2deb2436a3}} 
+\index{Spell@{Spell}!Spell@{Spell}}
+\index{Spell@{Spell}!Spell@{Spell}}
+\doxysubsubsection{\texorpdfstring{Spell()}{Spell()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Spell\+::\+Spell (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{int}]{cost,  }\item[{\mbox{\hyperlink{classEffect}{Effect}}}]{effect,  }\item[{std\+::string}]{description }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classSpell}{Spell}} with specific parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the spell. \\
+\hline
+{\em cost} & Mana cost to cast the spell. \\
+\hline
+{\em effect} & \mbox{\hyperlink{classEffect}{Effect}} applied by the spell. \\
+\hline
+{\em description} & Description of the spell\textquotesingle{}s effect. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSpell_abea63c2ff1c2244bdb866540d874c247}\label{classSpell_abea63c2ff1c2244bdb866540d874c247}} 
+\index{Spell@{Spell}!getCost@{getCost}}
+\index{getCost@{getCost}!Spell@{Spell}}
+\doxysubsubsection{\texorpdfstring{getCost()}{getCost()}}
+{\footnotesize\ttfamily int Spell\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the mana cost of the spell. 
+
+\begin{DoxyReturn}{Returns}
+Integer representing the mana cost. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSpell_ac6ac1f2def27f6e0ed691dc418729d44}\label{classSpell_ac6ac1f2def27f6e0ed691dc418729d44}} 
+\index{Spell@{Spell}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!Spell@{Spell}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}}
+{\footnotesize\ttfamily std\+::string Spell\+::get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the description of the spell. 
+
+\begin{DoxyReturn}{Returns}
+String containing the spell\textquotesingle{}s description. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSpell_afbb63aa05f334ed93a9949fc26661076}\label{classSpell_afbb63aa05f334ed93a9949fc26661076}} 
+\index{Spell@{Spell}!getEffect@{getEffect}}
+\index{getEffect@{getEffect}!Spell@{Spell}}
+\doxysubsubsection{\texorpdfstring{getEffect()}{getEffect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEffect}{Effect}} Spell\+::get\+Effect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the effect associated with the spell. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classEffect}{Effect}} object representing the spell\textquotesingle{}s effect. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSpell_a85454785ad7dc5969fe44ecb6e93610e}\label{classSpell_a85454785ad7dc5969fe44ecb6e93610e}} 
+\index{Spell@{Spell}!getName@{getName}}
+\index{getName@{getName}!Spell@{Spell}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Spell\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the name of the spell. 
+
+\begin{DoxyReturn}{Returns}
+String containing the spell\textquotesingle{}s name. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Spell.\+h\item 
+src/Spell.\+cpp\end{DoxyCompactItemize}

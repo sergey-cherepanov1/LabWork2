@@ -1,0 +1,119 @@
+\hypertarget{classTerminalUI}{}\doxysection{Terminal\+UI Class Reference}
+\label{classTerminalUI}\index{TerminalUI@{TerminalUI}}
+
+
+Manages the terminal-\/based user interface for the game.  
+
+
+
+
+{\ttfamily \#include $<$Terminal\+UI.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classTerminalUI_a7adb4e62217c47e36f1e71594cbb4664}{display\+Info}} (Info\+State info\+\_\+state)
+\begin{DoxyCompactList}\small\item\em Displays information based on the specified state. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classTerminalUI_af2d96b8d6fa2a8ed8eda0cd4e8109203}{handle\+Input}} (Input\+State input\+\_\+state)
+\begin{DoxyCompactList}\small\item\em Handles user input based on the expected input type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTerminalUI_a6201806bfb770ccbbfff4e89fd40a8dc}{show\+Army}} (\mbox{\hyperlink{classPlayer}{Player}} \&player)
+\begin{DoxyCompactList}\small\item\em Displays the player\textquotesingle{}s army composition. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ \mbox{\hyperlink{classTerminalUI_a670ecef710dd43977e76dc6e3c00bbdb}{select\+Troop}} (int remaining\+\_\+might, bool \&should\+\_\+end)
+\begin{DoxyCompactList}\small\item\em Selects a troop for the player\textquotesingle{}s army based on remaining might. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatalog}{Catalog}} \& \mbox{\hyperlink{classTerminalUI_aa1c8d2b0ece28f623f264fb0c0426ddc}{get\+Catalog}} ()
+\begin{DoxyCompactList}\small\item\em Gets the catalog of available heroes and troops. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the terminal-\/based user interface for the game. 
+
+Handles displaying information, processing user input, and army selection. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTerminalUI_a7adb4e62217c47e36f1e71594cbb4664}\label{classTerminalUI_a7adb4e62217c47e36f1e71594cbb4664}} 
+\index{TerminalUI@{TerminalUI}!displayInfo@{displayInfo}}
+\index{displayInfo@{displayInfo}!TerminalUI@{TerminalUI}}
+\doxysubsubsection{\texorpdfstring{displayInfo()}{displayInfo()}}
+{\footnotesize\ttfamily void Terminal\+UI\+::display\+Info (\begin{DoxyParamCaption}\item[{Info\+State}]{info\+\_\+state }\end{DoxyParamCaption})}
+
+
+
+Displays information based on the specified state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em info\+\_\+state} & The type of information to display (e.\+g., menu, prompts). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTerminalUI_aa1c8d2b0ece28f623f264fb0c0426ddc}\label{classTerminalUI_aa1c8d2b0ece28f623f264fb0c0426ddc}} 
+\index{TerminalUI@{TerminalUI}!getCatalog@{getCatalog}}
+\index{getCatalog@{getCatalog}!TerminalUI@{TerminalUI}}
+\doxysubsubsection{\texorpdfstring{getCatalog()}{getCatalog()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatalog}{Catalog}} \& Terminal\+UI\+::get\+Catalog (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the catalog of available heroes and troops. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the \mbox{\hyperlink{classCatalog}{Catalog}} object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTerminalUI_af2d96b8d6fa2a8ed8eda0cd4e8109203}\label{classTerminalUI_af2d96b8d6fa2a8ed8eda0cd4e8109203}} 
+\index{TerminalUI@{TerminalUI}!handleInput@{handleInput}}
+\index{handleInput@{handleInput}!TerminalUI@{TerminalUI}}
+\doxysubsubsection{\texorpdfstring{handleInput()}{handleInput()}}
+{\footnotesize\ttfamily std\+::string Terminal\+UI\+::handle\+Input (\begin{DoxyParamCaption}\item[{Input\+State}]{input\+\_\+state }\end{DoxyParamCaption})}
+
+
+
+Handles user input based on the expected input type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+\_\+state} & The type of input expected from the user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String containing the validated user input. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTerminalUI_a670ecef710dd43977e76dc6e3c00bbdb}\label{classTerminalUI_a670ecef710dd43977e76dc6e3c00bbdb}} 
+\index{TerminalUI@{TerminalUI}!selectTroop@{selectTroop}}
+\index{selectTroop@{selectTroop}!TerminalUI@{TerminalUI}}
+\doxysubsubsection{\texorpdfstring{selectTroop()}{selectTroop()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ Terminal\+UI\+::select\+Troop (\begin{DoxyParamCaption}\item[{int}]{remaining\+\_\+might,  }\item[{bool \&}]{should\+\_\+end }\end{DoxyParamCaption})}
+
+
+
+Selects a troop for the player\textquotesingle{}s army based on remaining might. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em remaining\+\_\+might} & Remaining might available for troop selection. \\
+\hline
+{\em should\+\_\+end} & Reference to a flag indicating if selection should end. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Shared pointer to the selected \mbox{\hyperlink{classTroop}{Troop}} object, or nullptr if selection ends. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTerminalUI_a6201806bfb770ccbbfff4e89fd40a8dc}\label{classTerminalUI_a6201806bfb770ccbbfff4e89fd40a8dc}} 
+\index{TerminalUI@{TerminalUI}!showArmy@{showArmy}}
+\index{showArmy@{showArmy}!TerminalUI@{TerminalUI}}
+\doxysubsubsection{\texorpdfstring{showArmy()}{showArmy()}}
+{\footnotesize\ttfamily void Terminal\+UI\+::show\+Army (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{player }\end{DoxyParamCaption})}
+
+
+
+Displays the player\textquotesingle{}s army composition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Reference to the \mbox{\hyperlink{classPlayer}{Player}} whose army is to be displayed. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Terminal\+UI.\+h\item 
+src/Terminal\+UI.\+cpp\end{DoxyCompactItemize}

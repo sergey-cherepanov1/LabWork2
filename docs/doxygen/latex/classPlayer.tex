@@ -1,0 +1,123 @@
+\hypertarget{classPlayer}{}\doxysection{Player Class Reference}
+\label{classPlayer}\index{Player@{Player}}
+
+
+Represents a player in the game with a name and an army.  
+
+
+
+
+{\ttfamily \#include $<$Player.\+h$>$}
+
+
+
+Inheritance diagram for Player\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=127pt]{classPlayer__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classPlayer}{Player}}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classPlayer_af1aa472885d589516f483e26e786600e}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Gets the name of the player. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classArmy}{Army}} \& \mbox{\hyperlink{classPlayer_ac2557755b1e888f142083eeec5f8ae56}{get\+Army}} ()
+\begin{DoxyCompactList}\small\item\em Gets the player\textquotesingle{}s army. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer_a95d2b46eee230ad3e31612ff2bc681da}{set\+Name}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Sets the name of the player. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPlayer_a2c5ab9cecf3fed66fd5c6f3c751c76e9}\label{classPlayer_a2c5ab9cecf3fed66fd5c6f3c751c76e9}} 
+void \mbox{\hyperlink{classPlayer_a2c5ab9cecf3fed66fd5c6f3c751c76e9}{show\+Might\+Left}} ()
+\begin{DoxyCompactList}\small\item\em Displays the remaining might of the player\textquotesingle{}s army. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classPlayer_a2004b1984c82cbf0e89779a22b4c4d8f}{setup\+Army}} (\mbox{\hyperlink{classCatalog}{Catalog}} \&catalog)
+\begin{DoxyCompactList}\small\item\em Virtual method to set up the player\textquotesingle{}s army. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a player in the game with a name and an army. 
+
+Base class for human players and \mbox{\hyperlink{classAI}{AI}}, managing player-\/specific data and actions. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8}\label{classPlayer_affe0cc3cb714f6deb4e62f0c0d3f1fd8}} 
+\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}}
+{\footnotesize\ttfamily Player\+::\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for \mbox{\hyperlink{classPlayer}{Player}}. 
+
+Initializes a player with an empty name and an empty army. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPlayer_ac2557755b1e888f142083eeec5f8ae56}\label{classPlayer_ac2557755b1e888f142083eeec5f8ae56}} 
+\index{Player@{Player}!getArmy@{getArmy}}
+\index{getArmy@{getArmy}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getArmy()}{getArmy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classArmy}{Army}} \& Player\+::get\+Army (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the player\textquotesingle{}s army. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the \mbox{\hyperlink{classArmy}{Army}} object owned by the player. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlayer_af1aa472885d589516f483e26e786600e}\label{classPlayer_af1aa472885d589516f483e26e786600e}} 
+\index{Player@{Player}!getName@{getName}}
+\index{getName@{getName}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Player\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the name of the player. 
+
+\begin{DoxyReturn}{Returns}
+String containing the player\textquotesingle{}s name. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlayer_a95d2b46eee230ad3e31612ff2bc681da}\label{classPlayer_a95d2b46eee230ad3e31612ff2bc681da}} 
+\index{Player@{Player}!setName@{setName}}
+\index{setName@{setName}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily void Player\+::set\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Sets the name of the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & New name to set for the player. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlayer_a2004b1984c82cbf0e89779a22b4c4d8f}\label{classPlayer_a2004b1984c82cbf0e89779a22b4c4d8f}} 
+\index{Player@{Player}!setupArmy@{setupArmy}}
+\index{setupArmy@{setupArmy}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{setupArmy()}{setupArmy()}}
+{\footnotesize\ttfamily virtual void Player\+::setup\+Army (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatalog}{Catalog}} \&}]{catalog }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Virtual method to set up the player\textquotesingle{}s army. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em catalog} & Reference to the \mbox{\hyperlink{classCatalog}{Catalog}} containing hero and troop templates.\\
+\hline
+\end{DoxyParams}
+Override this method in derived classes (e.\+g., \mbox{\hyperlink{classAI}{AI}}) to define army setup behavior. 
+
+Reimplemented in \mbox{\hyperlink{classAI_ab3490cd17a3c4497398e1478c56ab05b}{AI}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Player.\+h\item 
+src/Player.\+cpp\end{DoxyCompactItemize}

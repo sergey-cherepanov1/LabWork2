@@ -1,0 +1,199 @@
+\hypertarget{classAction}{}\doxysection{Action Class Reference}
+\label{classAction}\index{Action@{Action}}
+
+
+Handles actions that a troop can perform during a battle.  
+
+
+
+
+{\ttfamily \#include $<$Action.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAction_a9e9791e569fa355c0e704a3462256a9f}{Action}} (std\+::array$<$ std\+::array$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$, 6 $>$, 6 $>$ \&field, \mbox{\hyperlink{classPlayer}{Player}} \&player1, \mbox{\hyperlink{classPlayer}{Player}} \&player2, \mbox{\hyperlink{classAI}{AI}} \&ai)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classAction}{Action}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classAction_a9d1366756796a5cfc57049240634de47}{move}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ \&troop)
+\begin{DoxyCompactList}\small\item\em Moves a troop to a new position on the battlefield. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classAction_ac890f66f76c51a2c93306014425747e4}{attack}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ \&troop)
+\begin{DoxyCompactList}\small\item\em Performs an attack by a troop on a player-\/selected target. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classAction_a8ac02bb0543f0882160bf4c52b944a3d}{attack}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ \&troop, int target\+\_\+x, int target\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Performs an attack by a troop on a specific target (used by \mbox{\hyperlink{classAI}{AI}}). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classAction_abd770908a71c5a6c82aff261c7054f0d}{cast\+Spell}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ \&troop)
+\begin{DoxyCompactList}\small\item\em Casts a spell by a troop using the hero\textquotesingle{}s abilities. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAction_a1cd0ea2acdcd18e1169f6dd6f8184f24}{skip}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ \&troop)
+\begin{DoxyCompactList}\small\item\em Skips the turn for a troop. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAction_ad4cd7788fcc00afd30b5c6371d4aa3c2}{can\+Attack\+Target}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ \&troop)
+\begin{DoxyCompactList}\small\item\em Checks if there are valid attack targets within range of a troop. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classAction_a7aa3603960d53fc6113483ee8ffe361f}{remove\+Defeated\+Troop}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ \&target, int target\+\_\+x, int target\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Removes a defeated troop from the battlefield. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles actions that a troop can perform during a battle. 
+
+Manages movement, attacks, spell casting, and skipping turns for troops on the battlefield. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAction_a9e9791e569fa355c0e704a3462256a9f}\label{classAction_a9e9791e569fa355c0e704a3462256a9f}} 
+\index{Action@{Action}!Action@{Action}}
+\index{Action@{Action}!Action@{Action}}
+\doxysubsubsection{\texorpdfstring{Action()}{Action()}}
+{\footnotesize\ttfamily Action\+::\+Action (\begin{DoxyParamCaption}\item[{std\+::array$<$ std\+::array$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$, 6 $>$, 6 $>$ \&}]{field,  }\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{player1,  }\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{player2,  }\item[{\mbox{\hyperlink{classAI}{AI}} \&}]{ai }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classAction}{Action}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em field} & Reference to the 6x6 battlefield array. \\
+\hline
+{\em player1} & Reference to the first player. \\
+\hline
+{\em player2} & Reference to the second player. \\
+\hline
+{\em ai} & Reference to the \mbox{\hyperlink{classAI}{AI}} opponent. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAction_ac890f66f76c51a2c93306014425747e4}\label{classAction_ac890f66f76c51a2c93306014425747e4}} 
+\index{Action@{Action}!attack@{attack}}
+\index{attack@{attack}!Action@{Action}}
+\doxysubsubsection{\texorpdfstring{attack()}{attack()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int Action\+::attack (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ \&}]{troop }\end{DoxyParamCaption})}
+
+
+
+Performs an attack by a troop on a player-\/selected target. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em troop} & Shared pointer to the attacking troop. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 if attack fails, 2 if battle ends due to defeat. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAction_a8ac02bb0543f0882160bf4c52b944a3d}\label{classAction_a8ac02bb0543f0882160bf4c52b944a3d}} 
+\index{Action@{Action}!attack@{attack}}
+\index{attack@{attack}!Action@{Action}}
+\doxysubsubsection{\texorpdfstring{attack()}{attack()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int Action\+::attack (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ \&}]{troop,  }\item[{int}]{target\+\_\+x,  }\item[{int}]{target\+\_\+y }\end{DoxyParamCaption})}
+
+
+
+Performs an attack by a troop on a specific target (used by \mbox{\hyperlink{classAI}{AI}}). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em troop} & Shared pointer to the attacking troop. \\
+\hline
+{\em target\+\_\+x} & X-\/coordinate of the target. \\
+\hline
+{\em target\+\_\+y} & Y-\/coordinate of the target. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 if attack fails, 2 if battle ends due to defeat. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAction_ad4cd7788fcc00afd30b5c6371d4aa3c2}\label{classAction_ad4cd7788fcc00afd30b5c6371d4aa3c2}} 
+\index{Action@{Action}!canAttackTarget@{canAttackTarget}}
+\index{canAttackTarget@{canAttackTarget}!Action@{Action}}
+\doxysubsubsection{\texorpdfstring{canAttackTarget()}{canAttackTarget()}}
+{\footnotesize\ttfamily bool Action\+::can\+Attack\+Target (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ \&}]{troop }\end{DoxyParamCaption})}
+
+
+
+Checks if there are valid attack targets within range of a troop. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em troop} & Shared pointer to the troop to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if there are valid targets, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAction_abd770908a71c5a6c82aff261c7054f0d}\label{classAction_abd770908a71c5a6c82aff261c7054f0d}} 
+\index{Action@{Action}!castSpell@{castSpell}}
+\index{castSpell@{castSpell}!Action@{Action}}
+\doxysubsubsection{\texorpdfstring{castSpell()}{castSpell()}}
+{\footnotesize\ttfamily int Action\+::cast\+Spell (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ \&}]{troop }\end{DoxyParamCaption})}
+
+
+
+Casts a spell by a troop using the hero\textquotesingle{}s abilities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em troop} & Shared pointer to the troop casting the spell. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 if spell casting fails, 2 if battle ends due to defeat. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAction_a9d1366756796a5cfc57049240634de47}\label{classAction_a9d1366756796a5cfc57049240634de47}} 
+\index{Action@{Action}!move@{move}}
+\index{move@{move}!Action@{Action}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily int Action\+::move (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ \&}]{troop }\end{DoxyParamCaption})}
+
+
+
+Moves a troop to a new position on the battlefield. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em troop} & Shared pointer to the troop to move. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 if move is invalid or stamina is insufficient. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAction_a7aa3603960d53fc6113483ee8ffe361f}\label{classAction_a7aa3603960d53fc6113483ee8ffe361f}} 
+\index{Action@{Action}!removeDefeatedTroop@{removeDefeatedTroop}}
+\index{removeDefeatedTroop@{removeDefeatedTroop}!Action@{Action}}
+\doxysubsubsection{\texorpdfstring{removeDefeatedTroop()}{removeDefeatedTroop()}}
+{\footnotesize\ttfamily int Action\+::remove\+Defeated\+Troop (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ \&}]{target,  }\item[{int}]{target\+\_\+x,  }\item[{int}]{target\+\_\+y }\end{DoxyParamCaption})}
+
+
+
+Removes a defeated troop from the battlefield. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Shared pointer to the defeated troop. \\
+\hline
+{\em target\+\_\+x} & X-\/coordinate of the defeated troop. \\
+\hline
+{\em target\+\_\+y} & Y-\/coordinate of the defeated troop. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if troop is removed, 2 if battle ends due to army defeat. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAction_a1cd0ea2acdcd18e1169f6dd6f8184f24}\label{classAction_a1cd0ea2acdcd18e1169f6dd6f8184f24}} 
+\index{Action@{Action}!skip@{skip}}
+\index{skip@{skip}!Action@{Action}}
+\doxysubsubsection{\texorpdfstring{skip()}{skip()}}
+{\footnotesize\ttfamily void Action\+::skip (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTroop}{Troop}} $>$ \&}]{troop }\end{DoxyParamCaption})}
+
+
+
+Skips the turn for a troop. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em troop} & Shared pointer to the troop skipping its turn. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Action.\+h\item 
+src/Action.\+cpp\end{DoxyCompactItemize}
