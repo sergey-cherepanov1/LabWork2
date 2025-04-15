@@ -375,7 +375,7 @@ TEST(Action, MoveInvalidStamina) {
     troop->setPosition(0, 0);
     Player p1, p2;
     AI ai;
-    Action action(field, p1, p2, ai);
+    Action action(field, p1, p2, ai, false);
     std::stringstream input("1\n1\n");
     std::streambuf* oldCin = std::cin.rdbuf(input.rdbuf());
     int result = action.move(troop);
@@ -410,7 +410,7 @@ TEST(AI, MoveToEnemy) {
     field[2][0] = enemy;
     Player p1, p2;
     AI ai;
-    Action action(field, p1, p2, ai);
+    Action action(field, p1, p2, ai, false);
     bool battleStatus = true;
     ai.makeTurn(aiTroop, field, action, battleStatus);
     std::cout << "Final position: (" << aiTroop->getX() << ", " << aiTroop->getY() << ")\n";
@@ -428,7 +428,7 @@ TEST(AI, SkipNoTargets) {
     field[0][0] = aiTroop;
     Player p1, p2;
     AI ai;
-    Action action(field, p1, p2, ai);
+    Action action(field, p1, p2, ai, false);
     bool battleStatus = true;
     ai.makeTurn(aiTroop, field, action, battleStatus);
     EXPECT_TRUE(aiTroop->hasAttacked());
