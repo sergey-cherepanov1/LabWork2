@@ -7,7 +7,15 @@
 /**
  * @brief Constructor for Action.
  */
-Action::Action(std::array<std::array<std::shared_ptr<Troop>, 6>, 6>& field, Player& player1, Player& player2, AI& ai) : _field(field), _player1(player1), _player2(player2), _ai(ai) {}
+Action::Action(std::array<std::array<std::shared_ptr<Troop>, 6>, 6>& field, Player& player1, Player& player2, AI& ai, bool mode) : _field(field), _player1(player1), _player2(player2), _ai(ai), _mode(mode) {}
+
+/**
+ * @brief Sets the game mode for the Action.
+ */
+void Action::setMode(bool mode)
+{
+    _mode = mode;
+}
 
 /**
  * @brief Moves a troop to a new position on the battlefield.
@@ -145,7 +153,7 @@ int Action::castSpell(std::shared_ptr<Troop>& troop)
         return 1;
     }
 
-    Player& player = troop->getOwner() ? _ai : _player1;
+    Player& player = _mode ? (troop->getOwner() ? _player2 : _player1) : (troop->getOwner() ? _ai : _player1);
     std::array<Spell, 3>& spells = player.getArmy().getHero().getSpells();
     int mana = player.getArmy().getHero().getMana();
 
@@ -277,7 +285,7 @@ int Action::removeDefeatedTroop(std::shared_ptr<Troop>& target, int target_x, in
         std::cout << target->getName() << " has been defeated!\n";
         _field[target_x][target_y] = nullptr;
 
-        Player& target_player = target->getOwner() ? _ai : _player1;
+        Player& target_player = _mode ? (target->getOwner() ? _player2 : _player1) : (target->getOwner() ? _ai : _player1);
         std::array<std::shared_ptr<Troop>, 6>& troops = target_player.getArmy().getTroops();
         for (auto& troop : troops)
         {

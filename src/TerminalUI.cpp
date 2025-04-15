@@ -14,7 +14,7 @@ void TerminalUI::displayInfo(InfoState info_state)
     case InfoState::MENU:
         std::cout << "=== Main Menu ===\n"
                   << "1. Start Game\n"
-                  << "2. Local Multiplayer (Unavailable)\n"
+                  << "2. Local Multiplayer\n"
                   << "3. Exit\n"
                   << "Enter your choice: ";
         break;

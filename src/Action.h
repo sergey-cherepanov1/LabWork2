@@ -28,7 +28,7 @@ public:
      * @param player2 Reference to the second player.
      * @param ai Reference to the AI opponent.
      */
-    Action(std::array<std::array<std::shared_ptr<Troop>, 6>, 6>& field, Player& player1, Player& player2, AI& ai);
+    Action(std::array<std::array<std::shared_ptr<Troop>, 6>, 6>& field, Player& player1, Player& player2, AI& ai, bool mode);
 
     /**
      * @brief Moves a troop to a new position on the battlefield.
@@ -82,11 +82,18 @@ public:
      */
     int removeDefeatedTroop(std::shared_ptr<Troop>& target, int target_x, int target_y);
 
+    /**
+     * @brief Sets the game mode for the Action.
+     * @param mode True for multiplayer, false for single-player.
+     */
+    void setMode(bool mode);
+
 private:
     std::array<std::array<std::shared_ptr<Troop>, 6>, 6>& _field; ///< Reference to the battlefield.
     Player& _player1; ///< Reference to the first player.
     Player& _player2; ///< Reference to the second player.
     AI& _ai; ///< Reference to the AI opponent.
+    bool _mode; ///< Game mode (true for multiplayer, false for single-player).
 };
 
 #endif

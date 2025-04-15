@@ -3,7 +3,7 @@ name: CI Workflow
 on:
   push:
     branches:
-      - work-branch
+      - additional-functionality
   pull_request:
     branches:
       - main

@@ -46,19 +46,15 @@ void GameManager::update()
         }
         else if (menu_input == "2")
         {
-            _state = GameState::END;
             _mode = 1; /*GameMode::MULTIPLAYER*/
-            break;
             _battle.setMode();
 
             _ui.displayInfo(InfoState::ENTER_NAME_MULTIPLAYER_1);
             std::string name1 = _ui.handleInput(InputState::GET_NAME);
-
             _battle.getPlayer1().setName(name1);
 
             _ui.displayInfo(InfoState::ENTER_NAME_MULTIPLAYER_2);
             std::string name2 = _ui.handleInput(InputState::GET_NAME);
-
             _battle.getPlayer2().setName(name2);
 
             _state = GameState::PREPARE_ARMY;
@@ -148,11 +144,73 @@ void GameManager::update()
         }
         case 1: /*GameMode::MULTIPLAYER*/
         {
-            break;
-        }
+            std::cout << "\n=== " << _battle.getPlayer1().getName() << ", prepare your army ===\n";
+            _battle.getPlayer1().getArmy().setMaxMight(2500);
+            _ui.displayInfo(InfoState::HEROES);
+            int hero_index1 = std::stoi(_ui.handleInput(InputState::ONE_OF_THREE)) - 1;
+            _battle.getPlayer1().getArmy().setHero(_ui.getCatalog().getHeroTemplates()[hero_index1]);
+            _battle.getPlayer1().showMightLeft();
 
+            _ui.displayInfo(InfoState::TROOPS);
+            for (int position = 0; position < 6; ++position)
+            {
+                int current_might = _battle.getPlayer1().getArmy().getCurrentMight();
+                int max_might = _battle.getPlayer1().getArmy().getMaxMight();
+                int remaining_might = max_might - current_might;
+
+                std::cout << "\nSelecting troop for position " << (position + 1) << " (Top to Bottom):\n";
+                std::cout << "Enter the chosen troop number (1-15): ";
+
+                bool should_end = false;
+                std::shared_ptr<Troop> selected_troop = _ui.selectTroop(remaining_might, should_end);
+
+                if (should_end)
+                {
+                    break;
+                }
+
+                _battle.getPlayer1().getArmy().setTroop(position, selected_troop);
+                _battle.getPlayer1().showMightLeft();
+            }
+            _ui.showArmy(_battle.getPlayer1());
+
+            std::cout << "\n=== " << _battle.getPlayer2().getName() << ", prepare your army ===\n";
+            _battle.getPlayer2().getArmy().setMaxMight(2500);
+            _ui.displayInfo(InfoState::HEROES);
+            int hero_index2 = std::stoi(_ui.handleInput(InputState::ONE_OF_THREE)) - 1;
+            _battle.getPlayer2().getArmy().setHero(_ui.getCatalog().getHeroTemplates()[hero_index2]);
+            _battle.getPlayer2().showMightLeft();
+
+            _ui.displayInfo(InfoState::TROOPS);
+            for (int position = 0; position < 6; ++position)
+            {
+                int current_might = _battle.getPlayer2().getArmy().getCurrentMight();
+                int max_might = _battle.getPlayer2().getArmy().getMaxMight();
+                int remaining_might = max_might - current_might;
+
+                std::cout << "\nSelecting troop for position " << (position + 1) << " (Top to Bottom):\n";
+                std::cout << "Enter the chosen troop number (1-15): ";
+
+                bool should_end = false;
+                std::shared_ptr<Troop> selected_troop = _ui.selectTroop(remaining_might, should_end);
+
+                if (should_end)
+                {
+                    break;
+                }
+
+                _battle.getPlayer2().getArmy().setTroop(position, selected_troop);
+                _battle.getPlayer2().showMightLeft();
+            }
+            _ui.showArmy(_battle.getPlayer2());
+            
+            
+            _state = GameState::BATTLE;
+
+        }
         break;
         }
+    break;
     }
     case GameState::BATTLE:
     {
@@ -162,29 +220,24 @@ void GameManager::update()
     }
     case GameState::END:
     {
-        if (_mode)
+        std::cout << "\n=== Battle Ended ===\n";
+        Player& player1 = _battle.getPlayer1();
+        Player& player2 = _mode ? _battle.getPlayer2() : _battle.getAI();
+
+        if (player1.getArmy().getStatus() && !player2.getArmy().getStatus())
         {
-            std::cout << "\n=== Game Over ===\n";
-            std::cout << "Multiplayer mode is not yet implemented. Game terminated.\n";
-            std::cout << "====================\n";
+            std::cout << player1.getName() << " has won the battle!\n";
+        }
+        else if (!player1.getArmy().getStatus() && player2.getArmy().getStatus())
+        {
+            std::cout << player2.getName() << " has won the battle!\n";
         }
         else
         {
-            std::cout << "\n=== Battle Ended ===\n";
-            Player& player1 = _battle.getPlayer1();
-            Player& ai = _battle.getAI();
-
-            if (player1.getArmy().getStatus() && !ai.getArmy().getStatus())
-            {
-                std::cout << player1.getName() << " has won the battle!\n";
-            }
-            else if (!player1.getArmy().getStatus() && ai.getArmy().getStatus())
-            {
-                std::cout << ai.getName() << " has won the battle!\n";
-            }
-
-            std::cout << "====================\n";
+            std::cout << "The battle ended in a draw!\n";
         }
+
+        std::cout << "====================\n";
         _status = false;
         break;
     }

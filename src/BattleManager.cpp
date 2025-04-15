@@ -9,7 +9,7 @@
  *
  * Initializes players, AI, battlefield, and default battle parameters.
  */
-BattleManager::BattleManager() : _player1(), _player2(), _ai(), _field(), _queue(), _action(_field, _player1, _player2, _ai), _battle_status(true), _mode(false) {}
+BattleManager::BattleManager() : _player1(), _player2(), _ai(), _field(), _queue(), _action(_field, _player1, _player2, _ai, _mode), _battle_status(true), _mode(false) {}
 
 /**
  * @brief Runs the main battle loop.
@@ -414,4 +414,5 @@ std::array<std::array<std::shared_ptr<Troop>, 6>, 6>& BattleManager::getField()
 void BattleManager::setMode()
 {
     _mode = !_mode;
+    _action.setMode(_mode);
 }
